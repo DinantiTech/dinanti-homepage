@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Comfortaa } from 'next/font/google';
 import '@/styles/globals.css';
 
+import Script from 'next/script';
+
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -57,7 +59,9 @@ export const metadata: Metadata = {
     google: '3_MFcXjc-PY7bOGUoze9STpKoUerKZbPAsILM9jIe-8',
     yandex: 'yandex',
     yahoo: 'yahoo',
-  }
+  },
+
+  
 };
 
 export const viewport: Viewport = {
@@ -78,6 +82,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={comfortaa.className}>{children}</body>
+
+
+      <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-W6TJBJMW" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'GTM-W6TJBJMW');
+        `}
+      </Script>
     </html>
   )
 }
