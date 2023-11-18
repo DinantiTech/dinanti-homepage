@@ -59,8 +59,6 @@ export const metadata: Metadata = {
     yandex: 'yandex',
     yahoo: 'yahoo',
   },
-
-
 };
 
 export const viewport: Viewport = {
