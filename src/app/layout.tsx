@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Comfortaa } from 'next/font/google';
 import '@/styles/globals.css';
-import Head from 'next/head';
 
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   applicationName: 'Dinanti.id',
   referrer: 'origin-when-cross-origin',
   keywords: ['dinanti', 'Dinanti', 'Digital Invitation', 'invitation', 'dinanti.id'],
-  authors: [{ name: 'dinanti author' }, { name: 'Saepudin' }, { name: 'Arnoud' }],
+  authors: [{ name: 'dinanti author' }, { name: 'Saepudin'}, { name: 'Arnoud' }],
   creator: 'Dinanti Creator',
   publisher: 'Dinanti Publisher',
   category: 'digital invitation',
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
       'id-ID': '/id-ID',
     },
   },
-
+  
   robots: {
     index: false,
     follow: true,
@@ -59,6 +58,8 @@ export const metadata: Metadata = {
     yandex: 'yandex',
     yahoo: 'yahoo',
   },
+
+  
 };
 
 export const viewport: Viewport = {
@@ -78,35 +79,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=GTM-W6TJBJMW`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-
-        <script
-          type="text/javascript"
-          async
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w, d, s, l, i) {
-                    w[l] = w[l] || []
-                    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
-                    const f = d.getElementsByTagName(s)[0],
-                      j = d.createElement(s),
-                      dl = l != "dataLayer" ? "&l=" + l : ""
-                    j.async = true
-                    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
-                    f.parentNode.insertBefore(j, f)
-                  })(window,document,'script','dataLayer',"GTM-W6TJBJMW")`,
-          }}
-        />
-      </Head>
-
       <body className={comfortaa.className}>{children}</body>
     </html>
   )
