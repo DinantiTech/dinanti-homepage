@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   },
   
   robots: {
-    index: true,
+    index: false,
     follow: true,
     nocache: true,
     googleBot: {
       index: true,
-      follow: true,
+      follow: false,
       noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'standard',
@@ -55,8 +55,8 @@ export const metadata: Metadata = {
 
   verification: {
     google: '3_MFcXjc-PY7bOGUoze9STpKoUerKZbPAsILM9jIe-8',
-    yandex: 'yandex',
-    yahoo: 'yahoo',
+    // yandex: 'yandex',
+    // yahoo: 'yahoo',
   },
 
   
