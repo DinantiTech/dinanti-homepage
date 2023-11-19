@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dinanti.id'),
+  metadataBase: new URL('https://www.dinanti.id'),
   title: 'Dinanti | Digital Invitation',
   description: 'Dinanti, digital invitation',
   generator: 'dinanti generator',
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: '/',
-    // languages: {
-    //   'en-US': '/en-US',
-    //   'id-ID': '/id-ID',
-    // },
-  },
+  // alternates: {
+  //   canonical: '/',
+  //   // languages: {
+  //   //   'en-US': '/en-US',
+  //   //   'id-ID': '/id-ID',
+  //   // },
+  // },
   
   robots: {
     index: false,
