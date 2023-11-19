@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: '/private/',
       allow: '/',
     },
-    sitemap: 'https://www.dinanti.id/sitemap.xml',
+    sitemap: 'https://dinanti.id/sitemap.xml',
   }
 }
