@@ -44,6 +44,16 @@ export const metadata: Metadata = {
     },
   },
 
+  // Opengraph
+
+  openGraph: {
+    title: 'Dinanti | Digital Invitation',
+    description: 'Dinanti, digital invitation',
+    url: '/',
+    siteName: 'Dinanti',
+    type: 'website',
+  },
+
   // Twitter
   twitter: {
     card: 'summary_large_image',
