@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // alternates: {
-  //   canonical: '/',
-  //   // languages: {
-  //   //   'en-US': '/en-US',
-  //   //   'id-ID': '/id-ID',
-  //   // },
-  // },
+  alternates: {
+    canonical: '/',
+    // languages: {
+    //   'en-US': '/en-US',
+    //   'id-ID': '/id-ID',
+    // },
+  },
   
   robots: {
     index: false,
