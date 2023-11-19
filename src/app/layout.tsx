@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://dinanti.id',
     // languages: {
     //   'en-US': '/en-US',
     //   'id-ID': '/id-ID',
