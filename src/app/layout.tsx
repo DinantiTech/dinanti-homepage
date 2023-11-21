@@ -54,24 +54,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
-  icons: {
-    href: '/favicon.ico',
-    pathname: '',
-    host: "",
-    hash: "",
-    hostname: "",
-    apple: "",
-    icon: ""
-  },
-
+  
   // Opengraph
-
   openGraph: {
     title: metaTitle,
     description: metaDesc,
     url: '/',
-    siteName: 'Dinanti'
+    siteName: 'Dinanti',
+    type: "website"
   },
 
   // Twitter
