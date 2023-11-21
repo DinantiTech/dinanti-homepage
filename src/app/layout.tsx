@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   generator: 'dinanti generator',
   applicationName: 'Dinanti',
   referrer: 'origin-when-cross-origin',
-  keywords: ['dinanti', 'Dinanti', 'Digital Invitation', 'invitation', 'dinanti.id'],
+  keywords: ['dinanti', 'Dinanti', 'Digital Invitation', 'invitation', 'dinanti.id', 'undangan digital', 'pernikahan', 'undangan pernikahan', 'khitan', 'undangan khitanan'],
   authors: [{ name: 'dinanti author' }, { name: 'Saepudin'}, { name: 'Arnoud' }],
   creator: 'Dinanti Creator',
   publisher: 'Dinanti Publisher',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
+
   // Opengraph
   openGraph: {
     title: metaTitle,
