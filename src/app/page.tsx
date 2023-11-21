@@ -13,6 +13,8 @@ export default function Home() {
       <Image src="/logo.png" alt='Logo' width={400} height={400} className='w-36 py-2' />
       <h1 className={`${pacifico.className} text-4xl`}>Dinanti</h1>
       <p>Digital invitation</p>
+
+      <h2 className='text-2xl'>Coming Soon!</h2>
     </main>
   )
 }
