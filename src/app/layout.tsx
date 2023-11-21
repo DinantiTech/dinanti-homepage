@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   publisher: 'Dinanti Publisher',
   category: 'digital invitation',
 
+  appleWebApp: {
+    title: metaTitle,
+    capable: true,
+    statusBarStyle: 'default'
+  },
+
   formatDetection: {
     email: false,
     address: false,
@@ -49,14 +55,23 @@ export const metadata: Metadata = {
     },
   },
 
+  icons: {
+    href: '/favicon.ico',
+    pathname: '',
+    host: "",
+    hash: "",
+    hostname: "",
+    apple: "",
+    icon: ""
+  },
+
   // Opengraph
 
   openGraph: {
     title: metaTitle,
     description: metaDesc,
     url: '/',
-    siteName: 'Dinanti',
-    type: 'website'
+    siteName: 'Dinanti'
   },
 
   // Twitter
@@ -76,8 +91,6 @@ export const metadata: Metadata = {
     yandex: '7d8e1882d8ca7d15',
     // yahoo: 'yahoo',
   },
-
-  
 };
 
 export const viewport: Viewport = {
