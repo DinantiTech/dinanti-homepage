@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description: metaDesc,
     url: '/',
     siteName: 'Dinanti',
-    type: 'website',
+    type: 'website'
   },
 
   // Twitter
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
     google: 'u6Qwt5SMpEmbvWsILa1JcxpRD-d0hH2xm186VLgD9hE',
     other: {
       "ahrefs-site-verification": "166f48dd2c2a0482e7f6bea772d2ceeee1e0cf9a6e8d54bf99091e41617bc14a"
-    }
-    // yandex: 'yandex',
+    },
+    yandex: '7d8e1882d8ca7d15',
     // yahoo: 'yahoo',
   },
 
