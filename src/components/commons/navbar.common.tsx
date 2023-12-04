@@ -38,10 +38,10 @@ export default function NavbarCustom() {
             <NavbarContent justify="end">
                 <NavbarContent justify="end" className="hidden sm:flex gap-10 mr-12">
                     <NavbarItem>
-                        <Link href="#" className="text-[#353] hover:font-bold hover:text-black">Home</Link>
+                        <Link href="/" className="text-[#353] hover:font-bold hover:text-black">Home</Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link href="#" className="text-[#353] hover:font-bold hover:text-black" aria-current="page">Harga</Link>
+                        <Link href="/harga" className="text-[#353] hover:font-bold hover:text-black" aria-current="page">Harga</Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link href="#" className="text-[#353] hover:font-bold hover:text-black">Tema</Link>
