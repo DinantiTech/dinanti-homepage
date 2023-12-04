@@ -22,7 +22,7 @@ export default function FeatureSection() {
     ]
 
     return (
-        <section className="flex flex-col items-center justify-center text-center">
+        <section className="flex flex-col items-center justify-center text-center mt-20">
             <div className="flex flex-col items-center justify-center gap-y-4">
                 <h1 className="font-bold text-2xl">Dibuat Khusus Untuk Anda Dengan <br />Berbagai Fitur</h1>
                 <p className="text-sm">Kamu bisa cobain secara gratis untuk buat undangan <br /> menikah digital dengan klik tombol di bawah ini</p>

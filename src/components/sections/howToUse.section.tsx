@@ -1,7 +1,9 @@
 'use client';
 
-import { Step, StepContent, StepLabel, Stepper } from "@mui/material";
+import { Step, StepLabel, Stepper } from "@mui/material";
 import Image from "next/image";
+
+import HandCoupleImg from "@/assets/images/hand_couple.png";
 
 export default function HowToUseSection({}) {
     const dataStepper: IDataStepper[] = [
@@ -21,14 +23,15 @@ export default function HowToUseSection({}) {
             label: "Pilih Tema dan Musik",
             desc: "Terakhir pilih tema dan musik yang ingin anda pakai untuk undangan anda."
         }
-    ]
+    ];
+
 
     return (
         <section className="mt-10 w-[68rem] mx-auto flex items-center justify-center">
             <div className="h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 px-20 py-8 glass flex items-center justify-center gap-x-10">
-                {/* <Image /> */}
+                <Image src={HandCoupleImg} alt="Image hand couples" width={1000} height={1000} className="w-60 h-80 object-cover object-center bg-gray-400 rounded-lg border-4 border-[#D7DCBE]"/>
 
-                <div className="w-52 h-72 bg-gray-400 rounded-lg border-4 border-[#D7DCBE]" />
+                {/* <div className="w-52 h-72 bg-gray-400 rounded-lg border-4 border-[#D7DCBE]" /> */}
 
                 <div className="flex flex-col items-start justify-start gap-y-4">
                     <h1 className="font-bold text-3xl">Cara Pakainya Mudah</h1>
@@ -39,10 +42,9 @@ export default function HowToUseSection({}) {
                                 <StepLabel>
                                     <div className="px-6 py-4 bg-[#EBEDE0] rounded-lg w-96">
                                         <h2 className="text-base font-semibold">{data?.label}</h2>
-                                        <p className="text-sm">{data?.desc}</p>
+                                        <p className="text-sm text-gray-700">{data?.desc}</p>
                                     </div>
                                 </StepLabel>
-                                <StepContent>wkwkwk</StepContent>
                             </Step>
                         )) }
                     </Stepper>
@@ -51,7 +53,7 @@ export default function HowToUseSection({}) {
         </section>
     )
 }
-
+  
 interface IDataStepper {
     label: string;
     desc: string;

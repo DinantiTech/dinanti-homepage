@@ -25,13 +25,17 @@ export default function NavbarCustom() {
 
             <NavbarContent className="sm:hidden pr-3" justify="center">
                 <NavbarBrand>
-                    <Image src={LogoDinanti} alt="Logo Dinanti" width={500} height={500} className="w-20" />
+                    <Link href="/">
+                        <Image src={LogoDinanti} alt="Logo Dinanti" width={500} height={500} className="w-20" />
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarBrand>
-                    <Image src={LogoDinanti} alt="Logo Dinanti" width={500} height={500} className="w-20" />
+                    <Link href="/">
+                        <Image src={LogoDinanti} alt="Logo Dinanti" width={500} height={500} className="w-20" />
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
 
