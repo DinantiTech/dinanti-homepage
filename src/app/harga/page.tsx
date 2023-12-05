@@ -17,12 +17,12 @@ export default function Home() {
             <main style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
                 <NavbarCustom />
 
-                <div className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
+                <details className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
 
-                    <div className='flex flex-col items-center justify-center gap-y-3'>
+                    <summary className='flex flex-col items-center justify-center gap-y-3'>
                         <h1 className='font-bold text-3xl'>Harga Paket Beragam Yang <br /> Menyesuaikan Kebutuhanmu</h1>
                         <p>Kamu bisa cobain secara gratis untuk buat undangan <br /> menikah digital dengan klik tombol di bawah ini</p>
-                    </div>
+                    </summary>
 
                     <div className='flex items-center justify-center mt-7 gap-x-5'>
                         <div className='w-[22rem] bg-[#DBDFC4] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[17rem]'>
@@ -51,7 +51,7 @@ export default function Home() {
                             </Button>
                         </div>
                     </div>
-                </div>
+                </details>
 
             </main>
 
