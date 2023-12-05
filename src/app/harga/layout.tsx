@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: metaTitle,
     description: metaDesc,
-    url: '/',
+    url: '/harga',
     siteName: 'Dinanti',
     type: "website"
   },
@@ -99,7 +99,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>{children}</body>
+      <body className={`${montserrat.className} bg-[#FDFFF8]`}>{children}</body>
     </html>
   )
 }
