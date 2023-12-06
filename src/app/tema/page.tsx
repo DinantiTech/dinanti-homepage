@@ -65,14 +65,14 @@ export default function Home() {
 
                         <div className='grid grid-cols-2 gap-7 mt-10'>
                             { themes?.map((data, idx) => (
-                                <div key={data.title + "-" + idx} className='relative w-96 h-56 rounded-xl shadow-md shadow-[#D7DCBE] overflow-hidden hover:shadow-xl'>
-                                    <Image width={500} height={500} src={data?.img} alt='themes category' />
+                                <div key={data.title + "-" + idx} className='relative group w-[30rem] h-80 rounded-xl shadow-md shadow-[#D7DCBE] overflow-hidden hover:shadow-xl duration-500'>
+                                    <Image width={500} height={500} src={data?.img} alt='themes category' className='ml-20' />
 
-                                    <div className='w-full h-full bg-[#D7DCBE]/30 absolute top-0 left-0' />
+                                    <div className='w-full h-full bg-black/30 absolute top-0 left-0 group-hover:bg-black/50 duration-500' />
 
                                     <div className='absolute left-5 bottom-5 flex flex-col items-start justify-center text-left pl-3 gap-y-2'>
-                                        <h3 className='font-semibold text-lg'>{data.title}</h3>
-                                        <p className='text-sm'>{data.desc}</p>
+                                        <h3 className='font-semibold text-lg group-hover:text-white duration-500'>{data.title}</h3>
+                                        <p className='text-md w-60 group-hover:text-white duration-500'>{data.desc}</p>
                                         <Button radius='full' size='sm' className='bg-[#1D1D1D] text-white font-semibold'>Lihat Tema</Button>
                                     </div>
                                 </div>
