@@ -4,7 +4,7 @@ import Footer from '@/components/commons/footer.common';
 import NavbarCustom from '@/components/commons/navbar.common';
 import { Button, NextUIProvider } from '@nextui-org/react';
 import { Montserrat } from 'next/font/google';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import ThemesClassic from '@/assets/images/themes.png';
 
@@ -91,5 +91,5 @@ export default function Home() {
 type TypeProps = {
     title: string;
     desc: string;
-    img: any
+    img: StaticImageData;
 }
