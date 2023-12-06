@@ -53,10 +53,10 @@ export default function NavbarCustom() {
                             <Link href="/harga" className="text-[#353] hover:font-bold hover:text-black" aria-current="page">Harga</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="#" className="text-[#353] hover:font-bold hover:text-black">Tema</Link>
+                            <Link href="/tema" className="text-[#353] hover:font-bold hover:text-black">Tema</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="#" className="text-[#353] hover:font-bold hover:text-black">Blog</Link>
+                            <Link href="/blogs" className="text-[#353] hover:font-bold hover:text-black">Blog</Link>
                         </NavbarItem>
                     </NavbarContent>
 

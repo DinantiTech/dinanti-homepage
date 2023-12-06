@@ -8,8 +8,6 @@ import Logo from "@/assets/logo.svg";
 import { Dispatch, SetStateAction } from "react";
 
 export default function ModalAuth(props: TypeProps) {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
     return (
         <>
             <Modal
@@ -24,7 +22,7 @@ export default function ModalAuth(props: TypeProps) {
                                 <Image width={300} height={300} src={Logo} alt="Logo Dinanti" className="w-24" />
 
                                 <h3 className="text-lg">Selamat Datang</h3>
-                                <p className="text-sm font-light">Silahkan login untuk ke dashboard dinanti</p>
+                                <p className="text-sm font-light">Silahkan login untuk ke Dashboard</p>
 
                                 <Button fullWidth radius="full" className="flex items-center bg-transparent border-2 border-[#90957A] mt-4">
                                     <Icon icon="flat-color-icons:google" className="text-xl" />
