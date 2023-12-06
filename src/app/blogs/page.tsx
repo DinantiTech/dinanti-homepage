@@ -62,7 +62,7 @@ export default function Home() {
         <NextUIProvider>
             <main style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
                 <NavbarCustom />
-                
+
                 <details>
                     <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
 
@@ -73,7 +73,7 @@ export default function Home() {
 
                         <div className='flex items-center justify-center mt-7 gap-x-5 pb-20'>
                             <div className='grid grid-cols-4 gap-5 max-w-[1024px] w-full'>
-                                { dataBlogs?.map((data, idx) => (
+                                {dataBlogs?.map((data, idx) => (
                                     <div key={data.title + "-" + idx} className='rounded-xl shadow-md shadow-[#D7DCBE] flex flex-col items-center justify-start overflow-hidden bg-white hover:cursor-pointer hover:shadow-lg'>
                                         <Image src={data.img} alt='' width={500} height={500} className='w-full h-1/2 top-0 object-cover object-center' />
 
@@ -82,7 +82,7 @@ export default function Home() {
                                             <p className='text-sm font-semibold'>{data.title}</p>
                                         </div>
                                     </div>
-                                )) }
+                                ))}
                             </div>
                         </div>
                     </summary>
