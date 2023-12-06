@@ -41,7 +41,12 @@ export default function Home() {
             title: 'Tema Klasik',
             desc: 'Lihat koleksi tema kami yang terus kami kembangkan',
             img: ThemesClassic
-        }
+        },
+        { 
+            title: 'Tema Black And White',
+            desc: 'Lihat koleksi tema kami yang terus kami kembangkan',
+            img: ThemesClassic
+        },
     ]
 
     return (
@@ -72,7 +77,6 @@ export default function Home() {
                                     </div>
                                 </div>
                             )) }
-
                         </div>
                     </summary>
                 </details>
