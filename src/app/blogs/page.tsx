@@ -1,18 +1,8 @@
-"use client";
-
 import Footer from '@/components/commons/footer.common';
-import NavbarCustom from '@/components/commons/navbar.common';
-import { NextUIProvider } from '@nextui-org/react';
-import { Montserrat } from 'next/font/google';
 import Image, { StaticImageData } from 'next/image';
 
 import BlogsImage from "@/assets/images/blogs_image.png";
-
-const montserrat = Montserrat({
-    subsets: ['latin'],
-    weight: ['400', '600', '800', '900'],
-    display: 'swap',
-})
+import { Metadata, ResolvingMetadata } from 'next';
 
 export default function BlogsPage() {
     const dataBlogs: TypeDataBlogs[] = [
@@ -59,8 +49,7 @@ export default function BlogsPage() {
     ]
 
     return (
-        <NextUIProvider>
-
+        <>
             <details>
                 <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
 
@@ -87,9 +76,44 @@ export default function BlogsPage() {
             </details>
 
             <Footer />
-        </NextUIProvider>
+        </>
     )
 }
+
+
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    // read route params
+
+    const titleMeta: string = "Dinanti | Blogs: Kumpulan Blog Kami!";
+
+    return {
+        title: titleMeta,
+        alternates: {
+            canonical: '/blogs',
+        },
+        openGraph: {
+            title: titleMeta,
+            url: '/blogs',
+            siteName: 'Dinanti',
+            //   images: ['/some-specific-page-image.jpg'],
+        },
+        twitter: {
+            title: titleMeta,
+            creator: 'Dinanti Creator',
+            // images: ['https://nextjs.org/og.png'],
+        },
+    }
+}
+
+
+type Props = {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
 
 type TypeDataBlogs = {
     title: string;

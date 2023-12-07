@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Comfortaa, Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
+import NavbarCustom from '@/components/commons/navbar.common';
+import { Providers } from '@/providers/index.provider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   applicationName: 'Dinanti',
   referrer: 'origin-when-cross-origin',
   keywords: ['dinanti', 'Dinanti', 'Digital Invitation', 'invitation', 'dinanti.id', 'undangan digital', 'pernikahan', 'undangan pernikahan', 'khitan', 'undangan khitanan'],
-  authors: [{ name: 'dinanti author' }, { name: 'Saepudin'}, { name: 'Arnoud' }],
+  authors: [{ name: 'dinanti author' }, { name: 'Saepudin' }, { name: 'Arnoud' }],
   creator: 'Dinanti Creator',
   publisher: 'Dinanti Publisher',
   category: 'digital invitation',
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     //   'id-ID': '/id-ID',
     // },
   },
-  
+
   robots: {
     index: true,
     follow: true,
@@ -99,7 +101,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-[#FDFFF8]`}>{children}</body>
+      <body className={`${montserrat.className} bg-[#FDFFF8]`}>
+        <Providers>
+          <main style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
+            <NavbarCustom />
+            {children}
+          </main>
+        </Providers>
+      </body>
     </html>
   )
 }
