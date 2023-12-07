@@ -1,13 +1,11 @@
+import Container from "@/components/commons/container.common";
 import { Metadata, ResolvingMetadata } from "next";
 
 export default function Page({ params, searchParams }: Props) {
-
-  console.log(params);
-  console.log('wkwkwk');
-
-
   return (
-    <div>{params.slug}</div>
+    <Container>
+      <div>{params.slug}</div>
+    </Container>
   )
 }
 

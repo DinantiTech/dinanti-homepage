@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from '@/components/commons/footer.common';
 import FeatureSection from '@/components/sections/features.section';
 import HotLinkSection from '@/components/sections/hotLink.section';
 import HowToUseSection from '@/components/sections/howToUse.section';
@@ -24,8 +23,6 @@ export default function Home() {
 
         <HotLinkSection />
       </div>
-
-      <Footer />
     </NextUIProvider>
   )
 }

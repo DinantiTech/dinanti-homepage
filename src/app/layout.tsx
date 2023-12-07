@@ -3,6 +3,7 @@ import { Comfortaa, Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
 import NavbarCustom from '@/components/commons/navbar.common';
 import { Providers } from '@/providers/index.provider';
+import Footer from '@/components/commons/footer.common';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -108,6 +109,8 @@ export default function RootLayout({
             {children}
           </main>
         </Providers>
+
+        <Footer />
       </body>
     </html>
   )
