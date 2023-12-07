@@ -17,7 +17,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const titleMeta: string = "Dinanti | Blogs: Kumpulan Blog Kami!";
+  const titleMeta: string = "Dinanti | Blogs: Sepuluh model baju bridesmaid modern hijab untuk referensi";
 
   return {
       title: titleMeta,
