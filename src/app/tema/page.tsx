@@ -14,7 +14,7 @@ const montserrat = Montserrat({
     display: 'swap',
 })
 
-export default function Home() {
+export default function ThemesPage() {
 
     const themes: TypeProps[] = [
         { 

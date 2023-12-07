@@ -14,6 +14,7 @@ export default function ModalAuth(props: TypeProps) {
                 isOpen={props.isOpen}
                 onOpenChange={(data) => props.handeModal(data)}
                 placement="top-center"
+                backdrop="blur"
             >
                 <ModalContent>
                     {(onClose) => (
@@ -43,7 +44,7 @@ export default function ModalAuth(props: TypeProps) {
                                         <Icon icon="majesticons:mail" className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                                     }
                                     label="Email"
-                                    placeholder="Enter your email"
+                                    placeholder="Masukan alamat email"
                                     variant="bordered"
                                 />
                                 <Input
@@ -51,7 +52,7 @@ export default function ModalAuth(props: TypeProps) {
                                         <Icon icon="lets-icons:lock-fill" className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                                     }
                                     label="Password"
-                                    placeholder="Enter your password"
+                                    placeholder="Masukan password"
                                     type="password"
                                     variant="bordered"
                                 />

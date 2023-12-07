@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import LogoDinanti from "@/assets/logo.svg";

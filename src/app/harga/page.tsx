@@ -11,7 +11,7 @@ const montserrat = Montserrat({
     display: 'swap',
 })
 
-export default function Home() {
+export default function PricingPage() {
     return (
         <NextUIProvider>
             <main style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
