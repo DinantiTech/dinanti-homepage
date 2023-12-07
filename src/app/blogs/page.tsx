@@ -1,58 +1,66 @@
-import Footer from '@/components/commons/footer.common';
 import Image, { StaticImageData } from 'next/image';
 
-import BlogsImage from "@/assets/images/blogs_image.png";
 import { Metadata, ResolvingMetadata } from 'next';
 import Link from 'next/link';
+
+import BlogsImage from "@/assets/images/blogs_image.png";
+import CardBlog from '@/components/micro/cardBlog.micro';
 
 export default function BlogsPage() {
     const dataBlogs: TypeDataBlogs[] = [
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         },
         {
             date: "12 Januari 2024",
             title: "Sepuluh model baju bridesmaid modern hijab untuk referensi",
-            img: BlogsImage
+            img: BlogsImage,
+            link: "/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi",
         }
     ]
 
     return (
         <details>
             <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
-
                 <div className='flex flex-col items-center justify-center gap-y-3'>
                     <h1 className='font-bold text-3xl'>Kumpulan Blog Kami</h1>
                     <p>Kumpulan blog-blog yang bisa anda baca</p>
@@ -61,14 +69,7 @@ export default function BlogsPage() {
                 <div className='flex items-center justify-center mt-7 gap-x-5 pb-20'>
                     <div className='grid grid-cols-4 gap-5 max-w-[1024px] w-full'>
                         {dataBlogs?.map((data, idx) => (
-                            <Link href="/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi" key={data.title + "-" + idx} className='rounded-xl shadow-md shadow-[#D7DCBE] flex flex-col items-center justify-start overflow-hidden bg-white hover:cursor-pointer hover:shadow-lg'>
-                                <Image src={data.img} alt='' width={500} height={500} className='w-full h-1/2 top-0 object-cover object-center' />
-
-                                <div className='flex flex-col items-center justify-center mt-3 px-2'>
-                                    <span className='text-xs text-gray-600'>{data.date}</span>
-                                    <p className='text-sm font-semibold'>{data.title}</p>
-                                </div>
-                            </Link>
+                            <CardBlog key={data.title + " - " + idx} date={data?.date} img={data.img} link={data?.link} title={data?.title} />
                         ))}
                     </div>
                 </div>
@@ -116,4 +117,5 @@ type TypeDataBlogs = {
     title: string;
     date: string;
     img: StaticImageData;
+    link: string;
 }
