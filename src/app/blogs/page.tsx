@@ -3,6 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 
 import BlogsImage from "@/assets/images/blogs_image.png";
 import { Metadata, ResolvingMetadata } from 'next';
+import Link from 'next/link';
 
 export default function BlogsPage() {
     const dataBlogs: TypeDataBlogs[] = [
@@ -60,14 +61,14 @@ export default function BlogsPage() {
                 <div className='flex items-center justify-center mt-7 gap-x-5 pb-20'>
                     <div className='grid grid-cols-4 gap-5 max-w-[1024px] w-full'>
                         {dataBlogs?.map((data, idx) => (
-                            <div key={data.title + "-" + idx} className='rounded-xl shadow-md shadow-[#D7DCBE] flex flex-col items-center justify-start overflow-hidden bg-white hover:cursor-pointer hover:shadow-lg'>
+                            <Link href="/blogs/sepuluh-model-baju-bridesmaid-modern-hijab-untuk-referensi" key={data.title + "-" + idx} className='rounded-xl shadow-md shadow-[#D7DCBE] flex flex-col items-center justify-start overflow-hidden bg-white hover:cursor-pointer hover:shadow-lg'>
                                 <Image src={data.img} alt='' width={500} height={500} className='w-full h-1/2 top-0 object-cover object-center' />
 
                                 <div className='flex flex-col items-center justify-center mt-3 px-2'>
                                     <span className='text-xs text-gray-600'>{data.date}</span>
                                     <p className='text-sm font-semibold'>{data.title}</p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
