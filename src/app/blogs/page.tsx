@@ -1,7 +1,6 @@
-import Image, { StaticImageData } from 'next/image';
+"use client";
 
-import { Metadata, ResolvingMetadata } from 'next';
-import Link from 'next/link';
+import { StaticImageData } from 'next/image';
 
 import BlogsImage from "@/assets/images/blogs_image.png";
 import CardBlog from '@/components/micro/cardBlog.micro';
@@ -59,8 +58,8 @@ export default function BlogsPage() {
     ]
 
     return (
-        <details>
-            <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
+        <div>
+            <div className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
                 <div className='flex flex-col items-center justify-center gap-y-3'>
                     <h1 className='font-bold text-3xl'>Kumpulan Blog Kami</h1>
                     <p>Kumpulan blog-blog yang bisa anda baca</p>
@@ -73,38 +72,38 @@ export default function BlogsPage() {
                         ))}
                     </div>
                 </div>
-            </summary>
-        </details>
+            </div>
+        </div>
     )
 }
 
 
-export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent: ResolvingMetadata
-): Promise<Metadata> {
-    // read route params
+// export async function generateMetadata(
+//     { params, searchParams }: Props,
+//     parent: ResolvingMetadata
+// ): Promise<Metadata> {
+//     // read route params
 
-    const titleMeta: string = "Dinanti | Blogs: Kumpulan Blog Kami!";
+//     const titleMeta: string = "Dinanti | Blogs: Kumpulan Blog Kami!";
 
-    return {
-        title: titleMeta,
-        alternates: {
-            canonical: '/blogs',
-        },
-        openGraph: {
-            title: titleMeta,
-            url: '/blogs',
-            siteName: 'Dinanti',
-            //   images: ['/some-specific-page-image.jpg'],
-        },
-        twitter: {
-            title: titleMeta,
-            creator: 'Dinanti Creator',
-            // images: ['https://nextjs.org/og.png'],
-        },
-    }
-}
+//     return {
+//         title: titleMeta,
+//         alternates: {
+//             canonical: '/blogs',
+//         },
+//         openGraph: {
+//             title: titleMeta,
+//             url: '/blogs',
+//             siteName: 'Dinanti',
+//             //   images: ['/some-specific-page-image.jpg'],
+//         },
+//         twitter: {
+//             title: titleMeta,
+//             creator: 'Dinanti Creator',
+//             // images: ['https://nextjs.org/og.png'],
+//         },
+//     }
+// }
 
 
 type Props = {

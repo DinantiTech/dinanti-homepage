@@ -25,7 +25,7 @@ export default function HotLinkItem(props: IProps) {
                     alt={props.label}
                     width={100} 
                     height={100} 
-                    className="absolute right-10 -top-10 w-36"
+                    className={`${props?.topImg ? props.topImg : '-top-12'} absolute right-10 w-36`}
                 />
             ) : null }
         </div>
@@ -38,4 +38,5 @@ interface IProps {
     imageUrl?: StaticImageData;
     goToLink: string;
     labelBtn: string;
+    topImg?: string;
 }

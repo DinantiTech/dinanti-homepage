@@ -25,6 +25,7 @@ export default function HotLinkSection() {
                         labelBtn="Lihat Harga"
                         goToLink="/"
                         imageUrl={Pricing}
+                        topImg="-top-20"
                     />
                 </div>
             </div>

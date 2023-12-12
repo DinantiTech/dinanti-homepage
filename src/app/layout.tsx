@@ -4,7 +4,7 @@ import '@/styles/globals.css';
 import NavbarCustom from '@/components/commons/navbar.common';
 import { Providers } from '@/providers/index.provider';
 import Footer from '@/components/commons/footer.common';
-
+import ContainerNavbar from '@/components/commons/containerNavbar.common';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 const metaDesc: string = "Selamat datang dalam petualangan kreatif undangan kami, di mana kesempurnaan dan keunikan menyatu! Temukan tema undangan yang mencerminkan kepribadian dan impian Anda di menu utama kami. Dengan pilihan tema eksklusif, tim desainer berpengalaman kami siap mewujudkan ide Anda menjadi undangan yang elegan. Jelajahi koleksi tema unik kami yang dapat disesuaikan sepenuhnya sesuai keinginan Anda. Mulailah perjalanan Anda dengan pilihan tema yang sesuai dengan persona Anda. Dengan ketelitian dan dedikasi, tim kami akan mengolah tema impian Anda menjadi undangan yang memikat hati. Bagikan kebahagiaan Anda dengan mudah, undangan dapat segera dibagikan di berbagai media sosial. Setiap sentuhan elegan dan desain personal akan membuat momen istimewa Anda lebih berkesan. Jangan lewatkan kesempatan untuk menciptakan undangan yang mencerminkan identitas Anda, mudah ditemukan di mesin pencarian. Temukan tema undangan eksklusif Anda dan buat kenangan tak terlupakan dengan sentuhan kreatif dari tim ahli kami";
@@ -100,15 +100,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-[#FDFFF8]`}>
-        <Providers>
-          <main style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
-            <NavbarCustom />
-            {children}
-          </main>
-        </Providers>
+      <body className={`${montserrat.className}`}>
+        <main>
+          <Providers>
+            <ContainerNavbar>
+              { children }
+            </ContainerNavbar>
+          </Providers>
+        </main>
 
         <Footer />
       </body>
