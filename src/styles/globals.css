@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
-    color: #81895C;
+    color: #81895C !important;
 }
