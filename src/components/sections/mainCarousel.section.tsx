@@ -38,13 +38,6 @@ export default function MainCarousel() {
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    style={{
-                        "--swiper-pagination-color": "#8ECA8D",
-                        "--swiper-pagination-bullet-inactive-color": "#999999",
-                        "--swiper-pagination-bullet-inactive-opacity": "1",
-                        "--swiper-pagination-bullet-size": "12px",
-                        "--swiper-pagination-bullet-horizontal-gap": "6px",
-                      }}
                 >
                     <SwiperSlide className='rounded-2xl overflow-hidden'>
                         <div className='w-full h-full relative flex flex-col items-center justify-center'>

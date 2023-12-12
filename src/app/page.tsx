@@ -1,11 +1,14 @@
 "use client";
 
-import FeatureSection from '@/components/sections/features.section';
-import HotLinkSection from '@/components/sections/hotLink.section';
-import HowToUseSection from '@/components/sections/howToUse.section';
-import MainCarousel from '@/components/sections/mainCarousel.section';
 import { NextUIProvider } from '@nextui-org/react';
 import { Montserrat } from 'next/font/google';
+import dynamic from 'next/dynamic';
+
+const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
+const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: false });
+const HotLinkSection = dynamic(() => import('@/components/sections/hotLink.section'), { ssr: false });
+const HowToUseSection = dynamic(() => import('@/components/sections/howToUse.section'), { ssr: false });
+
 
 const montserrat = Montserrat({
   subsets: ['latin'],
