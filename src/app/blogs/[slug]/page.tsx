@@ -66,7 +66,7 @@ export default function Page({ params, searchParams }: Props) {
         </div>
       </div>
 
-      <div className="relative w-full h-80 mt-28 shadow-lg flex items-center justify-center flex-col mb-20">
+      <div className="relative w-full h-80 mt-28 flex items-center justify-center flex-col mb-20">
         <Image src={BgAds} alt="image ads" className="absolute top-0 left-0 w-full h-full object-cover object-center " />
 
         <div className="z-10 bg-[#CBD2A8] w-[34rem] h-52 flex flex-col items-start justify-center gap-y-5 px-7 rounded-xl overflow-hidden relative">

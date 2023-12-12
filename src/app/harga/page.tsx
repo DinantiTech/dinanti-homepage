@@ -12,29 +12,29 @@ export default function PricingPage() {
                     <p>Kamu bisa cobain secara gratis untuk buat undangan <br /> menikah digital dengan klik tombol di bawah ini</p>
                 </div>
 
-                <div className='flex items-center justify-center mt-7 gap-x-5'>
-                    <div className='w-[22rem] bg-[#DBDFC4] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[17rem]'>
-                        <div className='flex flex-col items-start justify-center gap-y-2'>
+                <div className='flex items-center justify-center mt-16 gap-x-5'>
+                    <div className='w-[22rem] bg-[#DBDFC4] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[20rem]'>
+                        <div className='flex flex-col items-center text-center justify-center gap-y-2'>
                             <h3 className='text-xl font-bold'>Standar</h3>
                             <h5 className='font-semibold'>Gratis</h5>
-                            <p className='text-sm'>Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, Undangan hanya <b>aktif untuk 1 hari</b>. Bila anda merasa cocok, anda bisa upgrade paket anda.</p>
+                            <p className='text-sm py-5'>Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, Undangan hanya <b>aktif untuk 1 hari</b>. Bila anda merasa cocok, anda bisa upgrade paket anda.</p>
                         </div>
 
 
-                        <Button name="button" radius="full" className="bg-[#1D1D1D] text-white font-bold text-xs mt-2">
+                        <Button name="button" radius="full" fullWidth className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs mt-2">
                             Coba Gratis
                         </Button>
                     </div>
 
-                    <div className='w-[22rem] bg-[#B8BE94] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[17rem]'>
-                        <div className='flex flex-col items-start justify-center gap-y-2'>
+                    <div className='w-[22rem] bg-[#B8BE94] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[20rem]'>
+                        <div className='flex flex-col items-center text-center justify-center gap-y-2'>
                             <h3 className='text-xl font-bold'>Premium</h3>
                             <h5 className='font-semibold'>199k</h5>
-                            <p className='text-sm'>Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.</p>
+                            <p className=' py-5'>Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.</p>
                         </div>
 
 
-                        <Button name="button" radius="full" className="bg-[#1D1D1D] text-white font-bold text-xs">
+                        <Button name="button" radius="full" fullWidth className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs">
                             Coba Premium
                         </Button>
                     </div>
