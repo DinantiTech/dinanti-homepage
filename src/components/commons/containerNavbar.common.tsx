@@ -19,7 +19,7 @@ export default function ContainerNavbar({
               : 'none',
           }} 
             
-          className={`${isBgShowing ? 'bg-[#FDFFF8]' : ''} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
+          className={`${isBgShowing ? 'bg-[#FDFFF8]' : '#EDEFE2'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
             <NavbarCustom />
             {children}
         </div>
