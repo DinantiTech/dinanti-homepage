@@ -41,7 +41,7 @@ export default function MainCarousel() {
                 >
                     <SwiperSlide className='rounded-2xl overflow-hidden'>
                         <div className='w-full h-full relative flex flex-col items-center justify-center'>
-                            <Image src={Image2} alt='preview 1' className='w-full' />
+                            <Image priority src={Image2} alt='preview 1' className='w-full' />
 
                             <div className='absolute bottom-3 w-full px-4'>
                                 <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>Lihat Tema</Button>
@@ -51,7 +51,7 @@ export default function MainCarousel() {
                     </SwiperSlide>
                     <SwiperSlide className='rounded-2xl overflow-hidden'>
                         <div className='w-full h-full relative flex flex-col items-center justify-center'>
-                            <Image src={Image1} alt='preview 2' className='w-full' />
+                            <Image priority src={Image1} alt='preview 2' className='w-full' />
 
                             <div className='absolute bottom-3 w-full px-4'>
                                 <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>Lihat Tema</Button>
@@ -61,7 +61,7 @@ export default function MainCarousel() {
 
                     <SwiperSlide className='rounded-2xl overflow-hidden'>
                         <div className='w-full h-full relative flex flex-col items-center justify-center'>
-                            <Image src={Image1} alt='preview 1' className='w-full' />
+                            <Image priority src={Image1} alt='preview 1' className='w-full' />
 
                             <div className='absolute bottom-3 w-full px-4'>
                                 <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>Lihat Tema</Button>

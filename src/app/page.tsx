@@ -18,17 +18,15 @@ const montserrat = Montserrat({
 
 export default function Home() {
   return (
-    <NextUIProvider>
-      <div style={{ backgroundImage: `url("/line.svg")` }} className={`${montserrat.className} w-full bg-cover bg-center bg-no-repeat min-h-screen pb-20`}>
-        <MainCarousel />
+    <div className="w-full bg-cover bg-center bg-no-repeat min-h-screen pb-20">
+      <MainCarousel />
 
-        <div className='h-full w-full flex items-center justify-center'>
-          <FeatureSection />
-        </div>
-        <HowToUseSection />
-
-        <HotLinkSection />
+      <div className='h-full w-full flex items-center justify-center'>
+        <FeatureSection />
       </div>
-    </NextUIProvider>
+      <HowToUseSection />
+
+      <HotLinkSection />
+    </div>
   )
 }

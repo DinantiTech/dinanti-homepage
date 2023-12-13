@@ -91,7 +91,6 @@ export const viewport: Viewport = {
   maximumScale: 1,
   colorScheme: 'light dark',
   viewportFit: 'auto',
-  // Also supported by less commonly used
   interactiveWidget: 'resizes-visual',
 }
 
@@ -102,7 +101,7 @@ export default function RootLayout({
 }) {
   
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`${montserrat.className}`}>
         <main>
           <Providers>

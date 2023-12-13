@@ -15,11 +15,11 @@ export default function ContainerNavbar({
     return (
         <div style={{
             backgroundImage: !isBgShowing
-              ? `url("/line.svg")`
+              ? 'url("/line.svg")'
               : 'none',
           }} 
             
-          className={`${isBgShowing ? 'bg-[#FDFFF8]' : '#EDEFE2'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
+          className={`${isBgShowing ? 'bg-[#FDFFF8]' : 'bg-[#EDEFE2]'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
             <NavbarCustom />
             {children}
         </div>
