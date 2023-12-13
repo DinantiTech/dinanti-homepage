@@ -1,14 +1,13 @@
 "use client";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectCoverflow, Pagination } from 'swiper/modules';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import { Button } from '@nextui-org/react';
 import { useRef } from 'react';
 
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import 'swiper/css';
 
 import Container from "../commons/container.common";
@@ -20,9 +19,9 @@ export default function MainCarousel() {
 
     return (
         <Container>
-            <div className="flex flex-col items-center justify-center w-full mt-10 mb-5">
-                <h1 className='font-bold text-5xl text-center w-2/3 my-5'>Buat Undangan Nikah Digital Anti Ribet</h1>
-                <p className='mb-10 font-medium text-md'>Lihat Tema Terbaru Kami</p>
+            <div className="flex flex-col items-center justify-center w-full lg:mt-10 mt-5 lg:mb-5">
+                <h1 className='font-bold text-3xl lg"text-5xl text-center w-2/3 my-5'>Buat Undangan Nikah Digital Anti Ribet</h1>
+                <p className='lg:mb-10 mb-6 lg:font-medium lg:text-md'>Lihat Tema Terbaru Kami</p>
 
                 <Swiper
                     effect='coverflow'
@@ -32,8 +31,8 @@ export default function MainCarousel() {
                     coverflowEffect={
                         { rotate: 0, stretch: -20, depth: 80, modifier: 2.5 }
                     }
-                    modules={[EffectCoverflow, Pagination, Navigation]}
-                    className='w-[48rem] relative'
+                    modules={[EffectCoverflow, Pagination]}
+                    className='lg:w-[48rem] w-[35rem] relative'
                     pagination={{ el: '.swiper-pagination', clickable: true }}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;

@@ -22,7 +22,7 @@ export default function FeatureSection() {
     ]
 
     return (
-        <section className="flex flex-col items-center justify-center text-center mt-20">
+        <section className="flex flex-col items-center justify-center text-center lg:mt-20 mt-14">
             <div className="flex flex-col items-center justify-center gap-y-4">
                 <h1 className="font-bold text-2xl">Dibuat Khusus Untuk Anda Dengan <br />Berbagai Fitur</h1>
                 <p className="text-sm">Kamu bisa cobain secara gratis untuk buat undangan <br /> menikah digital dengan klik tombol di bawah ini</p>
@@ -33,9 +33,9 @@ export default function FeatureSection() {
             </div>
 
 
-            <div className="flex items-center justify-center gap-x-5 mt-14">
+            <div className="grid lg:grid-cols-4 grid-cols-2 gap-5 mt-14">
                 {dataCards?.map((data, idx) => (
-                    <div key={`${data?.title}-${idx}`} className="flex flex-col items-start text-left px-5 pt-32 bg-[#EDEFE2] rounded-lg w-64 h-72 relative">
+                    <div key={`${data?.title}-${idx}`} className="flex flex-col items-start text-left gap-2 px-5 pt-28 bg-[#EDEFE2] rounded-lg w-64 h-[16rem] relative">
 
                         <div className="absolute w-9 h-9 p-2 top-5 left-5 rounded bg-[#D7DCBE]">
                             <Image src={data.icon} alt={`icon ${data.title}`} fill />
