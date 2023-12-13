@@ -32,7 +32,7 @@ export default function HowToUseSection({}) {
                 <Image src={HandCoupleImg} alt="Image hand couples" width={1000} height={1000} className="lg:block hidden w-60 h-80 object-cover object-center bg-gray-400 rounded-lg border-4 border-[#D7DCBE]"/>
 
                 <div className="flex flex-col lg:items-start items-center justify-center gap-y-4">
-                    <h1 className="font-bold text-2xl text-center">Cara Pakainya Mudah</h1>
+                    <h1 className="font-bold sm:text-2xl text-xl text-center">Cara Pakainya Mudah</h1>
 
                     <Stepper orientation="vertical" activeStep={4}>
                         { dataStepper?.map((data) => (

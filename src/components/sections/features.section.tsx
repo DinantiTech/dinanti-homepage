@@ -23,9 +23,9 @@ export default function FeatureSection() {
 
     return (
         <section className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">
-            <div className="flex flex-col items-center justify-center gap-y-4">
-                <h1 className="font-bold text-2xl w-5/6">Dibuat Khusus Untuk Anda Dengan <span>Berbagai Fitur</span></h1>
-                <p className="text-sm sm:px-0 px-4">Kamu bisa cobain secara gratis untuk buat undangan <span>menikah digital dengan klik tombol di bawah ini</span></p>
+            <div className="flex flex-col items-center justify-center gap-y-4 px-5">
+                <h1 className="font-bold lg:text-3xl sm:text-2xl text-xl lg:w-[70%] sm:w-[80%] w-full">Dibuat Khusus Untuk Anda Dengan <span>Berbagai Fitur</span></h1>
+                <p className="text-sm sm:px-0 lg:w-[70%] sm:w-[80%] w-full">Kamu bisa cobain secara gratis untuk buat undangan <span>menikah digital dengan klik tombol di bawah ini</span></p>
 
                 <Button radius="full" color="default" className="bg-[#1D1D1D] text-white font-semibold">
                     Coba Gratis
