@@ -19,24 +19,31 @@ export default function MainCarousel() {
 
     return (
         <Container>
-            <div className="flex flex-col items-center justify-center w-full lg:mt-10 mt-5 lg:mb-5">
-                <h1 className='font-bold text-3xl lg:text-5xl text-center w-2/3 my-5'>Buat Undangan Nikah Digital Anti Ribet</h1>
-                <p className='lg:mb-10 mb-6 lg:font-medium lg:text-md'>Lihat Tema Terbaru Kami</p>
+            <div className="flex flex-col items-center justify-center w-full lg:mt-10 sm:mt-5 mt-3 lg:mb-5">
+                <h1 className='font-bold text-3xl lg:text-5xl text-center sm:w-2/3 w-full my-5 sm:px-0 px-7'>Buat Undangan Nikah Digital Anti Ribet</h1>
+                <p className='lg:mb-10 sm:mb-6 mb-4 lg:font-medium lg:text-md'>Lihat Tema Terbaru Kami</p>
 
                 <Swiper
                     effect='coverflow'
                     centeredSlides
                     loop
-                    slidesPerView={3}
+                    slidesPerView={1}
                     coverflowEffect={
                         { rotate: 0, stretch: -20, depth: 80, modifier: 2.5 }
                     }
                     modules={[EffectCoverflow, Pagination]}
-                    className='lg:w-[48rem] w-[35rem] relative'
+                    className='lg:w-[48rem] sm:w-[35rem] w-52 relative'
                     pagination={{ el: '.swiper-pagination', clickable: true }}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
                     }}
+
+                    breakpoints={{
+                        // when window width is <= 640px (mobile)
+                        640: {
+                          slidesPerView: 3,
+                        },
+                      }}
                 >
                     <SwiperSlide className='rounded-2xl overflow-hidden'>
                         <div className='w-full h-full relative flex flex-col items-center justify-center'>

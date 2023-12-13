@@ -5,9 +5,9 @@ import Pricing from '@/assets/images/pricing_hotlink.png';
 
 export default function HotLinkSection() {
     return (
-        <section className="mt-20 w-[68rem] mx-auto">
+        <section className="mt-20 lg:w-[68rem] mx-auto">
             <div className="w-full mx-auto px-4">
-                <div className="flex items-start justify-start">
+                <div className="flex lg:items-start items-center justify-start">
                     <HotLinkItem
                         label="Lihat Koleksi Tema kami"
                         desc="Lihat koleksi tema kami yang terus kami kembangkan."
@@ -18,14 +18,14 @@ export default function HotLinkSection() {
                 </div>
 
 
-                <div className="flex items-end justify-end mt-10">
+                <div className="flex items-end justify-end lg:mt-10 mt-14">
                     <HotLinkItem
                         label="Lihat penawaran Harga"
                         desc="Lihat harga yang kami tawarkan."
                         labelBtn="Lihat Harga"
                         goToLink="/"
                         imageUrl={Pricing}
-                        topImg="-top-20"
+                        topImg="lg:-top-20 sm:-top-12 -top-7"
                     />
                 </div>
             </div>

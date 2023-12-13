@@ -32,13 +32,13 @@ export default function HowToUseSection({}) {
                 <Image src={HandCoupleImg} alt="Image hand couples" width={1000} height={1000} className="lg:block hidden w-60 h-80 object-cover object-center bg-gray-400 rounded-lg border-4 border-[#D7DCBE]"/>
 
                 <div className="flex flex-col lg:items-start items-center justify-center gap-y-4">
-                    <h1 className="font-bold text-2xl">Cara Pakainya Mudah</h1>
+                    <h1 className="font-bold text-2xl text-center">Cara Pakainya Mudah</h1>
 
                     <Stepper orientation="vertical" activeStep={4}>
                         { dataStepper?.map((data) => (
                             <Step key={`step-${data?.label}`}>
                                 <StepLabel>
-                                    <div className="px-6 py-4 bg-[#EBEDE0] rounded-lg w-96">
+                                    <div className="px-6 py-4 bg-[#EBEDE0] rounded-lg sm:w-96 w-80">
                                         <h2 className="text-base font-semibold">{data?.label}</h2>
                                         <p className="lg:text-sm text-xs text-gray-700">{data?.desc}</p>
                                     </div>
