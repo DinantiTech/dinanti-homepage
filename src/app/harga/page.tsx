@@ -7,17 +7,17 @@ export default function PricingPage() {
         <details>
             <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
 
-                <div className='flex flex-col items-center justify-center gap-y-3'>
-                    <h1 className='font-bold text-3xl'>Harga Paket Beragam Yang <br /> Menyesuaikan Kebutuhanmu</h1>
-                    <p>Kamu bisa cobain secara gratis untuk buat undangan <br /> menikah digital dengan klik tombol di bawah ini</p>
+                <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[40%] sm:w-4/5 w-full'>
+                    <h1 className='font-bold lg:text-3xl sm:text-2xl text-xl'>Harga Paket Beragam Yang Menyesuaikan Kebutuhanmu</h1>
+                    <p className='px-6 sm:text-sm text-xs'>Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini</p>
                 </div>
 
-                <div className='flex items-center justify-center mt-16 gap-x-5'>
-                    <div className='w-[22rem] bg-[#DBDFC4] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[20rem]'>
+                <div className='grid sm:grid-cols-2 grid-cols-1 mt-16 gap-5'>
+                    <div className='lg:w-[22rem] sm:w-[20rem] w-[18rem] bg-[#DBDFC4] flex flex-col items-start justify-between text-left p-5 rounded-2xl lg:h-[20rem] sm:h-[18rem]'>
                         <div className='flex flex-col items-center text-center justify-center gap-y-2'>
                             <h3 className='text-xl font-bold'>Standar</h3>
                             <h5 className='font-semibold'>Gratis</h5>
-                            <p className='text-sm py-5'>Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, Undangan hanya <b>aktif untuk 1 hari</b>. Bila anda merasa cocok, anda bisa upgrade paket anda.</p>
+                            <p className='sm:text-sm text-xs py-4'>Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, Undangan hanya <b>aktif untuk 1 hari</b>. Bila anda merasa cocok, anda bisa upgrade paket anda.</p>
                         </div>
 
 
@@ -26,15 +26,15 @@ export default function PricingPage() {
                         </Button>
                     </div>
 
-                    <div className='w-[22rem] bg-[#B8BE94] flex flex-col items-start justify-between text-left p-5 rounded-2xl h-[20rem]'>
+                    <div className='lg:w-[22rem] sm:w-[20rem] w-[18rem] bg-[#B8BE94] flex flex-col items-start justify-between text-left p-5 rounded-2xl lg:h-[20rem] sm:h-[18rem]'>
                         <div className='flex flex-col items-center text-center justify-center gap-y-2'>
                             <h3 className='text-xl font-bold'>Premium</h3>
                             <h5 className='font-semibold'>199k</h5>
-                            <p className=' py-5'>Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.</p>
+                            <p className='sm:text-base text-sm py-4'>Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.</p>
                         </div>
 
 
-                        <Button name="button" radius="full" fullWidth className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs">
+                        <Button name="button" radius="full" fullWidth className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs sm:mt-0 mt-2">
                             Coba Premium
                         </Button>
                     </div>
