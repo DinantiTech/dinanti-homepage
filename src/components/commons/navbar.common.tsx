@@ -5,16 +5,19 @@ import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Navb
 import LogoDinanti from "@/assets/logo.svg";
 import Image from "next/image";
 import ModalAuth from "../micro/modalAuth.micro";
+import { usePathname } from "next/navigation";
 
 export default function NavbarCustom() {
+    const pathname = usePathname()
+
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     const menuItems = [
-        "Home",
-        "Harga",
-        "Tema",
-        "Blog",
+        { title: "Home", link: '/' },
+        { title: "Harga", link: '/harga' },
+        { title: "Tema", link: '/tema' },
+        { title: "Blogs", link: '/blogs' }
     ];
 
     return (
@@ -48,18 +51,12 @@ export default function NavbarCustom() {
 
                 <NavbarContent justify="end">
                     <NavbarContent justify="end" className="hidden sm:flex gap-10 mr-12">
-                        <NavbarItem>
-                            <Link href="/" className="text-[#353] hover:font-bold hover:text-black">Home</Link>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Link href="/harga" className="text-[#353] hover:font-bold hover:text-black" aria-current="page">Harga</Link>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Link href="/tema" className="text-[#353] hover:font-bold hover:text-black">Tema</Link>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Link href="/blogs" className="text-[#353] hover:font-bold hover:text-black">Blog</Link>
-                        </NavbarItem>
+                        { menuItems.map((item, index) => (
+                            <NavbarItem key={`${item}-${index}`}>
+                                <Link href={ item.link } className={`${item.link === pathname ? 'text-black font-bold' : null} text-[#353] hover:font-bold hover:text-black`}>{ item.title }</Link>
+                            </NavbarItem>
+                        )) }
+
                     </NavbarContent>
 
                     <NavbarItem>
@@ -76,14 +73,12 @@ export default function NavbarCustom() {
                     {menuItems.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
-                                className="w-full"
-                                color={
-                                    index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-                                }
-                                href="#"
+                                className={`${item.link === pathname ? 'text-black font-bold' : null} w-full`}
+                                href={item.link}
+                                color="foreground"
                                 size="lg"
                             >
-                                {item}
+                                {item.title}
                             </Link>
                         </NavbarMenuItem>
                     ))}
