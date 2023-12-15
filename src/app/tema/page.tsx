@@ -47,7 +47,7 @@ export default function ThemesPage() {
                 <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
 
                     <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[40%] sm:w-4/5 w-full'>
-                        <h1 className='font-bold md:text-3xl text-2xl'>Tema Undangan Menikah Yang Kami Buat Untuk Anda Pakai</h1>
+                        <h1 className='font-bold lg:text-3xl sm:text-2xl text-xl'>Tema Undangan Menikah Yang Kami Buat Untuk Anda Pakai</h1>
                         <p className='text-sm sm:text-base'>Berikut tema-tema yang bisa anda pilih untuk Anda gunakan di undangan Anda</p>
                     </div>
 
