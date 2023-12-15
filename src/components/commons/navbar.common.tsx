@@ -63,10 +63,10 @@ export default function NavbarCustom() {
                     </NavbarContent>
 
                     <NavbarItem>
-                        <Button onPress={() => setIsOpenModal(true)} size="md" href="#" variant="flat" radius="full" className="bg-[#1D1D1D] text-white font-bold hidden sm:flex">
+                        <Button onClick={() => setIsOpenModal(true)} size="md" href="#" variant="flat" radius="full" className="bg-[#1D1D1D] text-white font-bold hidden sm:flex">
                             Login / Daftar
                         </Button>
-                        <Button onPress={() => setIsOpenModal(true)} size="sm" href="#" variant="flat" radius="full" className="bg-[#1D1D1D] text-white font-bold sm:hidden">
+                        <Button onClick={() => setIsOpenModal(true)} size="sm" href="#" variant="flat" radius="full" className="bg-[#1D1D1D] text-white font-bold sm:hidden">
                             Login / Daftar
                         </Button>
                     </NavbarItem>
