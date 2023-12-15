@@ -40,16 +40,16 @@ export default function Page({ params, searchParams }: Props) {
 
   return (
     <Container>
-      <div className="w-full flex flex-col items-center justify-center px-20 mt-10">
-        <Image src={BlogImage} alt="image blogs" width={600} height={600} className="w-full h-[26rem] object-cover object-top rounded-2xl" />
+      <div className="w-full flex flex-col items-center justify-center lg:px-20 mt-10">
+        <Image src={BlogImage} alt="image blogs" width={600} height={600} className="w-full lg:h-[26rem] object-cover object-top rounded-2xl" />
 
         <div className="flex flex-col items-center justify-center gap-y-4 mt-10 text-center">
-          <h1 className="font-bold text-4xl">Sepuluh model baju bridesmaid modern hijab untuk referensi</h1>
+          <h1 className="font-bold sm:text-4xl xxs:text-2xl text-xl">Sepuluh model baju bridesmaid modern hijab untuk referensi</h1>
 
-          <span>12 Januari 2024 - Dinanti Creator </span>
+          <span className="xs:text-sm text-xs">12 Januari 2024 - Dinanti Creator </span>
         </div>
 
-        <div className="mt-10 flex flex-col justify-center gap-y-4">
+        <div className="mt-10 flex flex-col justify-center gap-y-4 leading-relaxed">
           <p>Lorem ipsum dolor sit amet consectetur. Suscipit sollicitudin justo integer ultricies. In vitae odio vitae elit sagittis nunc augue blandit. Dolor non proin eu vitae vel sem egestas lectus. Risus aliquam et sed vulputate ultrices. Duis adipiscing lorem enim risus massa. Quam sed in enim sed rhoncus tellus id elit. Platea pharetra egestas suspendisse blandit.</p>
 
           <h3 className="text-2xl font-semibold">Orci non mauris fames cras nec id vel. </h3>
@@ -66,21 +66,23 @@ export default function Page({ params, searchParams }: Props) {
         </div>
       </div>
 
-      <div className="relative w-full h-80 mt-28 flex items-center justify-center flex-col mb-20">
-        <Image src={BgAds} alt="image ads" className="absolute top-0 left-0 w-full h-full object-cover object-center " />
 
-        <div className="z-10 bg-[#CBD2A8] w-[34rem] h-52 flex flex-col items-start justify-center gap-y-5 px-7 rounded-xl overflow-hidden relative">
-          <Image width={500} height={500} src={ThemesImg} alt='themes category' className='absolute -right-0 top-0 w-72' />
+      {/* Banner */}
+      <div className="relative w-full aspect-[16/6] md:mt-28 mt-20 flex items-center justify-center flex-col mb-20 overflow-hidden">
+        <Image src={BgAds} alt="image ads" className="absolute top-0 left-0 w-full h-full object-cover object-center hidden md:block" />
 
-          <h4 className="font-bold text-2xl w-1/2 z-10">Buat Undangan Menikah Digital</h4>
-          <Button radius="full" className="bg-[#1D1D1D] text-white">Coba Gratis</Button>
+        <div className="z-10 bg-[#CBD2A8] md:w-[34rem] md:h-52 w-full h-full flex flex-col items-start justify-center md:gap-y-5 gap-y-2 px-7 rounded-xl overflow-hidden relative">
+          <Image width={500} height={500} src={ThemesImg} alt='themes category' className='absolute sm:right-0 -right-20 top-0 sm:w-72 xxs:w-64 w-60' />
+
+          <h4 className="font-bold sm:text-2xl xs:text-xl sm:w-1/2 w-[80%] z-10">Buat Undangan Menikah Digital</h4>
+          <Button radius="full" className="bg-[#1D1D1D] text-white" size="sm">Coba Gratis</Button>
         </div>
       </div>
 
       <div className="w-full flex flex-col items-center justify-center pb-20 gap-y-7">
         <h2 className="font-bold text-2xl">Lihat Artikel Lain</h2>
 
-        <div className='grid grid-cols-4 gap-5 w-full'>
+        <div className='md:grid grid-cols-4 gap-5 snap-x  snap-proximity flex overflow-x-auto w-full'>
           {dataBlogs?.map((data, idx) => (
             <CardBlog key={data.title + " - " + idx} date={data?.date} img={data.img} link={data?.link} title={data?.title} />
           ))}
