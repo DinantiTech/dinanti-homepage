@@ -1,11 +1,14 @@
 'use client';
 
 import { NextUIProvider } from '@nextui-org/react'
+import UseQueryProviders from './useQuery.provider';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
-      {children}
-    </NextUIProvider>
+    <UseQueryProviders>
+      <NextUIProvider>
+        {children}
+      </NextUIProvider>
+    </UseQueryProviders>
   )
 }
