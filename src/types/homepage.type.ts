@@ -1,4 +1,4 @@
-import { ImageType } from "./image.type"
+import { ImageFormatType, ImageType } from "./image.type"
 import { MetaType } from "./meta.type"
 
 export type HomePageType = {
@@ -12,14 +12,25 @@ export type AttributesHomepage = {
     publishedAt: string
     locale: string
     heading: string
-    navigation: Navigation[]
+    sub_heading: string
     logo: ImageType
     testimonies: any[]
-    seo: MetaType;
+    seo?: MetaType
+    features: FeatureType
 }
 
-type Navigation = {
+export type FeatureType = {
     id: number
     title: string
+    description: string
     url: string
+    btn_text: string
+    list_features: ListFeature[]
 }
+
+type ListFeature = {
+    id: number
+    description: string
+    name: string
+    icon: ImageFormatType
+  }

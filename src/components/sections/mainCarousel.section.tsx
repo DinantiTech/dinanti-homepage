@@ -19,10 +19,7 @@ export default function MainCarousel() {
 
     return (
         <Container>
-            <div className="flex flex-col items-center justify-center w-full lg:mt-10 sm:mt-5 mt-3 lg:mb-5">
-                <h1 className='font-bold text-3xl lg:text-5xl text-center sm:w-2/3 w-full my-5 sm:px-0 px-7'>Buat Undangan Nikah Digital Anti Ribet</h1>
-                <p className='lg:mb-10 sm:mb-6 mb-4 lg:font-medium lg:text-md'>Lihat Tema Terbaru Kami</p>
-
+            <div className="flex flex-col items-center justify-center w-full">
                 <Swiper
                     effect='coverflow'
                     centeredSlides

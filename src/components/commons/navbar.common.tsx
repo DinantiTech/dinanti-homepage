@@ -7,7 +7,7 @@ import Image from "next/image";
 import ModalAuth from "../micro/modalAuth.micro";
 import { usePathname } from "next/navigation";
 
-export default function NavbarCustom() {
+export default async function NavbarCustom() {
     const pathname = usePathname()
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -19,6 +19,8 @@ export default function NavbarCustom() {
         { title: "Tema", link: '/tema' },
         { title: "Blogs", link: '/blogs' }
     ];
+
+    // const data = 
 
     return (
         <>
