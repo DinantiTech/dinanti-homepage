@@ -1,26 +1,11 @@
-import { Button } from "@nextui-org/react";
+"use client";
 
-import MessageIcon from "@/assets/icons/message.svg";
-import ThemesIcon from "@/assets/icons/themes.svg";
-import MoneyIcon from "@/assets/icons/money.svg";
-import DomainIcon from "@/assets/icons/subdomain.png";
+import { Button } from "@nextui-org/react";
 import Image from "next/image";
+
 import { FeatureType } from "@/types/homepage.type";
 
-interface IDataCards {
-    title: string;
-    desc: string;
-    icon: string;
-}
-
 export default function FeatureSection({feature}: { feature: FeatureType }) {
-
-    const dataCards: IDataCards[] = [
-        { title: 'Beragam Tema', desc: 'Kami sediakan beragam tema yang bisa dipilih.', icon: ThemesIcon },
-        { title: 'Kirim Ucapan', desc: 'Tamu undangan bisa mengirim pesan secara online.', icon: MessageIcon },
-        { title: 'Uang Sumbangan', desc: 'Ada fitur untuk mengirim uang sumbangan pernikahan.', icon: MoneyIcon },
-        { title: 'Custom Domain', desc: 'Bisa buat custom domain untuk alamat undangan digital', icon: DomainIcon },
-    ]
 
     return (
         <div className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">

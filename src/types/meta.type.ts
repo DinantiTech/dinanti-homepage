@@ -1,5 +1,15 @@
 import { ImageFormatType } from "./image.type"
 
+export type MetaRootType = {
+    id: number;
+    attributes: {
+        createdAt: Date;
+        updatedAt: Date;
+        locale: string;
+        seo: MetaType
+    };
+}
+
 export type MetaType = {
     id: number
     metaTitle: string

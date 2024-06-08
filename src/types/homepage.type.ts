@@ -17,6 +17,7 @@ export type AttributesHomepage = {
     testimonies: any[]
     seo?: MetaType
     features: FeatureType
+    steppers: SteppersType
 }
 
 export type FeatureType = {
@@ -33,4 +34,18 @@ type ListFeature = {
     description: string
     name: string
     icon: ImageFormatType
-  }
+}
+
+export type SteppersType = {
+    id: number;
+    heading: string;
+    description: string;
+    image: ImageFormatType;
+    list_stepper: ListSteppers[]
+}
+
+type ListSteppers = {
+    id: number
+    description: string
+    title: string
+}

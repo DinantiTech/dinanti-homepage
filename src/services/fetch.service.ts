@@ -1,9 +1,10 @@
 export class Fetch {
-    private static baseURL: string = process.env.BASE_URL!;
+    private static baseURL: string = process.env.BASE_URL! ?? "https://m9fdg0jl-1337.asse.devtunnels.ms";
 
     static async get<T>(path: string, requstInit?: RequestInit): Promise<T> {
         const { signal } = new AbortController()
         try {
+            console.log(this.baseURL + path)
             const dataFetch = await fetch(this.baseURL + path, { signal, ...requstInit });
 
             if (!dataFetch.ok) {

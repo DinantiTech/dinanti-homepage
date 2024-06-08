@@ -1,3 +1,5 @@
+"use client";
+
 import HotLinkItem from "../micro/hotLinkItem.micro";
 
 import Themes from '@/assets/images/themes_hotlink.png';

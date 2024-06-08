@@ -1,17 +1,18 @@
 "use server";
 
-import Container from '@/components/commons/container.common';
-import { Fetch } from '@/services/fetch.service';
-import { HomePageType } from '@/types/homepage.type';
-import { MetaType } from '@/types/meta.type';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
+import Container from '@/components/commons/container.common';
+import { Fetch } from '@/services/fetch.service';
+import { HomePageType } from '@/types/homepage.type';
+import { MetaRootType, MetaType } from '@/types/meta.type';
+
 const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
 const HotLinkSection = dynamic(() => import('@/components/sections/hotLink.section'), { ssr: true });
-const HowToUseSection = dynamic(() => import('@/components/sections/howToUse.section'), { ssr: true });
+const Steppers = dynamic(() => import('@/components/sections/steppers.section'), { ssr: true });
 
 export default async function Home() {
   const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep&locale=id', { cache: "no-cache" });
@@ -35,7 +36,7 @@ export default async function Home() {
       </Suspense>
 
       <Suspense>
-        <HowToUseSection />
+        <Steppers steppers={data?.attributes?.steppers} />
 
         <HotLinkSection />
       </Suspense>
@@ -47,10 +48,9 @@ export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
   try {
-    const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep');
+    const data = await Fetch.get<MetaRootType>('/api/meta?populate=deep&locale=id');
 
-    const { seo, ...dataHomePage } = data?.attributes;
-    meta = seo!
+    meta = data?.attributes?.seo;
   } catch (error) {
     return null;
   }
