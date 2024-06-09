@@ -26,7 +26,7 @@ export default async function Home() {
       </Container>
 
       <Suspense>
-        <MainCarousel />
+        <MainCarousel sliders={data?.attributes?.sliders} />
       </Suspense>
 
       <Suspense>

@@ -16,8 +16,18 @@ export type AttributesHomepage = {
     logo: ImageType
     testimonies: any[]
     seo?: MetaType
+    sliders: SliderType[]
     features: FeatureType
     steppers: SteppersType
+}
+
+export type SliderType = {
+    id: number;
+    url: string;
+    description: string;
+    title: string;
+    btn_text: string;
+    image: ImageFormatType;
 }
 
 export type FeatureType = {
