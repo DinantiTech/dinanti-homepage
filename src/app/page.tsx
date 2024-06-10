@@ -9,7 +9,7 @@ import { Fetch } from '@/services/fetch.service';
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 
-const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: true });
+const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
 const HotLinkSection = dynamic(() => import('@/components/sections/hotLink.section'), { ssr: true });
 const Steppers = dynamic(() => import('@/components/sections/steppers.section'), { ssr: true });

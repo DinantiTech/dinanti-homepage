@@ -17,7 +17,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
     const swiperRef: any = useRef();
 
     return (
-        <Container>
+        <>
             <div className="flex flex-col items-center justify-center w-full">
                 {sliders ? (
                     <Swiper
@@ -43,15 +43,15 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                         }}
                     >
                         {sliders?.map((data) => (
-                            <SwiperSlide key={data?.id} className='rounded-2xl overflow-hidden'>
-                                <div className='w-full h-full relative flex flex-col items-center justify-center'>
-                                    <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full' />
+                                <SwiperSlide key={data?.id} className='rounded-2xl overflow-hidden'>
+                                    <div className='w-full h-full relative flex flex-col items-center justify-center'>
+                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full' />
 
-                                    <div className='absolute bottom-3 w-full px-4'>
-                                        <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</Button>
+                                        <div className='absolute bottom-3 w-full px-4'>
+                                            <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</Button>
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
+                                </SwiperSlide>
                         ))}
 
                         <div className='flex gap-x-28 items-center justify-center mt-12'>
@@ -60,6 +60,6 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                     </Swiper>
                 ) : null}
             </div>
-        </Container>
+        </>
     )
 }
