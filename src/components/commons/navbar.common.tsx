@@ -73,11 +73,11 @@ export default function NavbarCustom({ data } : { data: DataLocalizationType }) 
                 </NavbarContent>
 
                 <NavbarMenu>
-                    {menuItems.map((item, index) => (
+                    {data?.attributes?.navigation?.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
-                                className={`${item.link === pathname ? 'text-black font-bold' : null} w-full`}
-                                href={item.link}
+                                className={`${item.url === pathname ? 'text-black font-bold' : null} w-full`}
+                                href={item.url}
                                 color="foreground"
                                 size="lg"
                             >

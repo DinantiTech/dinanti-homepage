@@ -8,6 +8,7 @@ import Container from '@/components/commons/container.common';
 import { Fetch } from '@/services/fetch.service';
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
+import Heading from '@/components/commons/heading.common';
 
 const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
@@ -21,8 +22,8 @@ export default async function Home() {
     <div className="w-full bg-cover bg-center bg-no-repeat min-h-screen pb-20">
 
       <Container className='flex items-center flex-col justify-center lg:mt-10 sm:mt-5 mt-3 lg:mb-5'>
-        <h1 className='font-bold text-3xl lg:text-5xl text-center sm:w-2/3 w-full my-5 sm:px-0 px-7'>{data?.attributes?.heading}</h1>
-        <p className='lg:mb-10 sm:mb-6 mb-4 lg:font-medium lg:text-md'>{data?.attributes?.sub_heading}</p>
+        <Heading type='heading' title={data?.attributes?.heading} />
+        <Heading type='text' title={data?.attributes?.sub_heading} />
       </Container>
 
       <Suspense>

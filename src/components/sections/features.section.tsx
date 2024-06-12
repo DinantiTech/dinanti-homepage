@@ -4,14 +4,16 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 
 import { FeatureType } from "@/types/homepage.type";
+import Heading from "../commons/heading.common";
 
 export default function FeatureSection({feature}: { feature: FeatureType }) {
 
     return (
         <div className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">
             <div className="flex flex-col items-center justify-center gap-y-4 px-5">
-                <h1 className="font-bold lg:text-3xl sm:text-2xl text-xl lg:w-[70%] sm:w-[80%] w-full">{feature?.title}</h1>
-                <p className="text-sm sm:px-0 lg:w-[70%] sm:w-[80%] w-full">{feature?.description}</p>
+                <Heading title={feature?.title} type="subheading" />
+
+                <Heading title={feature?.description} type="text" className="text-sm" />
 
                 <Button radius="full" color="default" className="bg-[#1D1D1D] text-white font-semibold">
                     {feature?.btn_text}

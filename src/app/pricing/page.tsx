@@ -1,6 +1,6 @@
-import Footer from '@/components/commons/footer.common';
+"use client";
+
 import { Button } from '@nextui-org/react';
-import { Metadata, ResolvingMetadata } from 'next';
 
 export default function PricingPage() {
     return (
@@ -42,36 +42,4 @@ export default function PricingPage() {
             </summary>
         </details>
     )
-}
-
-export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent: ResolvingMetadata
-): Promise<Metadata> {
-    // read route params
-
-    const titleMeta: string = "Dinanti | Harga: Lihat harga yang kami tawarkan!";
-
-    return {
-        title: titleMeta,
-        alternates: {
-            canonical: '/harga',
-        },
-        openGraph: {
-            title: titleMeta,
-            url: '/harga',
-            siteName: 'Dinanti',
-            //   images: ['/some-specific-page-image.jpg'],
-        },
-        twitter: {
-            title: titleMeta,
-            creator: 'Dinanti Creator',
-            // images: ['https://nextjs.org/og.png'],
-        },
-    }
-}
-
-type Props = {
-    params: { slug: string }
-    searchParams: { [key: string]: string | string[] | undefined }
 }
