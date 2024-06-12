@@ -1,5 +1,6 @@
 "use client";
 
+import Heading from '@/components/commons/heading.common';
 import { Button } from '@nextui-org/react';
 
 export default function PricingPage() {
@@ -7,9 +8,9 @@ export default function PricingPage() {
         <details>
             <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
 
-                <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[40%] sm:w-4/5 w-full'>
-                    <h1 className='font-bold lg:text-3xl sm:text-2xl text-xl'>Harga Paket Beragam Yang Menyesuaikan Kebutuhanmu</h1>
-                    <p className='px-6 sm:text-sm text-xs'>Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini</p>
+                <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[40%] sm:w-4/5 w-full px-4'>
+                    <Heading type='subheading' title='Harga Paket Beragam Yang Menyesuaikan Kebutuhanmu' />
+                    <Heading type='text' title='Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini' className='sm:text-sm text-xs' />
                 </div>
 
                 <div className='grid sm:grid-cols-2 grid-cols-1 mt-16 gap-5'>

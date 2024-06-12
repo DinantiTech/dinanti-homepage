@@ -1,10 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { Montserrat } from 'next/font/google';
-import '@/styles/globals.css';
-import { Providers } from '@/providers/index.provider';
-import Footer from '@/components/commons/footer.common';
-import ContainerNavbar from '@/components/commons/containerNavbar.common';
-const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dinanti.id'),
@@ -50,7 +44,7 @@ export const viewport: Viewport = {
   interactiveWidget: 'resizes-visual',
 }
 
-export default function RootLayout({
+export default function PricingLayout({
   children,
 }: {
   children: React.ReactNode

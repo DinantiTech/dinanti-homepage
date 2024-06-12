@@ -11,11 +11,11 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
     return (
         <div className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">
             <div className="flex flex-col items-center justify-center gap-y-4 px-5">
-                <Heading title={feature?.title} type="subheading" />
+                <Heading title={feature?.title} type="subheading" className="lg:w-[70%] sm:w-[80%]"/>
 
-                <Heading title={feature?.description} type="text" className="text-sm" />
+                <Heading title={feature?.description} type="text" className="text-sm lg:w-[70%] sm:w-[80%]" />
 
-                <Button radius="full" color="default" className="bg-[#1D1D1D] text-white font-semibold">
+                <Button radius="full" color="default" className="bg-[#1D1D1D] text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
                     {feature?.btn_text}
                 </Button>
             </div>
