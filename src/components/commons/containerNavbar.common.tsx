@@ -29,14 +29,14 @@ export default function ContainerNavbar({
     return (
         <div style={{
             backgroundImage: !isBgShowing
-              ? 'url("/line.svg")'
-              : 'none',
-          }} 
-            
-          className={`${!isBgShowing ? 'bg-[#FDFFF8]' : 'bg-[#EDEFE2]'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
-            <Suspense fallback={<NavSkeleton />}>
-                <NavbarCustom data={state!} />
-            </Suspense>
+                ? 'url("/line.svg")'
+                : 'none',
+        }}
+
+            className={`${!isBgShowing ? 'bg-[#FDFFF8]' : 'bg-[#EDEFE2]'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
+                {state ?
+                    <NavbarCustom data={state!} />
+                    : <NavSkeleton />}
             {children}
         </div>
     )

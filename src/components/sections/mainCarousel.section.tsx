@@ -44,8 +44,8 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                     >
                         {sliders?.map((data) => (
                                 <SwiperSlide key={data?.id} className='rounded-2xl overflow-hidden'>
-                                    <div className='w-full h-full relative flex flex-col items-center justify-center'>
-                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full' />
+                                    <div className='aspect-[10/14] relative flex flex-col items-center justify-center'>
+                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
                                         <div className='absolute bottom-3 w-full px-4'>
                                             <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</Button>
