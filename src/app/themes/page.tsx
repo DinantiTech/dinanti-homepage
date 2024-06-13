@@ -1,10 +1,10 @@
 "use server";
 
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 import Container from '@/components/commons/container.common';
 import CardThemeContent from '@/components/contents/card_theme.content';
-import { Fetch } from '@/services/fetch.service';
+import { Fetch } from '@/actions/services/fetch.service';
 import { ThemesPageDataType } from '@/types/themespage.type';
 import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';

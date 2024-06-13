@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 import Container from '@/components/commons/container.common';
-import { Fetch } from '@/services/fetch.service';
+import { Fetch } from '@/actions/services/fetch.service';
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import Heading from '@/components/commons/heading.common';

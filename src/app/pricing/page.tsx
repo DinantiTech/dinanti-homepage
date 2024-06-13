@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next';
 
-import { Fetch } from '@/services/fetch.service';
+import { Fetch } from '@/actions/services/fetch.service';
 import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import { PricingDataType } from '@/types/pricingpage.type';

@@ -1,30 +1,22 @@
-"use client";
+"use server";
 
-import { usePathname } from "next/navigation"
-import { Suspense, useEffect, useMemo } from "react";
 import dynamic from "next/dynamic";
+import { headers } from "next/headers";
 
-import NavSkeleton from "../skeletons/nav.skeleton";
-import { useNavStore } from "@/stores/nav.store";
+import { Fetch } from "@/actions/services/fetch.service";
+import { DataLocalizationType } from "@/types/nav.type";
 
-const NavbarCustom = dynamic(() => import("./navbar.common"), { ssr: true });
+const NavbarCustom = dynamic(() => import("./navbar.common"));
 
-export default function ContainerNavbar({
+export default async function ContainerNavbar({
     children,
 }: {
     children: React.ReactNode
 }) {
-    const pathname = usePathname();
+    const headerList = headers();
+    const isBgShowing = headerList?.get("blogs");
 
-    const { setState, state } = useNavStore();
-
-    const isBgShowing = pathname.includes('blogs');
-
-    useEffect(() => {
-        return () => {
-            setState()
-        }
-    }, [])
+    const data = await Fetch.get<DataLocalizationType>("/api/navigation?populate=*&locale=id", { cache: "default" })
 
     return (
         <div style={{
@@ -32,11 +24,8 @@ export default function ContainerNavbar({
                 ? 'url("/line.svg")'
                 : 'none',
         }}
-
             className={`${!isBgShowing ? 'bg-[#FDFFF8]' : 'bg-[#EDEFE2]'} w-full bg-cover bg-center bg-no-repeat min-h-screen`}>
-                {state ?
-                    <NavbarCustom data={state!} />
-                    : <NavSkeleton />}
+            <NavbarCustom data={data} />
             {children}
         </div>
     )

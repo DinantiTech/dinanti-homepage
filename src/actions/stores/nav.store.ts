@@ -1,4 +1,4 @@
-import { Fetch } from "@/services/fetch.service";
+import { Fetch } from "@/actions/services/fetch.service";
 import { DataLocalizationType } from "@/types/nav.type";
 import { create } from "zustand";
 

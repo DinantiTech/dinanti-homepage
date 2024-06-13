@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
-import LogoDinanti from "@/assets/logo.svg";
 import Image from "next/image";
 import ModalAuth from "../micro/modalAuth.micro";
 import { usePathname } from "next/navigation";
@@ -13,15 +12,6 @@ export default function NavbarCustom({ data } : { data: DataLocalizationType }) 
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-
-    const menuItems = [
-        { title: "Home", link: '/' },
-        { title: "Harga", link: '/harga' },
-        { title: "Tema", link: '/tema' },
-        { title: "Blogs", link: '/blogs' }
-    ];
-
-    // const data = 
 
     return (
         <>
