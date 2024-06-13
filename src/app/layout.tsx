@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   
   return (
-    <html lang="id" suppressHydrationWarning={true}>
+    <html lang="id">
       <body className={`${montserrat.className}`}>
         <main>
           <Providers>

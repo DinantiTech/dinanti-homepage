@@ -7,4 +7,17 @@ export class Utils {
     static cn(...input: ClassValue[]): string {
         return twMerge(clsx(input))
     }
+
+    static applyDiscount(price: number, discountPercent: number, minimumPrice?: number): number {
+        if (minimumPrice !== undefined && price < minimumPrice) {
+            return price;
+        }
+    
+        const discountAmount = (price * discountPercent) / 100;
+    
+        const finalPrice = price - discountAmount;
+    
+        return finalPrice;
+    }
+    
 }

@@ -51,8 +51,8 @@ export default function PricingLayout({
 }) {
 
   return (
-    <div>
+    <section>
       {children}
-    </div>
+    </section>
   )
 }
