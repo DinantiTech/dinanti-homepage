@@ -4,6 +4,7 @@ import { Step, StepLabel, Stepper } from "@mui/material";
 import Image from "next/image";
 
 import { SteppersType } from "@/types/homepage.type";
+import Heading from "../commons/heading.common";
 
 export default function SteppersSection({ steppers }: { steppers: SteppersType }) {
     return (
@@ -13,15 +14,15 @@ export default function SteppersSection({ steppers }: { steppers: SteppersType }
                 <Image src={steppers?.image?.data?.attributes?.url} alt="Image hand couples" width={1000} height={1000} className="lg:block hidden w-60 h-80 object-cover object-center bg-gray-400 rounded-lg border-4 border-[#D7DCBE]"/>
 
                 <div className="flex flex-col lg:items-start items-center justify-center gap-y-4 w-full">
-                    <h1 className="font-bold sm:text-2xl text-xl text-center">{steppers.heading}</h1>
+                    <Heading type="subheading" title={steppers.heading} className="text-center" />
 
                     <Stepper orientation="vertical" activeStep={4} className="w-full">
                         { steppers?.list_stepper?.map((data) => (
                             <Step key={`step-${data?.id}`}>
                                 <StepLabel>
-                                    <div className="px-6 py-4 bg-[#EBEDE0] rounded-lg w-full">
-                                        <h2 className="text-base font-semibold">{data?.title}</h2>
-                                        <p className="lg:text-sm text-xs text-gray-700">{data?.description}</p>
+                                    <div className="flex items-start justify-center flex-col px-6 py-4 gap-y-1 bg-[#EBEDE0] rounded-lg w-full">
+                                        <h2 className="text-sm xxs:text-base font-semibold">{data?.title}</h2>
+                                        <p className="md:text-sm xxs:text-xs text-[0.6rem] text-gray-700">{data?.description}</p>
                                     </div>
                                 </StepLabel>
                             </Step>

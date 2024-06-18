@@ -19,12 +19,12 @@ export default async function Home() {
   const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep&locale=id', { cache: "no-cache" });
 
   return (
-    <div className="w-full bg-cover bg-center bg-no-repeat min-h-screen">
+    <div className="w-full min-h-screen lg:pt-28 sm:pt-5 pt-20">
 
       {/* <Container className='flex items-center flex-col justify-center lg:mt-10 sm:mt-5 mt-3 lg:mb-5'> */}
-      <Container className='flex items-center flex-col justify-center'>
+      <Container className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
         <Heading type='heading' title={data?.attributes?.heading} />
-        <Heading type='text' title={data?.attributes?.sub_heading} />
+        <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
       </Container>
 
       <Suspense>
