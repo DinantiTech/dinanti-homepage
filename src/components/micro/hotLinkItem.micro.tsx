@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -13,9 +12,9 @@ export default function HotLinkItem(props: IProps) {
             <p className="lg:w-80 sm:w-3/4 w-[12rem] sm:text-sm text-xs">{props.desc}</p>
 
             <Link href={props.goToLink}>
-                <Button name={`button ${props.labelBtn}`} radius="full" className="bg-[#1D1D1D] text-white font-bold text-xs">
+                <button name={`button ${props.labelBtn}`} className="btn bg-[#1D1D1D] text-white font-bold text-xs">
                     {props.labelBtn}
-                </Button>
+                </button>
             </Link>
 
 

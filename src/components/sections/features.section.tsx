@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
 import Image from "next/image";
 
 import { FeatureType } from "@/types/homepage.type";
@@ -15,9 +14,9 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
 
                 <Heading title={feature?.description} type="text" className="text-sm lg:w-[70%] sm:w-[80%]" />
 
-                <Button radius="full" color="default" className="bg-[#1D1D1D] text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
+                <button color="default" className="btn bg-[#1D1D1D] text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
                     {feature?.btn_text}
-                </Button>
+                </button>
             </div>
 
 

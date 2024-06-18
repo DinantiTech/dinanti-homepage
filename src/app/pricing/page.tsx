@@ -2,11 +2,11 @@
 
 import { Metadata } from 'next';
 
-import { Fetch } from '@/actions/services/fetch.service';
 import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import { PricingDataType } from '@/types/pricingpage.type';
 import CardPricing from '@/components/contents/card_pricing.content';
+import { Fetch } from '@/actions/services/fetch.service';
 
 export default async function Page() {
     const data = await Fetch.get<PricingDataType>("/api/pricing-page-content?populate=deep&locale=id", { cache: "no-cache" });

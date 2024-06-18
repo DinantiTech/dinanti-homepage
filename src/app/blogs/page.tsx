@@ -59,7 +59,7 @@ export default function BlogsPage() {
 
     return (
         <Container>
-            <div className='w-full h-full flex flex-col items-center justify-center text-center mt-10'>
+            <div className='w-full h-full flex flex-col items-center justify-center text-center pt-10'>
                 <div className='flex flex-col items-center justify-center gap-y-3'>
                     <h1 className='font-bold lg:text-3xl sm:text-2xl text-xl'>Kumpulan Blog Kami</h1>
                     <p className='text-sm sm:text-base'>Kumpulan blog-blog yang bisa anda baca</p>

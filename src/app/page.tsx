@@ -5,10 +5,10 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 import Container from '@/components/commons/container.common';
-import { Fetch } from '@/actions/services/fetch.service';
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import Heading from '@/components/commons/heading.common';
+import { Fetch } from '@/actions/services/fetch.service';
 
 const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
@@ -19,9 +19,10 @@ export default async function Home() {
   const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep&locale=id', { cache: "no-cache" });
 
   return (
-    <div className="w-full bg-cover bg-center bg-no-repeat min-h-screen pb-20">
+    <div className="w-full bg-cover bg-center bg-no-repeat min-h-screen">
 
-      <Container className='flex items-center flex-col justify-center lg:mt-10 sm:mt-5 mt-3 lg:mb-5'>
+      {/* <Container className='flex items-center flex-col justify-center lg:mt-10 sm:mt-5 mt-3 lg:mb-5'> */}
+      <Container className='flex items-center flex-col justify-center'>
         <Heading type='heading' title={data?.attributes?.heading} />
         <Heading type='text' title={data?.attributes?.sub_heading} />
       </Container>

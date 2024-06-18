@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
 import { Providers } from '@/providers/index.provider';
-import Footer from '@/components/commons/footer.common';
-import ContainerNavbar from '@/components/commons/containerNavbar.common';
+import NavbarCustom from '@/components/commons/navbar.common';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -55,20 +54,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  
   return (
     <html lang="id">
-      <body className={`${montserrat.className}`}>
-        <main>
-          <Providers>
-            <ContainerNavbar>
-              { children }
-            </ContainerNavbar>
-          </Providers>
-        </main>
-
-        <Footer />
-      </body>
+        <body className={`${montserrat.className} relative`}>
+            {children}
+        </body>
     </html>
   )
 }

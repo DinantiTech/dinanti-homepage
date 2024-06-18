@@ -5,7 +5,6 @@ import { Button } from "@nextui-org/react";
 import Container from "@/components/commons/container.common";
 import BlogImage from "@/assets/images/blogs_image.png";
 import BgAds from "@/assets/images/bg.png";
-import ThemesImg from "@/assets/images/themes.png";
 import BlogsImage from "@/assets/images/blogs_image.png";
 import CardBlog from "@/components/micro/cardBlog.micro";
 
@@ -68,7 +67,7 @@ export default function Page({ params, searchParams }: Props) {
 
 
       {/* Banner */}
-      <div className="relative w-full aspect-[16/6] md:mt-28 mt-20 flex items-center justify-center flex-col mb-20 overflow-hidden">
+      {/* <div className="relative w-full aspect-[16/6] md:mt-28 mt-20 flex items-center justify-center flex-col mb-20 overflow-hidden">
         <Image src={BgAds} alt="image ads" className="absolute top-0 left-0 w-full h-full object-cover object-center hidden md:block" />
 
         <div className="z-10 bg-[#CBD2A8] md:w-[34rem] md:h-52 w-full h-full flex flex-col items-start justify-center md:gap-y-5 gap-y-2 px-7 rounded-xl overflow-hidden relative">
@@ -77,7 +76,7 @@ export default function Page({ params, searchParams }: Props) {
           <h4 className="font-bold sm:text-2xl xs:text-xl sm:w-1/2 w-[80%] z-10">Buat Undangan Menikah Digital</h4>
           <Button radius="full" className="bg-[#1D1D1D] text-white" size="sm">Coba Gratis</Button>
         </div>
-      </div>
+      </div> */}
 
       <div className="w-full flex flex-col items-center justify-center pb-20 gap-y-7">
         <h2 className="font-bold text-2xl">Lihat Artikel Lain</h2>

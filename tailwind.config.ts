@@ -1,15 +1,18 @@
 import type { Config } from 'tailwindcss';
-const {nextui} = require("@nextui-org/react");
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
+    './src/app/**/*.{ts,tsx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
+      colors: {
+        "PRIMARY": "#FDFFF8",
+        "SECONDARY": "#EDEFE2",
+      }
     },
     screens: {
       xxs: "350px",
@@ -21,7 +24,7 @@ const config: Config = {
       "2xl": "1536px",
     }
   },
-  plugins: [ nextui() ],
+  plugins: [ require('daisyui'), ],
   darkMode: 'class'
 }
 export default config

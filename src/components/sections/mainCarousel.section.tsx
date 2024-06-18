@@ -3,7 +3,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { Button } from '@nextui-org/react';
 import { useRef } from 'react';
 
 import 'swiper/css/effect-coverflow';
@@ -48,7 +47,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                                         <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
                                         <div className='absolute bottom-3 w-full px-4'>
-                                            <Button radius='full' fullWidth className='font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</Button>
+                                            <button className='btn font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</button>
                                         </div>
                                     </div>
                                 </SwiperSlide>
