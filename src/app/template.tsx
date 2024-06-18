@@ -8,12 +8,12 @@ export default async function TemplateRoot({ children }: { children: React.React
 
     return (
         <>
-                <NavbarCustom data={data} />
+            <NavbarCustom data={data} />
             <main className="bg-PRIMARY" style={{
                 backgroundImage: 'url("/line.svg")'
             }}>
-                { children }
+                {children}
             </main>
         </>
     )
-  }
+}
