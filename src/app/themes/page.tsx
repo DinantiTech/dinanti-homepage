@@ -2,19 +2,19 @@
 
 import { Metadata } from 'next';
 
-import Container from '@/components/commons/container.common';
 import CardThemeContent from '@/components/contents/card_theme.content';
 import { ThemesPageDataType } from '@/types/themespage.type';
 import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import { Fetch } from '@/actions/services/fetch.service';
+import LayoutContainer from '@/containers/layout.container';
 
 export default async function ThemesPage() {
 
   const data = await Fetch.get<ThemesPageDataType>("/api/themes-page?populate=deep&locale=id", { cache: "default" });
 
   return (
-    <Container>
+    <LayoutContainer>
       <details>
         <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
 
@@ -31,7 +31,7 @@ export default async function ThemesPage() {
           </div>
         </summary>
       </details>
-    </Container>
+    </LayoutContainer>
   )
 }
 

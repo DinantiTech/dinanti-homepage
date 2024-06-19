@@ -1,12 +1,10 @@
 import { Metadata, ResolvingMetadata } from "next";
 import Image, { StaticImageData } from "next/image";
-import { Button } from "@nextui-org/react";
 
-import Container from "@/components/commons/container.common";
 import BlogImage from "@/assets/images/blogs_image.png";
-import BgAds from "@/assets/images/bg.png";
 import BlogsImage from "@/assets/images/blogs_image.png";
 import CardBlog from "@/components/micro/cardBlog.micro";
+import LayoutContainer from "@/containers/layout.container";
 
 export default function Page({ params, searchParams }: Props) {
   const dataBlogs: TypeDataBlogs[] = [
@@ -38,7 +36,7 @@ export default function Page({ params, searchParams }: Props) {
 
 
   return (
-    <Container>
+    <LayoutContainer>
       <div className="w-full flex flex-col items-center justify-center lg:px-20 mt-10">
         <Image src={BlogImage} alt="image blogs" width={600} height={600} className="w-full lg:h-[26rem] object-cover object-top rounded-2xl" />
 
@@ -87,7 +85,7 @@ export default function Page({ params, searchParams }: Props) {
           ))}
         </div>
       </div>
-    </Container>
+    </LayoutContainer>
   )
 }
 

@@ -52,8 +52,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
-    <html lang="id" data-theme="base">
+    <html lang="id" dir='ltr' data-theme="base">
         <body className={`${montserrat.className} relative`}>
             {children}
         </body>

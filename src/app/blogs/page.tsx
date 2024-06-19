@@ -3,7 +3,7 @@ import { StaticImageData } from 'next/image';
 import BlogsImage from "@/assets/images/blogs_image.png";
 import CardBlog from '@/components/micro/cardBlog.micro';
 import { Metadata, ResolvingMetadata } from 'next';
-import Container from '@/components/commons/container.common';
+import LayoutContainer from '@/containers/layout.container';
 
 export default function BlogsPage() {
     const dataBlogs: TypeDataBlogs[] = [
@@ -58,7 +58,7 @@ export default function BlogsPage() {
     ]
 
     return (
-        <Container>
+        <LayoutContainer>
             <div className='w-full h-full flex flex-col items-center justify-center text-center pt-10'>
                 <div className='flex flex-col items-center justify-center gap-y-3'>
                     <h1 className='font-bold lg:text-3xl sm:text-2xl text-xl'>Kumpulan Blog Kami</h1>
@@ -73,7 +73,7 @@ export default function BlogsPage() {
                     </div>
                 </div>
             </div>
-        </Container>
+        </LayoutContainer>
     )
 }
 

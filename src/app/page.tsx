@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-import Container from '@/components/commons/container.common';
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import Heading from '@/components/commons/heading.common';
 import { Fetch } from '@/actions/services/fetch.service';
+import LayoutContainer from '@/containers/layout.container';
 
 const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
@@ -20,10 +20,10 @@ export default async function Home() {
 
   return (
     <>
-      <Container className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
+      <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
         <Heading type='heading' title={data?.attributes?.heading} />
         <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
-      </Container>
+      </LayoutContainer>
 
       <Suspense>
         <MainCarousel sliders={data?.attributes?.sliders} />

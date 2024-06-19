@@ -9,7 +9,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css';
 
-import Container from "../commons/container.common";
 import { SliderType } from '@/types/homepage.type';
 
 export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {

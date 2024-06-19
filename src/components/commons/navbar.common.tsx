@@ -1,15 +1,15 @@
 
+import LayoutContainer from "@/containers/layout.container";
 import { DataLocalizationType, NavigationType } from "@/types/nav.type";
 import Image from "next/image";
 import Link from "next/link";
-import Container from "./container.common";
 
 export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
 
     return (
         <header>
-            <div className="fixed top-0 z-50 bg-base-100 w-full border-b border-lime-900/10">
-                <Container className="navbar lg:max-w-[71rem] mx-auto">
+            <div className="fixed top-0 z-50 bg-base-100 w-full border-b">
+                <LayoutContainer className="navbar lg:max-w-[71rem] mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,7 +32,7 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
                     <div className="navbar-end">
                         <a className="btn">Button</a>
                     </div>
-                </Container>
+                </LayoutContainer>
             </div>
         </header>
     );
