@@ -1,7 +1,6 @@
 "use client";
 
 import { CardThemesListType } from "@/types/themespage.type";
-import { Button } from "@nextui-org/react";
 import Image from "next/image";
 
 export default function CardThemeContent({ data }: { data: CardThemesListType }) {
@@ -14,7 +13,7 @@ export default function CardThemeContent({ data }: { data: CardThemesListType })
             <div className='absolute left-0 lg:bottom-8 sm:bottom-4 xxs:bottom-2 bottom-5 flex flex-col items-start justify-center text-left lg:px-8 sm:px-4 xxs:px-2 px-5 gap-y-2'>
                 <h3 className='font-semibold lg:text-xl sm:text-base text-sm text-white group-hover:text-black duration-500'>{data.title}</h3>
                 <p className='xs:block xxs:hidden lg:text-base sm:text-sm xs:text-xs text-xs w-60 text-white group-hover:text-black duration-500'>{data.description}</p>
-                <Button radius='full' size='sm' className='bg-[#1D1D1D] text-white font-semibold border-2 border-gray-100'>{data?.btn_text}</Button>
+                <button className='bg-[#1D1D1D] text-white font-semibold border-2 border-gray-100'>{data?.btn_text}</button>
             </div>
         </div>
     )

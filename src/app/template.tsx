@@ -12,7 +12,9 @@ export default async function TemplateRoot({ children }: { children: React.React
             <main className="bg-PRIMARY" style={{
                 backgroundImage: 'url("/line.svg")'
             }}>
-                {children}
+                <div className="w-full min-h-screen lg:pt-[6.5rem] pt-20">
+                    {children}
+                </div>
             </main>
         </>
     )

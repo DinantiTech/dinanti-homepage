@@ -14,12 +14,12 @@ type Attributes = {
     updatedAt: string;
     publishedAt: string;
     locale: string;
-    navigation: Navigation[];
+    navigation: NavigationType[];
     icon: ImageFormatType;
     localizations: Localizations;
 }
 
-type Navigation = {
+export type NavigationType = {
     id: number;
     title: string;
     url: string;

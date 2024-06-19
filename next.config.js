@@ -1,5 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    experimental: {
+        webVitalsAttribution: ["CLS", "LCP"],
+        turbo: {
+            rules: {
+                '*.svg': {
+                  loaders: ['@svgr/webpack'],
+                  as: '*.ts',
+                },
+              },
+              resolveExtensions: [
+                '.mdx',
+                '.tsx',
+                '.ts',
+                '.jsx',
+                '.js',
+                '.mjs',
+                '.json',
+              ],
+        }
+    },
     images: {
         remotePatterns: [
             {
@@ -14,7 +34,7 @@ const nextConfig = {
     compress: true,
     logging: {
         fetches: {
-            fullUrl: true
+            fullUrl: true,
         }
     },
 

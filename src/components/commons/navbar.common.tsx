@@ -1,5 +1,5 @@
 
-import { DataLocalizationType } from "@/types/nav.type";
+import { DataLocalizationType, NavigationType } from "@/types/nav.type";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "./container.common";
@@ -8,7 +8,7 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
 
     return (
         <header>
-            <div className="fixed top-0 z-50 bg-base-100 w-full">
+            <div className="fixed top-0 z-50 bg-base-100 w-full border-b border-lime-900/10">
                 <Container className="navbar lg:max-w-[71rem] mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -16,36 +16,17 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a>Item 1</a></li>
-                                <li>
-                                    <a>Parent</a>
-                                    <ul className="p-2">
-                                        <li><a>Submenu 1</a></li>
-                                        <li><a>Submenu 2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a>Item 3</a></li>
+                                <NavList data={data?.attributes?.navigation} />
                             </ul>
                         </div>
 
-                        <Link href="/">
-                            <Image src={data?.attributes?.icon?.data?.attributes?.url} alt="Logo Dinanti" width={500} height={500} className="w-full btn btn-ghost" />
+                        <Link href="/" className="w-20 xxs:w-[6rem]">
+                            <Image src={data?.attributes?.icon?.data?.attributes?.url} alt="Logo Dinanti" width={500} height={500} className="w-full" />
                         </Link>
-                        {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <details>
-                                    <summary>Parent</summary>
-                                    <ul className="p-2">
-                                        <li><a>Submenu 1</a></li>
-                                        <li><a>Submenu 2</a></li>
-                                    </ul>
-                                </details>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <NavList data={data?.attributes?.navigation} />
                         </ul>
                     </div>
                     <div className="navbar-end">
@@ -55,4 +36,16 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
             </div>
         </header>
     );
+}
+
+function NavList({ data }: { data: NavigationType[] }) {
+    return (
+        <>
+            {data?.map((item) => (
+                <li className="group" key={item?.id}>
+                    <Link className="group-hover:font-bold group-hover:text-lime-900" href={item?.url}>{item?.title}</Link>
+                </li>
+            ))}
+        </>
+    )
 }

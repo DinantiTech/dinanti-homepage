@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         "PRIMARY": "#FDFFF8",
         "SECONDARY": "#EDEFE2",
+        "ACCENT": "#D7DCBE",
       }
     },
     screens: {

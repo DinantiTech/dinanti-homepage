@@ -1,10 +1,7 @@
-"use client";
 
-import { Button } from "@nextui-org/react";
-
-import { PricingListType } from "@/types/pricingpage.type";
 import { Utils } from "@/utils/index.util";
 import BlockRendererClient from "./rich_text.content";
+import { PricingListType } from "@/types/pricingpage.type";
 
 export default function CardPricing({ data } : { data: PricingListType }) {
     return (
@@ -20,9 +17,9 @@ export default function CardPricing({ data } : { data: PricingListType }) {
             </div>
 
 
-            <Button name="button" radius="full" fullWidth className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs sm:mt-0 mt-2">
+            <button name="button" className="bg-[#1D1D1D] text-white mx-auto font-bold text-xs sm:mt-0 mt-2">
                 {data?.btn_text}
-            </Button>
+            </button>
         </div>
     );
 }
