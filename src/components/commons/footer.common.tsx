@@ -3,9 +3,11 @@ import { FooterType } from "@/types/nav.type";
 import { Utils } from "@/utils/index.util";
 import Image from "next/image";
 import { HTMLAttributes } from "react";
-import BlockRendererClient from "../contents/rich_text.content";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const BlockRendererClient = dynamic(() => import("../contents/rich_text.content"))
 
 interface FooterProps extends HTMLAttributes<HTMLElement> {
     data: FooterType

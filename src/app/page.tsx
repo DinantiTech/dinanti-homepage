@@ -10,7 +10,7 @@ import Heading from '@/components/commons/heading.common';
 import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
 
-const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: false });
+const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
 const HotLinkSection = dynamic(() => import('@/components/sections/hotLink.section'), { ssr: true });
 const Steppers = dynamic(() => import('@/components/sections/steppers.section'), { ssr: true });
