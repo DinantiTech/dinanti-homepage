@@ -1,8 +1,43 @@
-export default function Footer() {
+import LayoutContainer from "@/containers/layout.container";
+import { FooterType } from "@/types/nav.type";
+import { Utils } from "@/utils/index.util";
+import Image from "next/image";
+import { HTMLAttributes } from "react";
+import BlockRendererClient from "../contents/rich_text.content";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
+
+interface FooterProps extends HTMLAttributes<HTMLElement> {
+    data: FooterType
+}
+
+export default function Footer({ data, className, ...rest }: FooterProps) {
     return (
-        <footer className="absolute bottom-0 w-full bg-[#2D2D2D] mx-auto py-4 flex justify-between items-center text-white px-10 rounded-t-3xl xxs:text-xs text-[0.50rem] z-40 flex-row flex-nowrap max-w-[1024px]">
-            <p>Built with &#10084; by Dinanti</p>
-            <p>business@dinanti.id</p>
+        <footer className={Utils.cn("footer p-10 bg-base-200 text-base-content", className)} {...rest}>
+            <LayoutContainer className="flex items-start sm:items-center sm:justify-between flex-col sm:flex-row">
+                <aside className="flex flex-col gap-y-2 items-start justify-start">
+                    <Link href="/">
+                        <Image 
+                            src={data?.icon?.data?.attributes?.url} width={100} height={100} 
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Icon Dinanti"
+                            className="w-20 lg:w-28"
+                        />
+                    </Link>
+                    <div className="sm:leading-6 text-[0.7rem] xs:text-xs sm:text-sm">
+                        <BlockRendererClient content={data?.description} />
+                    </div>
+                </aside>
+                <nav>
+                    <h6 className="footer-title">Social</h6>
+                    <div className="grid grid-flow-col gap-4">
+                        { data?.social_link?.map(item => (
+                            <Link href={item?.url} key={item?.id}>
+                                <Icon icon={item?.icon_txt} className="text-lg sm:text-2xl" />
+                            </Link>
+                        )) }
+                    </div>
+                </nav>
+            </LayoutContainer>
         </footer>
     )
 }

@@ -7,7 +7,7 @@ interface LayoutContainerProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function LayoutContainer({ children, className, ...rest }: LayoutContainerProps) {
     return (
-        <div className={Utils.cn("w-full h-full mx-auto max-w-[1024px] xl:px-0 md:px-8 sm:px-6 px-4", className)} { ...rest }>
+        <div className={Utils.cn("w-full h-full mx-auto max-w-[1024px] xl:px-0 md:px-8 sm:px-6 px-4 overflow-hidden", className)} { ...rest }>
             { children }
         </div>
     )

@@ -35,7 +35,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
 
                         breakpoints={{
                             // when window width is <= 640px (mobile)
-                            640: {
+                            600: {
                                 slidesPerView: 3,
                             },
                         }}

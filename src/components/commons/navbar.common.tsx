@@ -10,7 +10,7 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
         <header>
             <div className="fixed top-0 z-50 bg-base-100 w-full border-b">
                 <LayoutContainer className="navbar lg:max-w-[71rem] mx-auto">
-                    <div className="navbar-start">
+                    <div className="navbar-start flex items-center justify-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -20,7 +20,7 @@ export default function NavbarCustom({ data }: { data: DataLocalizationType }) {
                             </ul>
                         </div>
 
-                        <Link href="/" className="w-20 xxs:w-[6rem]">
+                        <Link href="/" className="w-16 xxs:w-[5.5rem] sm:w-[6rem]">
                             <Image src={data?.attributes?.icon?.data?.attributes?.url} alt="Logo Dinanti" width={500} height={500} className="w-full" />
                         </Link>
                     </div>
@@ -43,7 +43,7 @@ function NavList({ data }: { data: NavigationType[] }) {
         <>
             {data?.map((item) => (
                 <li className="group" key={item?.id}>
-                    <Link className="group-hover:font-bold group-hover:text-lime-900" href={item?.url}>{item?.title}</Link>
+                    <Link className="group-hover:font-bold font-medium group-hover:text-lime-900" href={item?.url}>{item?.title}</Link>
                 </li>
             ))}
         </>

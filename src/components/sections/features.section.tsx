@@ -20,16 +20,18 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
             </div>
 
 
-            <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 mt-14">
+            <div className="grid lg:grid-cols-4 xs:grid-cols-2 grid-cols-1 gap-5 mt-14 mx-auto w-full">
                 {feature?.list_features?.map((data, idx) => (
-                    <div key={`${data?.id}-${idx}`} className="flex flex-col items-start text-left gap-2 px-5 lg:pt-28 sm:pt-24 pt-20 bg-[#EDEFE2] rounded-lg w-64 sm:h-[15rem] h-[13.5rem] relative">
+                    <div key={`${data?.id}-${idx}`} className="flex flex-col items-start justify-center mx-auto text-left gap-3 xs:gap-4 bg-[#EDEFE2] rounded-lg p-4 w-full xxs:w-64 xs:w-full">
 
-                        <div className="absolute w-9 h-9 p-2 top-5 left-5 rounded bg-[#D7DCBE]">
-                            <Image src={data.icon?.data?.attributes?.url} alt={`icon ${data.name}`} fill />
+                        <div className="w-9 h-9 rounded bg-[#D7DCBE]">
+                            <Image src={data.icon?.data?.attributes?.url} alt={`icon ${data.name}`} width={50} height={50} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
                         </div>
 
-                        <h3 className="font-semibold">{data?.name}</h3>
-                        <p className="text-sm">{data?.description}</p>
+                        <div className="flex flex-col items-start justify-start text-left gap-1">
+                            <h3 className="font-semibold">{data?.name}</h3>
+                            <p className="text-sm">{data?.description}</p>
+                        </div>
                     </div>
                 ))}
             </div>
