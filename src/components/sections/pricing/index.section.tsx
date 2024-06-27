@@ -16,8 +16,8 @@ export default function PricingPageSection({ data }: {data: PricingDataType}) {
 
             <div className='grid sm:grid-cols-2 grid-cols-1 mt-16 gap-5'>
                 {data?.attributes?.pricing_list?.map((data) => (
-                    <Suspense>
-                        <CardPricing data={data} key={data?.id} />
+                    <Suspense key={data?.id}>
+                        <CardPricing data={data} />
                     </Suspense>
                 ))}
             </div>

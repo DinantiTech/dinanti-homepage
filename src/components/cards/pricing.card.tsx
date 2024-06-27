@@ -21,7 +21,7 @@ export default async function CardPricing({ data } : { data: PricingListType }) 
             </div>
 
 
-            <Link href={data?.url} className={`${isFree ? "text-[#1D1D1D] bg-white" : "bg-[#1D1D1D] hover:bg-[#1D1D1D]/70"} btn text-white mx-auto font-bold text-xs sm:mt-0 mt-2`}>
+            <Link href={data?.url} className={`${isFree ? "text-MIDNIGHT bg-white" : "bg-MIDNIGHT hover:bg-MIDNIGHT/70"} btn text-white mx-auto font-bold text-xs sm:mt-0 mt-2`}>
                 {data?.btn_text}
             </Link>
         </div>

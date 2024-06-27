@@ -13,7 +13,8 @@ const config: Config = {
         "PRIMARY": "#FDFFF8",
         "SECONDARY": "#EDEFE2",
         "ACCENT": "#D7DCBE",
-        "NEUTRAL": "#263C24"
+        "NEUTRAL": "#263C24",
+        "MIDNIGHT": "#1D1D1D"
       }
     },
     screens: {
