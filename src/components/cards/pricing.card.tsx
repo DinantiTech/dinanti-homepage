@@ -1,10 +1,11 @@
+"use server";
 
 import { Utils } from "@/utils/index.util";
 import BlockRendererClient from "../commons/rich_text.common";
 import { PricingListType } from "@/types/pricingpage.type";
 import Link from "next/link";
 
-export default function CardPricing({ data } : { data: PricingListType }) {
+export default async function CardPricing({ data } : { data: PricingListType }) {
     const isFree = data?.type === "free";
 
     return (
@@ -20,7 +21,7 @@ export default function CardPricing({ data } : { data: PricingListType }) {
             </div>
 
 
-            <Link href={data?.url} className={`${isFree ? "text-black bg-white" : "bg-[#1D1D1D] hover:bg-[#1D1D1D]/70"} btn text-white mx-auto font-bold text-xs sm:mt-0 mt-2`}>
+            <Link href={data?.url} className={`${isFree ? "text-[#1D1D1D] bg-white" : "bg-[#1D1D1D] hover:bg-[#1D1D1D]/70"} btn text-white mx-auto font-bold text-xs sm:mt-0 mt-2`}>
                 {data?.btn_text}
             </Link>
         </div>

@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next';
 
-import CardThemeContent from '@/components/cards/card_theme.content';
+import CardThemeContent from '@/components/cards/theme.card';
 import { ThemesPageDataType } from '@/types/themespage.type';
 import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';
