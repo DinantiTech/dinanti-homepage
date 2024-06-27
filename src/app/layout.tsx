@@ -54,7 +54,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="id" dir='ltr' data-theme="base">
+    <html lang="id" dir='ltr' data-theme="base" className='scroll-smooth'>
         <body className={`${montserrat.className} relative`}>
             {children}
         </body>

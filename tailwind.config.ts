@@ -13,6 +13,7 @@ const config: Config = {
         "PRIMARY": "#FDFFF8",
         "SECONDARY": "#EDEFE2",
         "ACCENT": "#D7DCBE",
+        "NEUTRAL": "#263C24"
       }
     },
     screens: {
@@ -33,8 +34,8 @@ const config: Config = {
         base: {
           "primary": "#FDFFF8",
           "secondary": "#EDEFE2",
-          "accent": "#000000",
-          "neutral": "#3d4451",
+          "accent": "#263C24",
+          "neutral": "#263C24",
           "base-100": "#D7DCBE",
         }
       },
