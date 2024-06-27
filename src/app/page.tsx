@@ -21,7 +21,7 @@ export default async function Home() {
   return (
     <>
       <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
-        <Heading type='heading' title={data?.attributes?.heading} />
+        <Heading type='heading' title={data?.attributes?.heading} className='px-2' />
         <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
       </LayoutContainer>
 
