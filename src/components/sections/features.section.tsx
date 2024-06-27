@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
-import { FeatureType } from "@/types/homepage.type";
 import Heading from "../commons/heading.common";
+import { FeatureType } from "@/types/homepage.type";
 
 export default function FeatureSection({feature}: { feature: FeatureType }) {
 
@@ -14,9 +15,9 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
 
                 <Heading title={feature?.description} type="text" className="text-sm lg:w-[70%] sm:w-[80%]" />
 
-                <button color="default" className="btn bg-[#1D1D1D] text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
+                <Link href={feature?.url} target="_blank" color="default" className="btn bg-[#1D1D1D] text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
                     {feature?.btn_text}
-                </button>
+                </Link>
             </div>
 
 
