@@ -7,6 +7,7 @@ import { PricingDataType } from '@/types/pricingpage.type';
 import { Fetch } from '@/actions/services/fetch.service';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import LayoutContainer from '@/containers/layout.container';
 
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"));
 
@@ -14,11 +15,11 @@ export default async function Page() {
     const data = await Fetch.get<PricingDataType>("/api/pricing-page-content?populate=deep&locale=id", { cache: "no-cache" });
 
     return (
-        <details>
-            <Suspense>
-              <PricingPageSection data={data} />
-            </Suspense>
-        </details>
+      <LayoutContainer>
+          <Suspense>
+            <PricingPageSection data={data} />
+          </Suspense>
+      </LayoutContainer>
     )
 }
 

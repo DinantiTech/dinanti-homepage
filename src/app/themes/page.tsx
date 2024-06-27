@@ -1,36 +1,24 @@
 "use server";
 
 import { Metadata } from 'next';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
-import CardThemeContent from '@/components/cards/theme.card';
 import { ThemesPageDataType } from '@/types/themespage.type';
-import Heading from '@/components/commons/heading.common';
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
 
-export default async function ThemesPage() {
+const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
+export default async function ThemesPage() {
   const data = await Fetch.get<ThemesPageDataType>("/api/themes-page?populate=deep&locale=id", { cache: "default" });
 
   return (
     <LayoutContainer>
-      <details>
-        <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
-
-          <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[50%] sm:w-4/5 w-full'>
-            <Heading title={data?.attributes?.heading} type='subheading' />
-            <Heading title={data?.attributes?.description} type='text' />
-          </div>
-
-
-          <div className='grid xxs:grid-cols-2 grid-cols-1 lg:gap-7 sm:gap-5 gap-3 mt-10'>
-            {data?.attributes?.themes_list?.map((data) => (
-              <CardThemeContent key={data?.id} data={data} />
-            ))}
-          </div>
-        </summary>
-      </details>
+      <Suspense>
+        <ThemesPageSection data={data} />
+      </Suspense>
     </LayoutContainer>
   )
 }
