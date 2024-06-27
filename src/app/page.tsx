@@ -10,10 +10,10 @@ import Heading from '@/components/commons/heading.common';
 import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
 
-const MainCarousel = dynamic(() => import('@/components/sections/mainCarousel.section'), { ssr: true });
-const FeatureSection = dynamic(() => import('@/components/sections/features.section'), { ssr: true });
-const HotLinkSection = dynamic(() => import('@/components/sections/hotLink.section'), { ssr: true });
-const Steppers = dynamic(() => import('@/components/sections/steppers.section'), { ssr: true });
+const MainCarousel = dynamic(() => import('@/components/sections/homepage/mainCarousel.section'), { ssr: true });
+const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
+const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hotLink.section'), { ssr: true });
+const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.section'), { ssr: true });
 
 export default async function Home() {
   const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep&locale=id', { cache: "no-cache" });

@@ -1,6 +1,6 @@
 
 import { Utils } from "@/utils/index.util";
-import BlockRendererClient from "./rich_text.content";
+import BlockRendererClient from "../commons/rich_text.common";
 import { PricingListType } from "@/types/pricingpage.type";
 import Link from "next/link";
 

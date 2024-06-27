@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import { SteppersType } from "@/types/homepage.type";
-import Heading from "../commons/heading.common";
+import Heading from "../../commons/heading.common";
 
 export default function SteppersSection({ steppers }: { steppers: SteppersType }) {
     return (
