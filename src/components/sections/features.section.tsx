@@ -9,7 +9,7 @@ import { FeatureType } from "@/types/homepage.type";
 export default function FeatureSection({feature}: { feature: FeatureType }) {
 
     return (
-        <div className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">
+        <section className="flex flex-col items-center justify-center text-center lg:mt-20 sm:mt-14 mt-10">
             <div className="flex flex-col items-center justify-center gap-y-4 px-5">
                 <Heading title={feature?.title} type="subheading" className="lg:w-[70%] sm:w-[80%]"/>
 
@@ -19,7 +19,6 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
                     {feature?.btn_text}
                 </Link>
             </div>
-
 
             <div className="grid lg:grid-cols-4 xs:grid-cols-2 grid-cols-1 gap-5 mt-14 mx-auto w-full">
                 {feature?.list_features?.map((data, idx) => (
@@ -36,6 +35,6 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     )
 }

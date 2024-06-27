@@ -38,7 +38,7 @@ export default async function Home() {
       <Suspense>
         <Steppers steppers={data?.attributes?.steppers} />
 
-        <HotLinkSection />
+        <HotLinkSection banners={data?.attributes?.banners} />
       </Suspense>
     </>
   )

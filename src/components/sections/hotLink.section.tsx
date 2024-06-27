@@ -1,35 +1,30 @@
-"use client";
+"use server";
 
 import HotLinkItem from "../micro/hotLinkItem.micro";
 
-import Themes from '@/assets/images/themes_hotlink.png';
-import Pricing from '@/assets/images/pricing_hotlink.png';
+import { BannersType } from "@/types/homepage.type";
 
-export default function HotLinkSection() {
+export default async function HotLinkSection({ banners }: { banners: BannersType[] }) {
     return (
-        <section className="mt-20 lg:w-[68rem] mx-auto">
-            <div className="w-full mx-auto px-4">
-                <div className="flex lg:items-start items-center justify-start">
-                    <HotLinkItem
-                        label="Lihat Koleksi Tema kami"
-                        desc="Lihat koleksi tema kami yang terus kami kembangkan."
-                        labelBtn="Lihat Tema"
-                        goToLink="/"
-                        imageUrl={Themes}
-                    />
-                </div>
+        <section className="mt-14 lg:mt-20 w-full mx-auto my-10">
+            <div className="w-full mx-auto px-4 flex flex-col justify-center items-center gap-y-5 md:gap-y-10">
+                {banners?.map((data, index) => (
+                    <div
+                        key={data?.id}
+                        className={`flex ${index % 2 === 0 ? 'lg:items-start items-center justify-start' : 'lg:items-end items-end justify-end'
+                            } w-full`}
+                    >
+                        <HotLinkItem
+                            className="md:w-[27rem] lg:w-[30rem]"
+                            label={data?.title}
+                            desc={data?.description}
+                            text_btn={data?.btn_text}
+                            goToLink={data?.url}
+                            imageUrl={data?.image?.data?.attributes?.url}
+                        />
+                    </div>
+                ))}
 
-
-                <div className="flex items-end justify-end lg:mt-10 mt-14">
-                    <HotLinkItem
-                        label="Lihat penawaran Harga"
-                        desc="Lihat harga yang kami tawarkan."
-                        labelBtn="Lihat Harga"
-                        goToLink="/"
-                        imageUrl={Pricing}
-                        topImg="lg:-top-20 sm:-top-12 -top-7"
-                    />
-                </div>
             </div>
         </section>
     )

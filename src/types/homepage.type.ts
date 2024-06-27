@@ -19,6 +19,7 @@ export type AttributesHomepage = {
     sliders: SliderType[]
     features: FeatureType
     steppers: SteppersType
+    banners: BannersType[]
 }
 
 export type SliderType = {
@@ -58,4 +59,13 @@ type ListSteppers = {
     id: number
     description: string
     title: string
+}
+
+export type BannersType = {
+    id: number;
+    title: string;
+    description: string;
+    btn_text: string;
+    image: ImageFormatType;
+    url: string;
 }
