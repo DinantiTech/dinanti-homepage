@@ -1,9 +1,10 @@
 "use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import Link from 'next/link';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -13,7 +14,6 @@ import { SliderType } from '@/types/homepage.type';
 
 export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
     const swiperRef: any = useRef();
-
     return (
         <>
             <div className="flex flex-col items-center justify-center w-full">
@@ -43,11 +43,19 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                         {sliders?.map((data) => (
                                 <SwiperSlide key={data?.id} className='rounded-2xl overflow-hidden'>
                                     <div className='aspect-[10/14] relative flex flex-col items-center justify-center'>
-                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
+                                    { data?.btn_text ? (
+                                        <>
+                                            <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
-                                        <div className='absolute bottom-3 w-full px-4'>
-                                            <button className='btn font-semibold text-white bg-[#1D1D1D]'>{data?.btn_text}</button>
-                                        </div>
+                                            <Link href={data?.url} target='_blank' className='absolute bottom-3 w-full px-4'>
+                                                <button className='btn btn-sm xs:btn-md font-semibold text-white bg-[#1D1D1D] w-full rounded-full'>{data?.btn_text}</button>
+                                            </Link>
+                                        </>
+                                    ) : (
+                                        <Link href={data?.url} target='_blank' className='w-full h-full'>
+                                            <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
+                                        </Link>
+                                    ) }
                                     </div>
                                 </SwiperSlide>
                         ))}
