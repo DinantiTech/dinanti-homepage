@@ -13,9 +13,9 @@ export default async function Page() {
 
     return (
         <details>
-            <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-10 pb-20'>
+            <summary className='w-full h-full flex flex-col items-center justify-center text-center mt-7 pb-20'>
 
-                <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[40%] sm:w-4/5 w-full px-4'>
+                <div className='flex flex-col items-center justify-center gap-y-3 lg:w-[50%] sm:w-4/5 w-full px-4'>
                     <Heading type='subheading' title={data?.attributes?.heading} />
                     <Heading type='text' title={data?.attributes?.description} className='sm:text-sm text-xs' />
                 </div>

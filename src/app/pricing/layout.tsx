@@ -51,7 +51,7 @@ export default function PricingLayout({
 }) {
 
   return (
-    <section>
+    <section className='scroll-smooth'>
       {children}
     </section>
   )
