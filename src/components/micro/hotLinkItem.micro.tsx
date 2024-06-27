@@ -7,7 +7,7 @@ export default function HotLinkItem(props: IProps) {
     const { className, ...rest } = props
 
     return (
-        <div className={Utils.cn("relative w-full bg-[#EDEFE2] flex items-center justify-center rounded-xl gap-3 py-5 px-4 xs:px-7", className)} { ...rest } >
+        <div className={Utils.cn("relative w-full bg-[#EDEFE2] flex items-center justify-center rounded-xl gap-3 p-4 sm:py-6 xs:px-7", className)} { ...rest } >
             <div className="flex flex-col items-start justify-center w-full gap-y-2 text-center xxss:text-left">
                 <h3 className="font-semibold text-sm xss:text-base lg:text-lg sm:w-full w-full xxss:w-36 xxs:w-40 xs:w-44 leading-5 lg:leading-none">
                     {props.label}
@@ -32,7 +32,7 @@ export default function HotLinkItem(props: IProps) {
                     height={500}
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="hidden xxs:block sm:absolute right-5 -top-10 aspect-[8/10] rounded-lg object-cover object-top overflow-hidden lg:w-40 md:h-52 md:w-36 sm:w-32 xxs:w-[7rem] w-[6rem] z-10"
+                    className="hidden xxs:block sm:absolute right-5 -top-10 aspect-[8/11] rounded-lg object-cover object-top overflow-hidden lg:w-40 md:h-52 md:w-36 sm:w-32 xxs:w-[7rem] w-[6rem] z-10"
                 />
             ) : null}
         </div>
