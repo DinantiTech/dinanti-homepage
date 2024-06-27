@@ -44,7 +44,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                             <div className='aspect-[10/14] relative flex flex-col items-center justify-center'>
                                 {data?.btn_text ? (
                                     <>
-                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
+                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
                                         <Link href={data?.url} target='_blank' className='absolute bottom-3 w-full px-4'>
                                             <p className='btn btn-sm xs:btn-md font-semibold text-white bg-[#1D1D1D] w-full rounded-full'>{data?.btn_text}</p>
@@ -52,7 +52,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                                     </>
                                 ) : (
                                     <Link href={data?.url} target='_blank' className='w-full h-full'>
-                                        <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
+                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
                                     </Link>
                                 )}
                             </div>

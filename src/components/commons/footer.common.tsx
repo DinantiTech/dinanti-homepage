@@ -30,7 +30,7 @@ export default function Footer({ data, className, ...rest }: FooterProps) {
                     </div>
                 </aside>
                 <nav>
-                    <h6 className="footer-title">Social</h6>
+                    <p className="footer-title">Social</p>
                     <div className="grid grid-flow-col gap-4">
                         { data?.social_link?.map(item => (
                             <Link href={item?.url} key={item?.id}>
