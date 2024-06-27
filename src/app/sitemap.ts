@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://dinanti.id/harga',
+      url: 'https://dinanti.id/pricing',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
     {
-      url: 'https://dinanti.id/tema',
+      url: 'https://dinanti.id/themes',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
