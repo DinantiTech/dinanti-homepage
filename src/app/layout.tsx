@@ -22,6 +22,19 @@ export const metadata: Metadata = {
     canonical: '/',
   },
 
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'standard',
+      'max-snippet': -1,
+    },
+  },
+
   formatDetection: {
     address: false,
     email: true,

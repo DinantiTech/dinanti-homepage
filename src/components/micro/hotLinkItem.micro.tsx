@@ -16,15 +16,17 @@ export default function HotLinkItem(props: IProps) {
                 <p className="sm:w-[65%] md:w-[60%] lg:w-[55%] w-full sm:text-xs lg:text-sm text-xs">{props.desc}</p>
 
                 <div className="w-full">
-                    <Link href={props.goToLink} className="btn btn-sm xs:btn-md bg-[#1D1D1D] text-white hover: font-bold text-xs duration-300 mx-auto">
-                        {props.text_btn}
-                    </Link>
+                    { props?.gotolink ? (
+                        <Link href={props.gotolink} className="btn btn-sm xs:btn-md bg-[#1D1D1D] text-white hover: font-bold text-xs duration-300 mx-auto">
+                            {props.text_btn}
+                        </Link>
+                    ) : null }
                 </div>
             </div>
 
-            {props?.imageUrl ? (
+            {props?.imageurl ? (
                 <Image
-                    src={props.imageUrl}
+                    src={props.imageurl}
                     alt={props.label}
                     width={500}
                     height={500}
@@ -40,7 +42,7 @@ export default function HotLinkItem(props: IProps) {
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     label: string;
     desc: string;
-    imageUrl?: string;
-    goToLink: string;
+    imageurl?: string;
+    gotolink: string;
     text_btn: string;
 }

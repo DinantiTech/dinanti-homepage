@@ -47,7 +47,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                                         <Image src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
                                         <Link href={data?.url} target='_blank' className='absolute bottom-3 w-full px-4'>
-                                            <button className='btn btn-sm xs:btn-md font-semibold text-white bg-[#1D1D1D] w-full rounded-full'>{data?.btn_text}</button>
+                                            <p className='btn btn-sm xs:btn-md font-semibold text-white bg-[#1D1D1D] w-full rounded-full'>{data?.btn_text}</p>
                                         </Link>
                                     </>
                                 ) : (

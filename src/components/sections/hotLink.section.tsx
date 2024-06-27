@@ -19,8 +19,8 @@ export default async function HotLinkSection({ banners }: { banners: BannersType
                             label={data?.title}
                             desc={data?.description}
                             text_btn={data?.btn_text}
-                            goToLink={data?.url}
-                            imageUrl={data?.image?.data?.attributes?.url}
+                            gotolink={data?.url}
+                            imageurl={data?.image?.data?.attributes?.url}
                         />
                     </div>
                 ))}
