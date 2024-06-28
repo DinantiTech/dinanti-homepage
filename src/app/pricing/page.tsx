@@ -1,17 +1,16 @@
 "use server";
 
 import { Metadata } from 'next';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import { cookies } from 'next/headers';
 
 import { MetaRootType, MetaType } from '@/types/meta.type';
 import { PricingDataType } from '@/types/pricingpage.type';
 import { Fetch } from '@/actions/services/fetch.service';
-import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import LayoutContainer from '@/containers/layout.container';
-import { cookies } from 'next/headers';
 
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"));
-
 
 export default async function Page() {
     const getLang = cookies().get("lang")?.value ?? "id";
@@ -31,9 +30,11 @@ export default async function Page() {
 
 export async function generateMetadata(): Promise<Metadata | null> {
     let meta: MetaType;
+
+    const getLang = cookies().get("lang")?.value ?? "id";
   
     try {
-      const data = await Fetch.get<MetaRootType>({ path: '/api/meta-pricing-page?populate=deep&locale=id' });
+      const data = await Fetch.get<MetaRootType>({ path: `/api/meta-pricing-page?populate=deep&locale=${getLang}` });
   
       meta = data?.attributes?.seo;
     } catch (error) {

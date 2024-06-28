@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
+import { cookies } from 'next/headers';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -68,8 +69,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+  const getLang = cookies().get("lang")?.value ?? "id";
+
   return (
-    <html lang="id" dir='ltr' data-theme="base" className='scroll-smooth'>
+    <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth'>
         <body className={`${montserrat.className} relative`}>
             {children}
         </body>
