@@ -12,7 +12,7 @@ import LayoutContainer from '@/containers/layout.container';
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
-  const data = await Fetch.get<ThemesPageDataType>("/api/themes-page?populate=deep&locale=id", { cache: "default" });
+  const data = await Fetch.get<ThemesPageDataType>({ path: "/api/themes-page?populate=deep&locale=id", requestInit: { cache: "default" } });
 
   return (
     <LayoutContainer>
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
   try {
-    const data = await Fetch.get<MetaRootType>('/api/meta-theme?populate=deep&locale=id');
+    const data = await Fetch.get<MetaRootType>({ path: '/api/meta-theme?populate=deep&locale=id' });
 
     meta = data?.attributes?.seo;
   } catch (error) {

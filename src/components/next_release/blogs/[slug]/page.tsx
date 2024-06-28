@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 
 import BlogImage from "@/assets/images/blogs_image.png";
 import BlogsImage from "@/assets/images/blogs_image.png";
-import CardBlog from "@/components/micro/cardBlog.micro";
+import CardBlog from "@/components/micro/card_blog.micro";
 import LayoutContainer from "@/containers/layout.container";
 
 export default function Page({ params, searchParams }: Props) {

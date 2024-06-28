@@ -1,12 +1,14 @@
 import { Fetch } from "@/actions/services/fetch.service";
-import Footer from "@/components/commons/footer.common";
-import NavbarCustom from "@/components/commons/navbar.common";
+import Footer from "@/components/globals/footer.global";
+import NavbarCustom from "@/components/globals/navbar.global";
 import LayoutContainer from "@/containers/layout.container";
 import { DataLocalizationType } from "@/types/nav.type";
+import { cookies } from "next/headers";
 
 
 export default async function TemplateRoot({ children }: { children: React.ReactNode }) {
-    const data = await Fetch.get<DataLocalizationType>("/api/navigation?populate=deep&locale=id", { cache: "default" })
+    const getLang = cookies().get("lang")?.value ?? "id";
+    const data = await Fetch.get<DataLocalizationType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     return (
         <>

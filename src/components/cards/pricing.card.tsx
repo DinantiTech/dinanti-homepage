@@ -1,7 +1,7 @@
 "use server";
 
 import { Utils } from "@/utils/index.util";
-import BlockRendererClient from "../commons/rich_text.common";
+import BlockRendererClient from "../globals/rich_text.global";
 import { PricingListType } from "@/types/pricingpage.type";
 import Link from "next/link";
 

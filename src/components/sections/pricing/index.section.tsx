@@ -1,4 +1,4 @@
-import Heading from "@/components/commons/heading.common";
+import Heading from "@/components/globals/heading.global";
 import { PricingDataType } from "@/types/pricingpage.type";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";

@@ -1,6 +1,6 @@
 "use server";
 
-import HotLinkItem from "../../micro/hotLinkItem.micro";
+import HotLinkItem from "../../micro/hot_link_item.micro";
 
 import { BannersType } from "@/types/homepage.type";
 

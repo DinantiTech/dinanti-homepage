@@ -17,7 +17,7 @@ type Attributes = {
     locale: string;
     navigation: NavigationType[];
     icon: ImageFormatType;
-    localizations: Localizations;
+    localizations: LocalizationsType;
     footer: FooterType
 }
 
@@ -41,11 +41,11 @@ type SocialLinkType = {
     icon_txt: string;
 }
 
-type Localizations = {
-    data: LocalizationsType[];
+export type LocalizationsType = {
+    data: LocalizationType[];
 }
 
-type LocalizationsType = {
+type LocalizationType = {
     id: number;
     attributes: DetailLocalizationsType;
 }

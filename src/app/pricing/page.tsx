@@ -8,12 +8,18 @@ import { Fetch } from '@/actions/services/fetch.service';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import LayoutContainer from '@/containers/layout.container';
+import { cookies } from 'next/headers';
 
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"));
 
-export default async function Page() {
-    const data = await Fetch.get<PricingDataType>("/api/pricing-page-content?populate=deep&locale=id", { cache: "no-cache" });
 
+export default async function Page() {
+    const getLang = cookies().get("lang")?.value ?? "id";
+    const url = `/api/pricing-page-content?populate=deep&locale=${getLang}`;
+
+    const data = await Fetch.get<PricingDataType>({ path: url });
+
+    
     return (
       <LayoutContainer>
           <Suspense>
@@ -27,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata | null> {
     let meta: MetaType;
   
     try {
-      const data = await Fetch.get<MetaRootType>('/api/meta-pricing-page?populate=deep&locale=id');
+      const data = await Fetch.get<MetaRootType>({ path: '/api/meta-pricing-page?populate=deep&locale=id' });
   
       meta = data?.attributes?.seo;
     } catch (error) {

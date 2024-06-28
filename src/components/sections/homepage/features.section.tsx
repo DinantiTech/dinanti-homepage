@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Heading from "../../commons/heading.common";
+import Heading from "../../globals/heading.global";
 import { FeatureType } from "@/types/homepage.type";
 
 export default function FeatureSection({feature}: { feature: FeatureType }) {

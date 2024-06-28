@@ -6,17 +6,17 @@ import { Suspense } from 'react';
 
 import { HomePageType } from '@/types/homepage.type';
 import { MetaRootType, MetaType } from '@/types/meta.type';
-import Heading from '@/components/commons/heading.common';
+import Heading from '@/components/globals/heading.global';
 import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
 
-const MainCarousel = dynamic(() => import('@/components/sections/homepage/mainCarousel.section'), { ssr: true });
+const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
-const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hotLink.section'), { ssr: true });
+const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hot_link.section'), { ssr: true });
 const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.section'), { ssr: true });
 
 export default async function Home() {
-  const data = await Fetch.get<HomePageType>('/api/homepage?populate=deep&locale=id', { cache: "no-cache" });
+  const data = await Fetch.get<HomePageType>({ path: '/api/homepage?populate=deep&locale=id'});
 
   return (
     <>
@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
   try {
-    const data = await Fetch.get<MetaRootType>('/api/meta?populate=deep&locale=id');
+    const data = await Fetch.get<MetaRootType>({ path: '/api/meta?populate=deep&locale=id' });
 
     meta = data?.attributes?.seo;
   } catch (error) {

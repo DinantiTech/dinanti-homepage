@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image';
 
 import BlogsImage from "@/assets/images/blogs_image.png";
-import CardBlog from '@/components/micro/cardBlog.micro';
+import CardBlog from '@/components/micro/card_blog.micro';
 import { Metadata, ResolvingMetadata } from 'next';
 import LayoutContainer from '@/containers/layout.container';
 

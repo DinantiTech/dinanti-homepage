@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-const BlockRendererClient = dynamic(() => import("./rich_text.common"))
+const BlockRendererClient = dynamic(() => import("./rich_text.global"))
 
 interface FooterProps extends HTMLAttributes<HTMLElement> {
     data: FooterType
@@ -19,11 +19,13 @@ export default function Footer({ data, className, ...rest }: FooterProps) {
             <LayoutContainer className="flex items-start sm:items-center sm:justify-between flex-col sm:flex-row">
                 <aside className="flex flex-col gap-y-2 items-start justify-start">
                     <Link href="/">
-                        <Image 
-                            src={data?.icon?.data?.attributes?.url} width={100} height={100} 
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Icon Dinanti"
-                            className="w-20 lg:w-28"
-                        />
+                        { data?.icon?.data?.attributes?.url ? (
+                            <Image 
+                                src={data?.icon?.data?.attributes?.url} width={100} height={100} 
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Icon Dinanti"
+                                className="w-20 lg:w-28"
+                            />
+                        ) : null }
                     </Link>
                     <div className="sm:leading-6 text-[0.7rem] xs:text-xs sm:text-sm">
                         <BlockRendererClient content={data?.description} />

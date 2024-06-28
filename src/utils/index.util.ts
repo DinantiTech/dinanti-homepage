@@ -19,5 +19,4 @@ export class Utils {
     
         return finalPrice;
     }
-    
 }

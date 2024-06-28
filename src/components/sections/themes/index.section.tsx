@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import Heading from "@/components/commons/heading.common";
+import Heading from "@/components/globals/heading.global";
 import { ThemesPageDataType } from "@/types/themespage.type";
 import { Suspense } from "react";
 
