@@ -9,8 +9,8 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css';
+import { SliderType } from '@/libs/types/homepage.type';
 
-import { SliderType } from '@/types/homepage.type';
 
 export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
     const swiperRef: any = useRef();
@@ -19,7 +19,6 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
             {sliders ? (
                 <Swiper
                     effect='coverflow'
-                    centeredSlides
                     loop
                     slidesPerView={1}
                     coverflowEffect={
@@ -47,7 +46,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                                         <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={100} height={100} alt='preview 2' className='w-full h-full object-cover' />
 
                                         <Link href={data?.url} target='_blank' className='absolute bottom-3 w-full px-4'>
-                                            <p className='btn btn-sm xs:btn-md font-semibold text-white bg-[#1D1D1D] w-full rounded-full'>{data?.btn_text}</p>
+                                            <p className='btn btn-sm xs:btn-md font-semibold duration-700 hover:bg-gray-800 text-white bg-MIDNIGHT w-full rounded-full'>{data?.btn_text}</p>
                                         </Link>
                                     </>
                                 ) : (
