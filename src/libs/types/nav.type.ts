@@ -1,11 +1,11 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { ImageFormatType } from "./image.type"
 
-export type RootLocalizationType = {
-    data: DataLocalizationType;
+export type RootNavigationsType = {
+    data: DataNavigationsType;
 }
 
-export type DataLocalizationType = {
+export type DataNavigationsType = {
     id: number;
     attributes: Attributes;
 }
@@ -15,7 +15,7 @@ type Attributes = {
     updatedAt: string;
     publishedAt: string;
     locale: string;
-    navigation: NavigationType[];
+    navbars: NavigationType[];
     icon: ImageFormatType;
     localizations: LocalizationsType;
     footer: FooterType

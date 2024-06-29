@@ -7,11 +7,11 @@ import { HTMLAttributes, Suspense } from "react";
 
 import dynamic from "next/dynamic";
 import { Utils } from "@/libs/utils/index.util";
-import { DataLocalizationType, NavigationType } from "@/libs/types/nav.type";
+import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
-export default async function NavbarCustom({ data }: { data: DataLocalizationType }) {
+export default async function NavbarCustom({ data }: { data: DataNavigationsType }) {
 
     const dataLocale = data?.attributes?.localizations;
     const currentLocal = data?.attributes?.locale;
@@ -43,7 +43,7 @@ export default async function NavbarCustom({ data }: { data: DataLocalizationTyp
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-lg border-2 border-lime-900/10">
-                                <NavList data={data?.attributes?.navigation} isSidebar />
+                                <NavList data={data?.attributes?.navbars} isSidebar />
                             </ul>
                         </div>
 
@@ -53,7 +53,7 @@ export default async function NavbarCustom({ data }: { data: DataLocalizationTyp
                     {/* Center */}
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
-                            <NavList data={data?.attributes?.navigation} />
+                            <NavList data={data?.attributes?.navbars} />
                         </ul>
                     </div>
 
