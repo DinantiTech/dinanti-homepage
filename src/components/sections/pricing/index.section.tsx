@@ -13,7 +13,7 @@ export default function PricingPageSection({ data }: { data: PricingDataType }) 
                 <Heading type='text' title={data?.attributes?.description} className='sm:text-sm text-xs' />
             </div>
 
-            <div className='grid sm:grid-cols-2 grid-cols-1 mt-16 gap-5'>
+            <div className={`${data?.attributes?.pricing_list?.length > 2 ? "lg:grid-cols-3" : null} grid sm:grid-cols-2 grid-cols-1 mt-16 gap-5`}>
                 {data?.attributes?.pricing_list?.map((data) => (
                     <Suspense key={data?.id}>
                         <CardPricing data={data} />

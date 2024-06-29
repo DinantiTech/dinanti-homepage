@@ -10,7 +10,7 @@ import { PricingDataType } from '@/types/pricingpage.type';
 import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
 
-const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"));
+const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"), { ssr: true });
 
 export default async function Page() {
     const getLang = cookies().get("lang")?.value ?? "id";
@@ -18,7 +18,6 @@ export default async function Page() {
 
     const data = await Fetch.get<PricingDataType>({ path: url });
 
-    
     return (
       <LayoutContainer>
           <Suspense>
