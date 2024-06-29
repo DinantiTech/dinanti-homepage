@@ -16,6 +16,7 @@ type Attributes = {
     publishedAt: string;
     locale: string;
     navbars: NavigationType[];
+    others: NavigationType[];
     icon: ImageFormatType;
     localizations: LocalizationsType;
     footer: FooterType
@@ -32,6 +33,8 @@ export type NavigationType = {
     id: number;
     title: string;
     url: string;
+    type?: string;
+    icon_txt?: string;
 }
 
 type SocialLinkType = {

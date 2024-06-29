@@ -1,9 +1,9 @@
 "use server";
 
-import { Utils } from "@/utils/index.util";
+import { PricingListType } from "@/libs/types/pricingpage.type";
 import BlockRendererClient from "../globals/rich_text.global";
-import { PricingListType } from "@/types/pricingpage.type";
 import Link from "next/link";
+import { Utils } from "@/libs/utils/index.util";
 
 export default async function CardPricing({ data } : { data: PricingListType }) {
     const isFree = data?.type === "free";

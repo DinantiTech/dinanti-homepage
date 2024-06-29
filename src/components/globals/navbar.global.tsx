@@ -18,6 +18,8 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
 
     const isLogin: boolean = false;
 
+    const createInvitationNav = data?.attributes?.others?.find(item => item.type === "create_invitation");
+
     return (
         <header>
             <div className="fixed top-0 w-full bg-base-100 z-[999] shadow-lg">
@@ -59,10 +61,12 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        <Link href="/" className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
-                            <Icon icon="ic:round-plus" />
-                            <span className="hidden xxss:block">Undangan</span>
-                        </Link>
+                        { createInvitationNav ? (
+                            <Link href={createInvitationNav?.url} className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
+                                { createInvitationNav?.icon_txt ? (<Icon icon={createInvitationNav?.icon_txt} />): null }
+                                <span className="hidden xxss:block">{createInvitationNav?.title}</span>
+                            </Link>
+                        ) : null }
                         
                         { isLogin ? (
                             <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-white/0 bg-opacity-0">
