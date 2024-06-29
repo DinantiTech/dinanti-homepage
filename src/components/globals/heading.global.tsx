@@ -1,4 +1,4 @@
-import { Utils } from "@/utils/index.util";
+import { Utils } from "@/libs/utils/index.util";
 import { HTMLProps } from "react";
 
 type HeadingProps = {

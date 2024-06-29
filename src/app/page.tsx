@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-import { HomePageType } from '@/types/homepage.type';
-import { MetaRootType, MetaType } from '@/types/meta.type';
 import Heading from '@/components/globals/heading.global';
-import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
+import { Fetch } from '@/libs/actions/services/fetch.service';
+import { HomePageType } from '@/libs/types/homepage.type';
+import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });

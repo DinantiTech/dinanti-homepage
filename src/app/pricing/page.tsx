@@ -5,10 +5,10 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 
-import { MetaRootType, MetaType } from '@/types/meta.type';
-import { PricingDataType } from '@/types/pricingpage.type';
-import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
+import { PricingDataType } from '@/libs/types/pricingpage.type';
+import { Fetch } from '@/libs/actions/services/fetch.service';
+import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"), { ssr: true });
 

@@ -1,8 +1,8 @@
-import { Fetch } from "@/actions/services/fetch.service";
 import Footer from "@/components/globals/footer.global";
 import NavbarCustom from "@/components/globals/navbar.global";
 import LayoutContainer from "@/containers/layout.container";
-import { DataLocalizationType } from "@/types/nav.type";
+import { Fetch } from "@/libs/actions/services/fetch.service";
+import { DataLocalizationType } from "@/libs/types/nav.type";
 import { cookies } from "next/headers";
 
 

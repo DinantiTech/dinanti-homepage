@@ -1,11 +1,11 @@
 import LayoutContainer from "@/containers/layout.container";
-import { FooterType } from "@/types/nav.type";
-import { Utils } from "@/utils/index.util";
 import Image from "next/image";
 import { HTMLAttributes } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Utils } from "@/libs/utils/index.util";
+import { FooterType } from "@/libs/types/nav.type";
 
 const BlockRendererClient = dynamic(() => import("./rich_text.global"))
 

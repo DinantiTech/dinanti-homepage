@@ -1,4 +1,4 @@
-import StorageUtil from "@/helpers/storage.helper";
+import StorageUtil from "@/libs/helpers/storage.helper";
 import { StorageType } from "@/types/storage.type";
 
 type FetchType = {

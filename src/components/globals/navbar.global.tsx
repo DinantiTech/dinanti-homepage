@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { HTMLAttributes, Suspense } from "react";
 
-import { DataLocalizationType, NavigationType } from "@/types/nav.type";
-import { Utils } from "@/utils/index.util";
 import dynamic from "next/dynamic";
+import { Utils } from "@/libs/utils/index.util";
+import { DataLocalizationType, NavigationType } from "@/libs/types/nav.type";
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
@@ -15,6 +15,8 @@ export default async function NavbarCustom({ data }: { data: DataLocalizationTyp
 
     const dataLocale = data?.attributes?.localizations;
     const currentLocal = data?.attributes?.locale;
+
+    const isLogin: boolean = false;
 
     return (
         <header>
@@ -24,7 +26,7 @@ export default async function NavbarCustom({ data }: { data: DataLocalizationTyp
                     {/* Start */}
                     <div className="navbar-start">
                         <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <div tabIndex={0} role="button" className="btn btn-xs xxs:btn-sm btn-ghost hover:bg-white/0 lg:hidden">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5"
@@ -57,13 +59,25 @@ export default async function NavbarCustom({ data }: { data: DataLocalizationTyp
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        <button className="btn group-hover:text-lime-900">
-                            <Icon icon="vaadin:paperplane" />
-                            Masuk
-                        </button>
+                        <Link href="/" className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
+                            <Icon icon="ic:round-plus" />
+                            <span className="hidden xxss:block">Undangan</span>
+                        </Link>
+                        
+                        { isLogin ? (
+                            <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-white/0 bg-opacity-0">
+                                { true ? (
+                                    <span className="">P</span>
+                                ) : null }
+                            </button>
+                        ): null }
 
                         <Suspense>
-                            <DrowdownLanguage currentLocal={currentLocal} locales={dataLocale} />
+                            <DrowdownLanguage 
+                                currentLocal={currentLocal}
+                                locales={dataLocale}
+                                className="hidden xxxss:block"
+                            />
                         </Suspense>
                     </div>
                 </div>
@@ -78,8 +92,8 @@ interface BrandLogoProps extends HTMLAttributes<HTMLAnchorElement> {
 function BrandLogo({ imageUrl, className, ...rest }: BrandLogoProps) {
 
     return (
-        <Link href="/" className={Utils.cn("w-12 xxs:w-[4.5rem] sm:w-[6rem]", className)} {...rest}>
-            <Image src={imageUrl} alt="Logo Dinanti" width={500} height={500} className="w-full" />
+        <Link href="/" className={Utils.cn("w-14 xxs:w-[4rem] sm:w-[6rem]", className)} {...rest}>
+            <Image src={imageUrl} alt="Logo Dinanti" width={500} height={500} className="w-full pb-1" />
             <p className="hidden">Dinanti Logo</p>
         </Link>
     );

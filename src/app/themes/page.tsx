@@ -4,10 +4,10 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-import { ThemesPageDataType } from '@/types/themespage.type';
-import { MetaRootType, MetaType } from '@/types/meta.type';
-import { Fetch } from '@/actions/services/fetch.service';
 import LayoutContainer from '@/containers/layout.container';
+import { MetaRootType, MetaType } from '@/libs/types/meta.type';
+import { Fetch } from '@/libs/actions/services/fetch.service';
+import { ThemesPageDataType } from '@/libs/types/themespage.type';
 
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
