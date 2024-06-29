@@ -31,9 +31,10 @@ export async function generateMetadata(): Promise<Metadata | null> {
     let meta: MetaType;
 
     const getLang = cookies().get("lang")?.value ?? "id";
+    const url = `/api/meta-pricing-page?populate=deep&locale=${getLang}`;
   
     try {
-      const data = await Fetch.get<MetaRootType>({ path: `/api/meta-pricing-page?populate=deep&locale=${getLang}` });
+      const data = await Fetch.get<MetaRootType>({ path: url });
   
       meta = data?.attributes?.seo;
     } catch (error) {

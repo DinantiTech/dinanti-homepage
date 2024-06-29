@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import { SteppersType } from "@/types/homepage.type";
 import Heading from "../../globals/heading.global";
+import { SteppersType } from "@/libs/types/homepage.type";
 
 export default function SteppersSection({ steppers }: { steppers: SteppersType }) {
     return (
@@ -13,7 +13,7 @@ export default function SteppersSection({ steppers }: { steppers: SteppersType }
                 <Image src={steppers?.image?.data?.attributes?.url} loading="lazy" alt="Image hand couples" width={1000} height={1000} className="lg:block hidden w-60 h-80 object-cover object-center bg-gray-400 rounded-lg border-4 border-[#D7DCBE]" />
 
                 <div className="flex flex-col lg:items-start items-center justify-center gap-y-4 md:gap-y-6 w-full">
-                    <Heading type="subheading" title={steppers.heading} className="text-center" />
+                    <Heading type="subheading" title={steppers?.heading} className="text-center" />
 
                     <ul className="steps steps-vertical gap-y-2">
                         {steppers?.list_stepper?.map(data => (

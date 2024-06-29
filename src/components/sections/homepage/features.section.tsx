@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Heading from "../../globals/heading.global";
-import { FeatureType } from "@/types/homepage.type";
+import { FeatureType } from "@/libs/types/homepage.type";
 
 export default function FeatureSection({feature}: { feature: FeatureType }) {
 
@@ -22,7 +22,7 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
 
             <div className="grid lg:grid-cols-4 xs:grid-cols-2 grid-cols-1 gap-5 mt-14 mx-auto w-full">
                 {feature?.list_features?.map((data, idx) => (
-                    <div key={`${data?.id}-${idx}`} className="flex flex-col items-start justify-center mx-auto text-left gap-3 xs:gap-4 bg-[#EDEFE2] rounded-lg p-4 w-full xxs:w-64 xs:w-full">
+                    <div key={`${data?.id}-${idx}`} className="flex flex-col lg:min-h-48 items-start justify-center mx-auto text-left gap-3 xs:gap-4 bg-[#EDEFE2] rounded-lg p-4 w-full xxs:w-64 xs:w-full">
 
                         <div className="w-9 h-9 rounded bg-[#D7DCBE]">
                             <Image src={data.icon?.data?.attributes?.url} alt={`icon ${data.name}`} width={50} height={50} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>

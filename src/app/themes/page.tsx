@@ -8,11 +8,15 @@ import LayoutContainer from '@/containers/layout.container';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { Fetch } from '@/libs/actions/services/fetch.service';
 import { ThemesPageDataType } from '@/libs/types/themespage.type';
+import { cookies } from 'next/headers';
 
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
-  const data = await Fetch.get<ThemesPageDataType>({ path: "/api/themes-page?populate=deep&locale=id", requestInit: { cache: "default" } });
+  const getLang = cookies().get("lang")?.value ?? "id";
+  const url = `/api/themes-page?populate=deep&locale==${getLang}`;
+
+  const data = await Fetch.get<ThemesPageDataType>({ path: url, requestInit: { cache: "default" } });
 
   return (
     <LayoutContainer>
@@ -27,8 +31,11 @@ export default async function ThemesPage() {
 export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
+  const getLang = cookies().get("lang")?.value ?? "id";
+  const url = `/api/meta-theme?populate=deep&locale==${getLang}`;
+
   try {
-    const data = await Fetch.get<MetaRootType>({ path: '/api/meta-theme?populate=deep&locale=id' });
+    const data = await Fetch.get<MetaRootType>({ path: url });
 
     meta = data?.attributes?.seo;
   } catch (error) {

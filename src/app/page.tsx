@@ -9,6 +9,7 @@ import LayoutContainer from '@/containers/layout.container';
 import { Fetch } from '@/libs/actions/services/fetch.service';
 import { HomePageType } from '@/libs/types/homepage.type';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
+import { cookies } from 'next/headers';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
@@ -16,7 +17,10 @@ const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hot_
 const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.section'), { ssr: true });
 
 export default async function Home() {
-  const data = await Fetch.get<HomePageType>({ path: '/api/homepage?populate=deep&locale=id'});
+  const getLang = cookies().get("lang")?.value ?? "id";
+  const url = `/api/homepage?populate=deep&locale=${getLang}`;
+
+  const data = await Fetch.get<HomePageType>({ path: url });
 
   return (
     <>
@@ -26,19 +30,21 @@ export default async function Home() {
       </LayoutContainer>
 
       <Suspense>
-        <MainCarousel sliders={data?.attributes?.sliders} />
+        { data?.attributes?.sliders.length > 0 ? (<MainCarousel sliders={data?.attributes?.sliders} />) : null }
       </Suspense>
 
       <Suspense>
-        <div className='h-full w-full flex items-center justify-center'>
-          <FeatureSection feature={data?.attributes?.features} />
-        </div>
+        { data?.attributes?.features ? (
+          <div className='h-full w-full flex items-center justify-center'>
+            <FeatureSection feature={data?.attributes?.features} />
+          </div>
+        ) : null }
       </Suspense>
 
       <Suspense>
-        <Steppers steppers={data?.attributes?.steppers} />
+        { data?.attributes?.steppers ? (<Steppers steppers={data?.attributes?.steppers} />) : null }
 
-        <HotLinkSection banners={data?.attributes?.banners} />
+        { data?.attributes?.banners?.length > 0 ? (<HotLinkSection banners={data?.attributes?.banners} />) : null }
       </Suspense>
     </>
   )
@@ -47,8 +53,11 @@ export default async function Home() {
 export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
+  const getLang = cookies().get("lang")?.value ?? "id";
+  const url = `/api/meta?populate=deep&locale=${getLang}`;
+
   try {
-    const data = await Fetch.get<MetaRootType>({ path: '/api/meta?populate=deep&locale=id' });
+    const data = await Fetch.get<MetaRootType>({ path: url });
 
     meta = data?.attributes?.seo;
   } catch (error) {

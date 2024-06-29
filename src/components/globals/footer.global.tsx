@@ -23,11 +23,11 @@ export default function Footer({ data, className, ...rest }: FooterProps) {
                             <Image 
                                 src={data?.icon?.data?.attributes?.url} width={100} height={100} 
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Icon Dinanti"
-                                className="w-20 lg:w-28"
+                                className="w-12 xxss:w-16 xxs:w-20 lg:w-28"
                             />
                         ) : null }
                     </Link>
-                    <div className="sm:leading-6 text-[0.7rem] xs:text-xs sm:text-sm">
+                    <div className="sm:leading-6 text-[0.5rem] xxss:text-[0.7rem] xs:text-xs sm:text-sm">
                         <BlockRendererClient content={data?.description} />
                     </div>
                 </aside>
