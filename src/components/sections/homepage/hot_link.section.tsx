@@ -1,8 +1,7 @@
 "use server";
 
+import { BannersType } from "@/libs/types/homepage.type";
 import HotLinkItem from "../../micro/hot_link_item.micro";
-
-import { BannersType } from "@/types/homepage.type";
 
 export default async function HotLinkSection({ banners }: { banners: BannersType[] }) {
     return (

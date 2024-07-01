@@ -15,6 +15,7 @@ const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_c
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
 const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hot_link.section'), { ssr: true });
 const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.section'), { ssr: true });
+const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: false });
 
 export default async function Home() {
   const getLang = cookies().get("lang")?.value ?? "id";
@@ -45,6 +46,13 @@ export default async function Home() {
         { data?.attributes?.steppers ? (<Steppers steppers={data?.attributes?.steppers} />) : null }
 
         { data?.attributes?.banners?.length > 0 ? (<HotLinkSection banners={data?.attributes?.banners} />) : null }
+
+      </Suspense>
+
+      <Suspense>
+        { data?.attributes?.testimony ? (
+          <TestimonialsSection data={data?.attributes?.testimony} />
+        ) : null }
       </Suspense>
     </>
   )

@@ -14,12 +14,27 @@ export type AttributesHomepage = {
     heading: string
     sub_heading: string
     logo: ImageType
-    testimonies: any[]
+    testimony: TestimonySectionType
     seo?: MetaType
     sliders: SliderType[]
     features: FeatureType
     steppers: SteppersType
     banners: BannersType[]
+}
+
+export type TestimonySectionType = {
+    id: number;
+    heading: string;
+    description: string;
+    url?: string;
+    testimonies: TestimoniesType[]
+}
+
+export type TestimoniesType = {
+    id: string;
+    customer_name: string;
+    testimony: string;
+    image: ImageFormatType;
 }
 
 export type SliderType = {
