@@ -1,5 +1,6 @@
 import StorageUtil from "@/libs/helpers/storage.helper";
-import { StorageType } from "@/types/storage.type";
+import { StorageType } from "@/libs/types/storage.type";
+import { notFound } from "next/navigation";
 
 type FetchType = {
     path: string;
@@ -19,7 +20,8 @@ export class Fetch {
             const dataFetch = await fetch(this.baseURL + path, { signal, next: { revalidate: 10 }, ...requestInit });
 
             if (!dataFetch.ok) {
-                throw new Error(`Error fetching data: ${dataFetch.statusText}`);
+                if(dataFetch?.status === 404) notFound()
+                // throw new Error(`Error fetching data: ${dataFetch.status}`);
             }
 
             const { data } = await dataFetch.json();
@@ -31,7 +33,7 @@ export class Fetch {
             }
 
             return result;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(`Error fetching data: ${error}`);
         }
     }

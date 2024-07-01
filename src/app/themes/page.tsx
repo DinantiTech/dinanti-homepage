@@ -9,17 +9,21 @@ import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { Fetch } from '@/libs/actions/services/fetch.service';
 import { ThemesPageDataType } from '@/libs/types/themespage.type';
 import { cookies } from 'next/headers';
+import JsonLd from '@/components/globals/jsonld.global';
 
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
   const getLang = cookies().get("lang")?.value ?? "id";
-  const url = `/api/themes-page?populate=deep&locale==${getLang}`;
+  const url = `/api/themes-page?populate=deep&locale=${getLang}`;
+  const urlMeta = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
-  const data = await Fetch.get<ThemesPageDataType>({ path: url, requestInit: { cache: "default" } });
+  const data = await Fetch.get<ThemesPageDataType>({ path: url });
+  const meta = await Fetch.get<MetaRootType>({ path: urlMeta });
 
   return (
     <LayoutContainer>
+      <JsonLd data={meta?.attributes?.seo?.structuredData} />
       <Suspense>
         <ThemesPageSection data={data} />
       </Suspense>
@@ -32,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
   const getLang = cookies().get("lang")?.value ?? "id";
-  const url = `/api/meta-theme?populate=deep&locale==${getLang}`;
+  const url = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
   try {
     const data = await Fetch.get<MetaRootType>({ path: url });
@@ -71,6 +75,8 @@ export async function generateMetadata(): Promise<Metadata | null> {
       creator: "Dinanti Creator",
       site: meta?.baseUrl
     },
+    
+
 
   }
 }

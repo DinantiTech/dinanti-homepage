@@ -16,18 +16,12 @@ export type MetaType = {
     metaDescription: string
     keywords: string
     metaRobots: string
-    structuredData: StructuredData
+    structuredData: object;
     metaViewport: string
     canonicalURL: string
     metaImage: ImageFormatType
     metaSocial: MetaSocial[],
     baseUrl: string;
-}
-
-type StructuredData = {
-    "@context": string
-    "@type": string
-    itemListElement: ItemListElement[]
 }
 
 type ItemListElement = {
