@@ -10,6 +10,7 @@ import { Fetch } from '@/libs/actions/services/fetch.service';
 import { HomePageType } from '@/libs/types/homepage.type';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { cookies } from 'next/headers';
+import JsonLd from '@/components/globals/jsonld.global';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
@@ -20,11 +21,14 @@ const TestimonialsSection = dynamic(() => import('@/components/sections/homepage
 export default async function Home() {
   const getLang = cookies().get("lang")?.value ?? "id";
   const url = `/api/homepage?populate=deep&locale=${getLang}`;
+  const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
 
   const data = await Fetch.get<HomePageType>({ path: url });
+  const dataMeta = await Fetch.get<MetaRootType>({ path: urlMeta });
 
   return (
     <>
+      <JsonLd data={dataMeta?.attributes?.seo?.structuredData} />
       <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
         <Heading type='heading' title={data?.attributes?.heading} className='px-2' />
         <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
