@@ -4,7 +4,7 @@ import { create } from "zustand";
 type StateStore = {
     data?: AttributesHomepage | null
 }
-
+ 
 type ActionStore = {
     setState: (data: AttributesHomepage) => void;
 };
