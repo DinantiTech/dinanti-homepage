@@ -17,7 +17,7 @@ export default function HotLinkItem(props: IProps) {
 
                 <div className="w-full">
                     { props?.gotolink ? (
-                        <Link href={props.gotolink} className="btn btn-sm xs:btn-md bg-[#1D1D1D] text-white hover: font-bold text-xs duration-300 mx-auto">
+                        <Link prefetch={false} href={props.gotolink} className="btn btn-sm xs:btn-md bg-[#1D1D1D] text-white hover: font-bold text-xs duration-300 mx-auto">
                             {props.text_btn}
                         </Link>
                     ) : null }

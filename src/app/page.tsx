@@ -16,7 +16,7 @@ const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_c
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
 const HotLinkSection = dynamic(() => import('@/components/sections/homepage/hot_link.section'), { ssr: true });
 const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.section'), { ssr: true });
-const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: false });
+const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: true });
 
 export default async function Home() {
   const getLang = cookies().get("lang")?.value ?? "id";

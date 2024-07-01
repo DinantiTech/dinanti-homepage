@@ -15,7 +15,7 @@ export default function FeatureSection({feature}: { feature: FeatureType }) {
 
                 <Heading title={feature?.description} type="text" className="text-sm lg:w-[70%] sm:w-[80%]" />
 
-                <Link href={feature?.url} target="_blank" color="default" className="btn bg-MIDNIGHT hover:bg-gray-800 duration-700 text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
+                <Link prefetch={false} href={feature?.url} target="_blank" color="default" className="btn bg-MIDNIGHT hover:bg-gray-800 duration-700 text-white font-semibold lg:mt-10 sm:mt-6 mt-4">
                     {feature?.btn_text}
                 </Link>
             </div>
