@@ -3,8 +3,8 @@ import Image, { StaticImageData } from "next/image";
 
 import BlogImage from "@/assets/images/blogs_image.png";
 import BlogsImage from "@/assets/images/blogs_image.png";
-import CardBlog from "@/components/micro/card_blog.micro";
 import LayoutContainer from "@/containers/layout.container";
+import CardBlog from "@/components/cards/blog.card";
 
 export default function Page({ params, searchParams }: Props) {
   const dataBlogs: TypeDataBlogs[] = [

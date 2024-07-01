@@ -1,4 +1,4 @@
-import { AttributesHomepage } from "@/types/homepage.type";
+import { AttributesHomepage } from "@/libs/types/homepage.type";
 import { create } from "zustand";
 
 type StateStore = {

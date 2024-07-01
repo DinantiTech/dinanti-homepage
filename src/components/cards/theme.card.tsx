@@ -1,6 +1,6 @@
 "use serverd";
 
-import { CardThemesListType } from "@/types/themespage.type";
+import { CardThemesListType } from "@/libs/types/themespage.type";
 import Image from "next/image";
 import Link from "next/link";
 

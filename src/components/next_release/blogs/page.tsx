@@ -1,9 +1,9 @@
 import { StaticImageData } from 'next/image';
 
 import BlogsImage from "@/assets/images/blogs_image.png";
-import CardBlog from '@/components/micro/card_blog.micro';
 import { Metadata, ResolvingMetadata } from 'next';
 import LayoutContainer from '@/containers/layout.container';
+import CardBlog from '@/components/cards/blog.card';
 
 export default function BlogsPage() {
     const dataBlogs: TypeDataBlogs[] = [

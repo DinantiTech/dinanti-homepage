@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 
 import Heading from "@/components/globals/heading.global";
-import { ThemesPageDataType } from "@/types/themespage.type";
 import { Suspense } from "react";
+import { ThemesPageDataType } from "@/libs/types/themespage.type";
 
 const CardThemeContent = dynamic(() => import("@/components/cards/theme.card"), { ssr: true });
 

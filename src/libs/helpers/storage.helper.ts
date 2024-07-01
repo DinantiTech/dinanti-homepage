@@ -1,4 +1,4 @@
-import { StorageType } from "@/types/storage.type";
+import { StorageType } from "../types/storage.type";
 
 interface StorageProps {
   key: string;
