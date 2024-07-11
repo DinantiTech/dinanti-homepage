@@ -15,7 +15,7 @@ interface FooterProps extends HTMLAttributes<HTMLElement> {
 
 export default function Footer({ data, className, ...rest }: FooterProps) {
     return (
-        <footer className={Utils.cn("footer p-10 bg-MIDNIGHT text-white", className)} {...rest}>
+        <footer className={Utils.cn("footer p-10 bg-MIDNIGHT text-white absolute -z-10", className)} {...rest}>
             <LayoutContainer className="flex items-start sm:items-center sm:justify-between flex-col sm:flex-row">
                 <aside className="flex flex-col gap-y-2 items-start justify-start">
                     <Link href="/">

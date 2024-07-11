@@ -15,7 +15,16 @@ const config: Config = {
         "ACCENT": "#D7DCBE",
         "NEUTRAL": "#263C24",
         "MIDNIGHT": "#1D1D1D"
-      }
+      },
+      animation: {
+        'shimmer': 'shimmer 2s infinite linear',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
+      },
     },
     screens: {
       xxxsss: "200px",

@@ -5,6 +5,7 @@ import { cookies } from 'next/headers';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  title: "Dinanti Digital Invitation",
   metadataBase: new URL('https://dinanti.id'),
   generator: 'dinanti generator',
   applicationName: 'Dinanti',
@@ -72,7 +73,7 @@ export default function RootLayout({
   const getLang = cookies().get("lang")?.value ?? "id";
 
   return (
-    <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth'>
+    <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth relative'>
         <body className={`${montserrat.className} relative`}>
             {children}
         </body>
