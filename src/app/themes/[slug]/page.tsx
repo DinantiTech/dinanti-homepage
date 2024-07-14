@@ -28,7 +28,7 @@ export default async function ThemePage({ params }: { params: { slug: string } }
     return (
         <>
             <Link href="/themes" className="mb-5 btn w-fit btn-sm flex items-center gap-x-2 font-semibold bg-MIDNIGHT text-white rounded-full hover:text-NEUTRAL duration-500">
-                {getLang !== "id" ? "Themes" : "Tema"} <span><Icon className="text-lg" icon="ion:return-down-back" /></span>
+                { isLang ? "Themes" : "Tema"} <span><Icon className="text-lg" icon="ion:return-down-back" /></span>
             </Link>
 
             <section className='relative h-fit bg-white shadow border p-4 lg:p-7 rounded-xl'>
