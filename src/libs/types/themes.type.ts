@@ -1,6 +1,12 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { ImageFormatType } from "./image.type";
 import { CustomerDataType } from "./customers.type";
+import { MetaPageType } from "./meta_page.type";
+
+export type ThemesDataListType = {
+    data: ThemesDataType[],
+    meta: MetaPageType
+}
 
 export type ThemesDataType = {
     id: number;
