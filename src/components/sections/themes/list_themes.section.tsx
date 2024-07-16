@@ -53,6 +53,8 @@ export default function ListThemes() {
 
     if (status === 'error') return <Maintenance />;
 
+    if(error) return <Maintenance />;
+
     return (
         <section className="flex flex-col items-center justify-center w-full py-1">
             <label className="input input-bordered flex items-center gap-2 max-w-[29rem] w-full text-NEUTRAL py-4">
@@ -69,11 +71,7 @@ export default function ListThemes() {
             </Suspense>
 
             <div ref={ref}>
-                {isFetchingNextPage
-                    ? 'Loading more...'
-                    : hasNextPage
-                        ? 'Load More'
-                        : 'Nothing more to load'}
+                {isFetchingNextPage || hasNextPage && <span className="loading loading-dots loading-lg py-7" /> }
             </div>
         </section>
     )

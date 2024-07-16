@@ -5,11 +5,8 @@ import dynamic from "next/dynamic";
 import Heading from "@/components/globals/heading.global";
 import { Suspense } from "react";
 import { ThemesPageDataType } from "@/libs/types/themespage.type";
-import { Fetch } from "@/libs/actions/services/fetch.service";
-import { ThemesDataListType } from "@/libs/types/themes.type";
 
 const ThemesList = dynamic(() => import("@/components/sections/themes/list_themes.section"));;
-
 
 export default async function ThemesPageSection({ data }: { data: ThemesPageDataType }) {
     return (

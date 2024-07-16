@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Pacifico } from "next/font/google";
 import StorageUtil from "@/libs/helpers/storage.helper";
 import Link from "next/link";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const facifico = Pacifico({
     subsets: ["latin"],
@@ -60,11 +61,12 @@ function ModalTestimony({ testimony }: { testimony?: CustomerDataType | null }) 
                                 <BlockRendererClient content={testimony?.attributes?.testimony} />
                             </div>
 
-                            <div className="flex items-center justify-center gap-3">
-                                <Link href="/" className="w-1/2 btn">
+                            <div className="flex items-center justify-center gap-3 text-xs">
+                                <Link href={testimony?.attributes?.theme_url ?? "/"} target="_blank" className="w-[65%] btn">
+                                    <Icon icon="mingcute:invite-fill" className="text-lg"/>
                                     Buka undangan
                                 </Link>
-                                <label className="btn my-5 w-1/2 bg-MIDNIGHT text-white hover:bg-MIDNIGHT/90 duration-500" htmlFor="modal-testimony">
+                                <label className="btn my-5 w-[35%] bg-MIDNIGHT text-white hover:bg-MIDNIGHT/90 duration-500" htmlFor="modal-testimony">
                                     { getLang !== "id" ? "Close" : "Tutup" }
                                 </label>
                             </div>

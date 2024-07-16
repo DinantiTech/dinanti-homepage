@@ -1,4 +1,4 @@
-// 'use server'
+'use server'
 
 import { ThemesDataListType } from '@/libs/types/themes.type';
 import axios from 'axios';

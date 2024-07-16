@@ -17,4 +17,5 @@ export type CustomerType = {
     theme?: {
         data: ThemesDataType
     }
+    theme_url?: string;
 }
