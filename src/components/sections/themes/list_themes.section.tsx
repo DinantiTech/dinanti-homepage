@@ -1,5 +1,6 @@
 "use client";
 
+import Maintenance from "@/components/globals/maintenance";
 import { fetchMoreThemes } from "@/libs/actions/themes/themes.action";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useInfiniteQuery } from "@tanstack/react-query";
@@ -50,7 +51,7 @@ export default function ListThemes() {
         setSearchTerm(e.target.value);
     };
 
-    if (status === 'error') return <div>Error: {(error as Error).message}</div>;
+    if (status === 'error') return <Maintenance />;
 
     return (
         <section className="flex flex-col items-center justify-center w-full py-1">
