@@ -69,6 +69,7 @@ export default async function ThemePage({ params }: { params: { slug: string } }
                                 <ThemePreview coverUrl={theme?.attributes?.cover?.data?.attributes?.url} />
                             </Suspense>
                             
+                            {/* Testimony */}
                             <Suspense>
                                 <div className='flex flex-col items-start justify-center my-7 gap-y-5'>
                                     <p className='lg:text-lg font-semibold'>
@@ -156,5 +157,5 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 function GET_THEME_URL(slug: string): string {
-    return `/api/themes?filters[slug][$eq]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*`;
+    return `/api/themes?filters[slug][$eq]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*&populate[customers][limit]=10`;
 }

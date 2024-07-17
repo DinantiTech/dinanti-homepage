@@ -29,8 +29,25 @@ export default function TestimonyTheme({ themes }: { themes: CustomerDataType[] 
                     />
                     <p className='text-xs text-NEUTRAL font-medium'>{item?.attributes?.name}</p>
                 </label>
-                
+
             ))}
+
+            {(themes?.length === 10 || themes?.length > 9) && (
+                <div className="avatar-group -space-x-6 rtl:space-x-reverse">
+                    {[0, 1, 2]?.map((item) => (
+                        <div key={item} className="avatar">
+                            <div className="w-8">
+                                <img src={themes[item]?.attributes?.image?.data?.attributes?.url} />
+                            </div>
+                        </div>
+                    ))}
+                    <div className="avatar placeholder">
+                        <div className="bg-neutral text-neutral-content w-8 text-xs">
+                            <span>+10</span>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <ModalTestimony testimony={testimony} />
         </div>
@@ -63,11 +80,11 @@ function ModalTestimony({ testimony }: { testimony?: CustomerDataType | null }) 
 
                             <div className="flex items-center justify-center gap-3 text-xs">
                                 <Link href={testimony?.attributes?.theme_url ?? "/"} target="_blank" className="w-[65%] btn">
-                                    <Icon icon="mingcute:invite-fill" className="text-lg"/>
+                                    <Icon icon="mingcute:invite-fill" className="text-lg" />
                                     Buka undangan
                                 </Link>
                                 <label className="btn my-5 w-[35%] bg-MIDNIGHT text-white hover:bg-MIDNIGHT/90 duration-500" htmlFor="modal-testimony">
-                                    { getLang !== "id" ? "Close" : "Tutup" }
+                                    {getLang !== "id" ? "Close" : "Tutup"}
                                 </label>
                             </div>
                         </div>
