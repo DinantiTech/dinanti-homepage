@@ -14,9 +14,11 @@ export default async function TemplateRoot({ children }: { children: React.React
     return (
         <IndexProvider>
             <NavbarCustom data={data} />
-            <main className="bg-PRIMARY pb-5 sm:pb-8 bg-cover sm:bg-center" style={{
-                backgroundImage: 'url("/line.svg")'
-            }}>
+            <main className="bg-PRIMARY pb-5 sm:pb-8 bg-cover sm:bg-center bg-no-repeat" 
+                style={{
+                    backgroundImage: 'url("/line.svg")'
+                }}
+            >
                 <LayoutContainer className="w-full min-h-screen lg:pt-[6.5rem] pt-20">
                     {children}
                 </LayoutContainer>
