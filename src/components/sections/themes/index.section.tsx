@@ -6,7 +6,7 @@ import Heading from "@/components/globals/heading.global";
 import { Suspense } from "react";
 import { ThemesPageDataType } from "@/libs/types/themespage.type";
 
-const ThemesList = dynamic(() => import("@/components/sections/themes/list_themes.section"));;
+const ThemesList = dynamic(() => import("@/components/sections/themes/list_themes.section"), { ssr: true });;
 
 export default async function ThemesPageSection({ data }: { data: ThemesPageDataType }) {
     return (
