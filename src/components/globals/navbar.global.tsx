@@ -32,7 +32,7 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
                             backgroundImage: `url(${bgBatik.src})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                        }} className="absolute -left-10 w-full h-20 opacity-30 md:opacity-40" />
+                        }} className="absolute -left-10 w-full h-20 opacity-30 md:opacity-40 z-0" />
 
                         <div className="dropdown z-30">
                             <div tabIndex={0} role="button" className="btn btn-xs xxs:btn-sm btn-ghost hover:bg-white/0 lg:hidden">
@@ -103,7 +103,7 @@ interface BrandLogoProps extends HTMLAttributes<HTMLAnchorElement> {
 function BrandLogo({ imageUrl, className, ...rest }: BrandLogoProps) {
 
     return (
-        <Link href="/" className={Utils.cn("w-14 xxs:w-[4rem] sm:w-[6rem]", className)} {...rest}>
+        <Link href="/" className={Utils.cn("w-14 xxs:w-[4rem] sm:w-[6rem] z-10", className)} {...rest}>
             <Image priority src={imageUrl} alt="Logo Dinanti" width={500} height={500} className="w-full pb-1" />
             <p className="hidden">Dinanti Logo</p>
         </Link>
