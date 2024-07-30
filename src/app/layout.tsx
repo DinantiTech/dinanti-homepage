@@ -1,47 +1,27 @@
 import type { Metadata, Viewport } from 'next';
-import { Comfortaa, Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
-import NavbarCustom from '@/components/commons/navbar.common';
-import { Providers } from '@/providers/index.provider';
-import Footer from '@/components/commons/footer.common';
-import ContainerNavbar from '@/components/commons/containerNavbar.common';
+import { cookies } from 'next/headers';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-const metaDesc: string = "Selamat datang dalam petualangan kreatif undangan kami, di mana kesempurnaan dan keunikan menyatu! Temukan tema undangan yang mencerminkan kepribadian dan impian Anda di menu utama kami. Dengan pilihan tema eksklusif, tim desainer berpengalaman kami siap mewujudkan ide Anda menjadi undangan yang elegan. Jelajahi koleksi tema unik kami yang dapat disesuaikan sepenuhnya sesuai keinginan Anda. Mulailah perjalanan Anda dengan pilihan tema yang sesuai dengan persona Anda. Dengan ketelitian dan dedikasi, tim kami akan mengolah tema impian Anda menjadi undangan yang memikat hati. Bagikan kebahagiaan Anda dengan mudah, undangan dapat segera dibagikan di berbagai media sosial. Setiap sentuhan elegan dan desain personal akan membuat momen istimewa Anda lebih berkesan. Jangan lewatkan kesempatan untuk menciptakan undangan yang mencerminkan identitas Anda, mudah ditemukan di mesin pencarian. Temukan tema undangan eksklusif Anda dan buat kenangan tak terlupakan dengan sentuhan kreatif dari tim ahli kami";
-
-const metaTitle: string = 'Dinanti | Digital Invitation: Temukan Tema Undangan Eksklusif untuk Momen Istimewa Anda!';
-
 export const metadata: Metadata = {
+  title: "Dinanti Digital Invitation",
   metadataBase: new URL('https://dinanti.id'),
-  title: metaTitle,
-  description: metaDesc,
-
   generator: 'dinanti generator',
   applicationName: 'Dinanti',
-  referrer: 'origin-when-cross-origin',
-  keywords: ['dinanti', 'Dinanti', 'Digital Invitation', 'invitation', 'dinanti.id', 'undangan digital', 'pernikahan', 'undangan pernikahan', 'khitan', 'undangan khitanan'],
-  authors: [{ name: 'dinanti author' }, { name: 'Saepudin' }, { name: 'Arnoud' }],
+  authors: [{ name: 'dinanti author' }, { name: 'Saepudin' }, { name: 'Arnoud' }, { name: 'Danes' }, { name: 'Asa' }],
   creator: 'Dinanti Creator',
   publisher: 'Dinanti Publisher',
   category: 'digital invitation',
 
   appleWebApp: {
-    title: metaTitle,
+    title: "Dinanti App",
     capable: true,
     statusBarStyle: 'default'
   },
 
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   alternates: {
     canonical: '/',
-    // languages: {
-    //   'en-US': '/en-US',
-    //   'id-ID': '/id-ID',
-    // },
   },
 
   robots: {
@@ -57,62 +37,46 @@ export const metadata: Metadata = {
     },
   },
 
-  // Opengraph
-  openGraph: {
-    title: metaTitle,
-    description: metaDesc,
-    url: '/',
-    siteName: 'Dinanti',
-    type: "website"
-  },
-
-  // Twitter
-  twitter: {
-    card: 'summary_large_image',
-    title: metaTitle,
-    description: metaDesc,
-    creator: 'Dinanti Creator',
-    // images: ['https://nextjs.org/og.png'],
+  formatDetection: {
+    address: false,
+    email: true,
+    telephone: true,
+    url: true
   },
 
   verification: {
-    google: 'u6Qwt5SMpEmbvWsILa1JcxpRD-d0hH2xm186VLgD9hE',
+    google: process.env.GOOGLE_SEARCH_CONSOLE ?? null,
     other: {
-      "ahrefs-site-verification": "166f48dd2c2a0482e7f6bea772d2ceeee1e0cf9a6e8d54bf99091e41617bc14a"
+      "ahrefs-site-verification": process.env.AHREF_SITE_VERIFICATION ?? "",
     },
-    yandex: '7d8e1882d8ca7d15',
-    // yahoo: 'yahoo',
+    yandex: process.env.YANDEX_SEARCH_COBSOLE ?? null,
   },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
   colorScheme: 'light dark',
   viewportFit: 'auto',
   interactiveWidget: 'resizes-visual',
 }
+
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  
-  return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${montserrat.className}`}>
-        <main>
-          <Providers>
-            <ContainerNavbar>
-              { children }
-            </ContainerNavbar>
-          </Providers>
-        </main>
 
-        <Footer />
-      </body>
+  const getLang = cookies().get("lang")?.value ?? "id";
+
+  return (
+    <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth relative'>
+        <body className={`${montserrat.className} relative`}>
+            {children}
+        </body>
     </html>
   )
 }

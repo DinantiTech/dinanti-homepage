@@ -1,17 +1,35 @@
 import type { Config } from 'tailwindcss';
-const {nextui} = require("@nextui-org/react");
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
+    './src/app/**/*.{ts,tsx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
+      colors: {
+        "PRIMARY": "#FDFFF8",
+        "SECONDARY": "#EDEFE2",
+        "ACCENT": "#D7DCBE",
+        "NEUTRAL": "#263C24",
+        "MIDNIGHT": "#1D1D1D"
+      },
+      animation: {
+        'shimmer': 'shimmer 2s infinite linear',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
+      },
     },
     screens: {
+      xxxsss: "200px",
+      xxxss: "250px",
+      xxss: "300px",
       xxs: "350px",
       xs: "400px",
       sm: "600px",
@@ -21,7 +39,22 @@ const config: Config = {
       "2xl": "1536px",
     }
   },
-  plugins: [ nextui() ],
-  darkMode: 'class'
+  plugins: [ require('daisyui'), ],
+  darkMode: 'class',
+  daisyui: {
+    themes: [
+      {
+        base: {
+          "primary": "#FDFFF8",
+          "secondary": "#EDEFE2",
+          "accent": "#263C24",
+          "neutral": "#263C24",
+          "base-100": "#D7DCBE",
+        }
+      },
+      "light",
+      "dark"
+    ],
+  },
 }
 export default config
