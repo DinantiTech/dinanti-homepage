@@ -19,7 +19,11 @@ type Attributes = {
     others: NavigationType[];
     icon: ImageFormatType;
     localizations: LocalizationsType;
-    footer: FooterType
+    footer: FooterType;
+    contact_admin: {
+        number: string;
+        link: string;
+    };
 }
 
 export type FooterType = {

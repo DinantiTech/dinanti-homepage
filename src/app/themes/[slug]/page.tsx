@@ -12,6 +12,7 @@ import Heading from '@/components/globals/heading.global';
 import dynamic from 'next/dynamic';
 import Badge from '@/components/micro/badge.micro';
 import { Suspense } from 'react';
+import { DataNavigationsType } from '@/libs/types/nav.type';
 
 const TestimonyTheme = dynamic(() => import('@/components/sections/themes/detail/testimonies.theme'), { ssr: false });
 const ThemePreview = dynamic(() => import('@/components/sections/themes/detail/preview.theme'), { ssr: false });
@@ -20,6 +21,7 @@ export default async function ThemePage({ params }: { params: { slug: string } }
     const getLang = cookies().get("lang")?.value ?? "id";
 
     const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(params?.slug) });
+    const nav = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     const theme = data[0];
 
@@ -53,10 +55,10 @@ export default async function ThemePage({ params }: { params: { slug: string } }
                             <Heading title={theme?.attributes?.title} type='subheading' className='xs:text-xl font-semibold' />
                             
                             <div className='flex flex-wrap items-center justify-start gap-2 my-3'>
-                                { theme?.attributes?.customers?.data?.length < 5 ? (<Badge label={ isLang ? "new" : "baru" } type='new' />) : null }
+                                { (theme?.attributes?.customers?.data?.length < 5 || !theme?.attributes?.customers?.data?.length) ? (<Badge label={ isLang ? "new" : "baru" } type='new' />) : null }
 
                                 { theme?.attributes?.badge?.map((item) => (
-                                    <Badge key={item?.id} label={item?.type} type={item?.type} icon={item?.icon} />
+                                    <Badge key={item?.id} label={item?.type} type={item?.type} />
                                 )) }
                             </div>
 
@@ -89,6 +91,14 @@ export default async function ThemePage({ params }: { params: { slug: string } }
 
                 {/* Modal Preview */}
                 <ModalPreview img={theme?.attributes?.screenshot?.data?.attributes?.url} lang={getLang} />
+
+                {/* Order button */}
+                <div className='fixed lg:bottom-40 bottom-10 lg:right-56 right-10 text-NEUTRAL'>
+                    <Link href={URL_CONTACT_ADMIN({ number: nav?.attributes?.contact_admin?.number, code: theme?.attributes?.code })} target='_blank' className='flex items-center justify-center btn bg-MIDNIGHT text-PRIMARY duration-500 hover:text-MIDNIGHT'>
+                        <Icon icon="bi:envelope-paper-heart-fill" className='text-lg' />
+                        { isLang ? "Order Now": "Pesan Sekarang" }
+                    </Link>
+                </div>
             </section>
         </>
     )
@@ -132,7 +142,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
     if(!theme) return notFound();
 
-    const title = `${theme?.attributes?.title} | Dinanti`;
+    const title = `${theme?.attributes?.title} (${theme?.attributes?.code}) | Dinanti`;
     const description = theme?.attributes?.description;
     const image = theme?.attributes?.cover?.data?.attributes?.url;
 
@@ -158,4 +168,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 function GET_THEME_URL(slug: string): string {
     return `/api/themes?filters[slug][$eq]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*&populate[customers][limit]=10`;
+}
+
+function URL_CONTACT_ADMIN({ number, code }: { number: string, code: string }) {
+    return `https://api.whatsapp.com/send/?phone=${number}&text=Hai+admin+Dinanti,+Sudah+udah+pilih+undangan+digital+nih%2C+kodenya+*${code}*.+Bisa+diproses+ya%3F+Makasih%20:)&type=phone_number&app_absent=0`
 }

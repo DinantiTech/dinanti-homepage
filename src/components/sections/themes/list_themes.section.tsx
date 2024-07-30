@@ -67,7 +67,7 @@ export default function ListThemes() {
     return (
         <section className="flex flex-col items-center justify-center w-full py-1">
             <label className="input input-bordered flex items-center gap-2 max-w-[29rem] w-full text-NEUTRAL mt-6">
-                <input type="text" onChange={handleSearchChange} className="grow w-full" placeholder={placeholder} />
+                <input type="search" onChange={handleSearchChange} className="grow w-full" placeholder={placeholder} />
                 <kbd className="kbd kbd-sm"><Icon icon="fluent:search-sparkle-16-filled" className="lg:text-lg" /></kbd>
             </label>
 

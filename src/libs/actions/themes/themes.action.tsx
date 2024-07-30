@@ -39,9 +39,10 @@ function paramsPage({ page, pageSize, searchTerm }: { page?: number, pageSize?: 
   if (searchTerm) {
     params.filters = {
       $or: [
+        { code: { $containsi: searchTerm } },
         { title: { $containsi: searchTerm } },
         { slug: { $containsi: searchTerm } },
-        { categories: { $containsi: searchTerm } }
+        { categories: { $containsi: searchTerm } },
       ]
     };
   }

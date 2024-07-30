@@ -8,7 +8,7 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
     icon?: string;
 }
 
-export default function Badge({ type, label, className, icon = "icon-park-twotone:green-new-energy", ...rest }: BadgeProps) {
+export default function Badge({ type, label, className, ...rest }: BadgeProps) {
     switch (type) {
         case "new": {
             return (
@@ -29,7 +29,7 @@ export default function Badge({ type, label, className, icon = "icon-park-twoton
         case "exclusive": {
             return (
                 <div className="relative inline-flex overflow-hidden rounded-full text-yellow-900 bg-gradient-to-r from-yellow-100 via-yellow-200 to-yellow-300 px-3 py-1 gap-1">
-                    <Icon icon={icon} />
+                    <Icon icon="ic:twotone-spa" />
                     <span className="inline-flex items-center text-xs font-bold ">
                         {label}
                     </span>
@@ -46,7 +46,7 @@ export default function Badge({ type, label, className, icon = "icon-park-twoton
         case "premium": {
             return (
                 <div className="relative inline-flex overflow-hidden rounded-full text-gray-700 bg-gradient-to-r from-gray-100 to-gray-100 px-3 py-1 gap-1">
-                    <Icon icon={icon} />
+                    <Icon icon="ic:twotone-star" />
                     <span className="inline-flex items-center text-xs font-bold ">
                         {label}
                     </span>
@@ -63,7 +63,7 @@ export default function Badge({ type, label, className, icon = "icon-park-twoton
         case "lovers": {
             return (
                 <div className="relative inline-flex overflow-hidden rounded-full text-pink-700 bg-gradient-to-r from-pink-100 via-pink-200 to-pink-300 px-3 py-1 gap-1">
-                    <Icon icon={icon} />
+                    <Icon icon="ant-design:heart-twotone" />
                     <span className="inline-flex items-center text-xs font-bold">
                         {label}
                     </span>

@@ -5,11 +5,16 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 
 import LogoDinanti from "@/assets/logo/logo_slogan.svg";
+import { DataNavigationsType } from "@/libs/types/nav.type";
+import { Fetch } from "@/libs/actions/services/fetch.service";
+import Link from "next/link";
 
 export default async function Maintenance() {
     const getLang = cookies().get("lang")?.value ?? "id";
 
     const isLang = getLang !== "id";
+
+    const data = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     return (
         <section className="w-full flex items-center justify-center flex-col text-center gap-y-10">
@@ -29,20 +34,22 @@ export default async function Maintenance() {
                      }
                 </span>
             </h1>
-            <div className="flex flex-col items-center justify-center gap-y-4 px-5 backdrop-blur-sm bg-[#F0EEEE]/40 glass py-8 rounded-2xl w-[22rem]">
-                <div className="flex flex-col items-center justify-center gap-y-1">
-                    <h1 className="font-bold lg:text-2xl sm:text-xl text-lg ">
-                        { isLang ? "Want an invite?": "Lagi Butuh Undangan?" }
-                    </h1>
-                    <p className="text-sm sm:px-0 ">
-                        { isLang ? "Hit the button below to get in touch": "Klik tombol di bawah buat langsung hubungi kami" }
-                    </p>
+            { data?.attributes?.contact_admin ? (
+                <div className="flex flex-col items-center justify-center gap-y-4 px-5 backdrop-blur-sm bg-[#F0EEEE]/40 glass py-8 rounded-2xl w-[22rem]">
+                    <div className="flex flex-col items-center justify-center gap-y-1">
+                        <h1 className="font-bold lg:text-2xl sm:text-xl text-lg ">
+                            { isLang ? "Want an invite?": "Lagi Butuh Undangan?" }
+                        </h1>
+                        <p className="text-sm sm:px-0 ">
+                            { isLang ? "Hit the button below to get in touch": "Klik tombol di bawah buat langsung hubungi kami" }
+                        </p>
+                    </div>
+                    <Link href={data?.attributes?.contact_admin?.link} target="_blank" color="default" className="bg-[#1D1D1D] text-white font-semibold btn rounded-full">
+                        <Icon icon="ic:baseline-whatsapp" className="text-2xl text-white pointer-events-none flex-shrink-0" />
+                        { isLang ? "Let's chat!": "Yuk, Ngobrol!" }
+                    </Link>
                 </div>
-                <button color="default" className="bg-[#1D1D1D] text-white font-semibold btn rounded-full">
-                    <Icon icon="ic:baseline-whatsapp" className="text-2xl text-white pointer-events-none flex-shrink-0" />
-                    { isLang ? "Let's chat!": "Yuk, Ngobrol!" }
-                </button>
-            </div>
+            ): null }
         </section>
     )
 }

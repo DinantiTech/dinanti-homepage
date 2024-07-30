@@ -24,6 +24,7 @@ export type ThemesDataType = {
             data: CustomerDataType[]
         },
         badge: BadgeType[]
+        code: string;
     }
 }
 

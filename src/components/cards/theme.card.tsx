@@ -8,6 +8,7 @@ export default function CardThemeContent({ data }: { data: ThemesDataType }) {
     return (
         <Link href={`/themes/${data?.attributes?.slug}`} className='relative group w-full md:h-80 sm:h-72 h-60 rounded-xl shadow-md shadow-[#D7DCBE] overflow-hidden hover:shadow-xl duration-500'>
             <Image
+                priority={false}
                 loading="lazy"
                 width={500}
                 height={500}
