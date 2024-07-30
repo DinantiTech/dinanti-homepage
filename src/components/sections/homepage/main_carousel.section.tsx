@@ -43,7 +43,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                             <div className='aspect-[10/14] relative flex flex-col items-center justify-center'>
                                 {data?.btn_text ? (
                                     <>
-                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={1000} height={1000} alt='preview 2' className='w-full h-full object-cover' />
+                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={7000} height={7000} alt='preview 2' className='w-full h-full object-cover object-center' />
 
                                         <Link prefetch={false} href={data?.url} target='_blank' className='absolute bottom-3 w-full px-4'>
                                             <p className='btn btn-sm xs:btn-md font-semibold duration-700 hover:bg-gray-800 text-white bg-MIDNIGHT w-full rounded-full'>{data?.btn_text}</p>
@@ -51,7 +51,7 @@ export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
                                     </>
                                 ) : (
                                     <Link prefetch={false} href={data?.url} target='_blank' className='w-full h-full'>
-                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={1000} height={1000} alt='preview 2' className='w-full h-full object-cover' />
+                                        <Image loading='lazy' src={data?.image?.data?.attributes?.url} sizes='100vw' width={7000} height={7000} alt='preview 2' className='w-full h-full object-cover object-center' />
                                     </Link>
                                 )}
                             </div>
