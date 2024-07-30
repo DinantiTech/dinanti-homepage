@@ -12,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://dinanti.id/pricing',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 2,
+      priority: 1,
     },
     {
       url: 'https://dinanti.id/themes',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 2,
+      priority: 1,
     },
     // {
     //   url: 'https://dinanti.id/blogs',
