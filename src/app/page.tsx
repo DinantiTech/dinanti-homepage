@@ -81,7 +81,7 @@ export async function generateMetadata(): Promise<Metadata | null> {
   const metaOpenGraph = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Facebook");
 
   return {
-    title: meta.metaTitle,
+    title: meta?.metaTitle,
     description: meta?.metaDescription,
     keywords: meta?.keywords,
     classification: "digital invitation",
