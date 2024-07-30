@@ -20,10 +20,9 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
                 <div className="mx-auto max-w-[1340px] px-4 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
                     <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:items-center lg:gap-16">
                         <div className="hidden xxss:block max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                            <Heading type='subheading' title="Don't just take our word for it..." className="font-bold tracking-tight text-gray-900 sm:text-4xl" />
+                            <Heading type='subheading' title={data?.heading} className="font-bold tracking-tight text-gray-900 sm:text-4xl" />
 
-                            <Heading type='text' title='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
-                                harum porro optio fugit a culpa sunt id!' className="mt-4 text-gray-700" />
+                            <Heading type='text' title={data?.description} className="mt-4 text-gray-700" />
 
                             <ButtonNavigation fowardRef={swiperRef} />
                         </div>
