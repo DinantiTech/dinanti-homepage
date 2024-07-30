@@ -1,3 +1,4 @@
+import { CustomerDataType } from "./customers.type"
 import { ImageFormatType, ImageType } from "./image.type"
 import { MetaType } from "./meta.type"
 
@@ -27,7 +28,9 @@ export type TestimonySectionType = {
     heading: string;
     description: string;
     url?: string;
-    testimonies: TestimoniesType[]
+    customers: {
+        data: CustomerDataType[]
+    }
 }
 
 export type TestimoniesType = {

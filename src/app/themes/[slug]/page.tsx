@@ -167,7 +167,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 function GET_THEME_URL(slug: string): string {
-    return `/api/themes?filters[slug][$eq]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*&populate[customers][limit]=10`;
+    return `/api/themes?filters[$or][0][code][$containsi]=${slug}&filters[$or][1][slug][$containsi]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*&populate[customers][limit]=10`;
 }
 
 function URL_CONTACT_ADMIN({ number, code }: { number: string, code: string }) {

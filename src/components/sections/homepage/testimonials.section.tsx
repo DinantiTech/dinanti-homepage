@@ -8,6 +8,8 @@ import LayoutContainer from '@/containers/layout.container';
 import Heading from '@/components/globals/heading.global';
 import Image from 'next/image';
 import { TestimoniesType, TestimonySectionType } from '@/libs/types/homepage.type';
+import { CustomerDataType } from '@/libs/types/customers.type';
+import BlockRendererClient from '@/components/globals/rich_text.global';
 
 export default function TestimonialsSection({ data }: {data: TestimonySectionType}) {
     const swiperRef: any = useRef();
@@ -44,7 +46,7 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
                                     },
                                 }}
                             >
-                                { data?.testimonies?.map(item => (
+                                { data?.customers?.data?.map(item => (
                                     <SwiperSlide key={item?.id}>
                                         <Testimonial data={item} />
                                     </SwiperSlide>
@@ -61,7 +63,7 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
     )
 }
 
-function Testimonial({ data }: { data: TestimoniesType }) {
+function Testimonial({ data }: { data: CustomerDataType }) {
     return (
         <blockquote
             className="flex h-full flex-col justify-between bg-white p-6 sm:p-8 lg:p-12 overflow-hidden"
@@ -69,13 +71,14 @@ function Testimonial({ data }: { data: TestimoniesType }) {
             <div className="">
                 {/* <p className="text-2xl font-bold text-NEUTRAL sm:text-3xl">Stayin' Alive</p> */}
 
-                <Heading type='text' title={ data?.testimony } className="mt-4 leading-relaxed text-gray-700" />
+                {/* <Heading type='text' title={ data?.testimony } className="mt-4 leading-relaxed text-gray-700" /> */}
+                <BlockRendererClient content={data?.attributes?.testimony} />
             </div>
-            <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                { data?.image?.data?.attributes?.formats?.thumbnail?.url ? (
-                    <Image src={data?.image?.data?.attributes?.formats?.thumbnail?.url} alt={data?.customer_name} width={300} height={300} loading='lazy' className='h-14 w-14 object-cover object-top flex flex-shrink-0 rounded-e-full' />
+            <footer className="mt-4 text-sm text-gray-700 sm:mt-6 gap-1 flex items-start flex-col font-semibold sm:text-base">
+                { data?.attributes?.image?.data?.attributes?.url ? (
+                    <Image src={data?.attributes?.image?.data?.attributes?.url} alt={data?.attributes?.name} width={300} height={300} loading='lazy' className='h-14 w-14 object-cover object-top flex flex-shrink-0 rounded-e-full' />
                 ) :null }
-                &mdash; {data?.customer_name}
+                &mdash; {data?.attributes?.name}
             </footer>
         </blockquote>
     )

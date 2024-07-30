@@ -20,7 +20,7 @@ const TestimonialsSection = dynamic(() => import('@/components/sections/homepage
 
 export default async function Home() {
   const getLang = cookies().get("lang")?.value ?? "id";
-  const url = `/api/homepage?populate=deep&locale=${getLang}`;
+  const url = `/api/homepage?populate[features][populate][list_features][populate]=icon&populate[steppers][populate]=image,list_stepper&populate[sliders][populate]=image&populate[banners][populate]=image&populate[testimony][populate][customers][populate]=image&populate[localizations]=*&locale=${getLang}`;
   const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
 
   const data = await Fetch.get<HomePageType>({ path: url });
