@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 const Maintenance = dynamic(() => import("@/components/globals/maintenance"));
 
-export default function MaintenancePage() {
+export default async function MaintenancePage() {
     return (
         <Suspense> <Maintenance /> </Suspense>
     )

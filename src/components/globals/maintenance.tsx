@@ -37,9 +37,9 @@ export default async function Maintenance() {
             { data?.attributes?.contact_admin ? (
                 <div className="flex flex-col items-center justify-center gap-y-4 px-5 backdrop-blur-sm bg-[#F0EEEE]/40 glass py-8 rounded-2xl w-[22rem]">
                     <div className="flex flex-col items-center justify-center gap-y-1">
-                        <h1 className="font-bold lg:text-2xl sm:text-xl text-lg ">
+                        <h2 className="font-bold lg:text-2xl sm:text-xl text-lg ">
                             { isLang ? "Want an invite?": "Lagi Butuh Undangan?" }
-                        </h1>
+                        </h2>
                         <p className="text-sm sm:px-0 ">
                             { isLang ? "Hit the button below to get in touch": "Klik tombol di bawah buat langsung hubungi kami" }
                         </p>
