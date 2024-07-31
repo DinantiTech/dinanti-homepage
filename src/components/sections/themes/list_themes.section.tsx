@@ -29,6 +29,7 @@ export default function ListThemes() {
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
+        isFetching,
         status,
     } = useInfiniteQuery({
         queryKey: ['themes', debouncedSearchTerm],
@@ -58,11 +59,11 @@ export default function ListThemes() {
     if (error) return <Maintenance />;
 
     const dataThemes = data?.pages.flatMap(page => page.data) ?? [];
-    
+
     // Lang
     const getLang = StorageUtil.getItem({ key: "lang", type: "cookie" }) ?? "id";
     const placeholder = getLang !== "id" ? "Search themes" : "Cari Tema";
-    const messageSearchEmpty = getLang !== "id" ? "Themes not Found!": "Tema tidak ditemukan!";
+    const messageSearchEmpty = getLang !== "id" ? "Themes not Found!" : "Tema tidak ditemukan!";
 
     return (
         <section className="flex flex-col items-center justify-center w-full py-1">
@@ -71,7 +72,7 @@ export default function ListThemes() {
                 <kbd className="kbd kbd-sm"><Icon icon="fluent:search-sparkle-16-filled" className="lg:text-lg" /></kbd>
             </label>
 
-            <Suspense fallback={<p>Loading.....</p>}>
+            <Suspense fallback={<p>Rendering.....</p>}>
                 {dataThemes?.length > 0 ? (
                     <div className='grid lg:grid-cols-3 xxs:grid-cols-2 grid-cols-1 lg:gap-7 sm:gap-5 gap-3 mt-10'>
                         {dataThemes?.map?.((theme) => (
@@ -79,14 +80,18 @@ export default function ListThemes() {
                         ))}
                     </div>
                 ) : (
-                    <div className="my-5">
-                        <p>{messageSearchEmpty}</p>
-                    </div>
+                    <>
+                        {(!isFetching) ? (
+                            <div className="my-5">
+                                <p>{messageSearchEmpty}</p>
+                            </div>
+                        ) : (<span className="loading loading-dots loading-lg py-7" />)}
+                    </>
                 )}
             </Suspense>
 
             <div ref={ref}>
-                {isFetchingNextPage || hasNextPage && <span className="loading loading-dots loading-lg py-7" />}
+                {(isFetchingNextPage) && <span className="loading loading-dots loading-lg py-7" />}
             </div>
         </section>
     )
