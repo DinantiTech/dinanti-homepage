@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Montserrat } from 'next/font/google';
 import '@/styles/globals.css';
 import { cookies } from 'next/headers';
@@ -77,6 +78,7 @@ export default function RootLayout({
     <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth relative'>
         <body className={`${montserrat.className} relative`}>
             {children}
+            <SpeedInsights />
         </body>
     </html>
   )
