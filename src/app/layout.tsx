@@ -6,6 +6,7 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Dinanti Digital Invitation",
+  description: "Dinanti Digital Invitation",
   metadataBase: new URL('https://dinanti.id'),
   generator: 'dinanti generator',
   applicationName: 'Dinanti',
