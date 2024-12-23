@@ -15,6 +15,7 @@ type Attributes = {
     updatedAt: string;
     publishedAt: string;
     locale: string;
+    is_maintenance: boolean;
     navbars: NavigationType[];
     others: NavigationType[];
     icon: ImageFormatType;

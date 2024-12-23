@@ -2,20 +2,20 @@ import { StorageType } from "../types/storage.type";
 
 interface StorageProps {
   key: string;
-  value?: string;
+  value?: any;
   type?: StorageType;
   days?: number;
 }
 
 class StorageUtil {
   private static storageType(type?: StorageType): 'localStorage' | 'sessionStorage' | 'cookie' {
-    switch(type) {
-        case "cookie":
-            return "cookie";
-        case "session":
-            return "sessionStorage";
-        default:
-            return "localStorage";
+    switch (type) {
+      case "cookie":
+        return "cookie";
+      case "session":
+        return "sessionStorage";
+      default:
+        return "localStorage";
     }
   }
 
@@ -29,12 +29,12 @@ class StorageUtil {
     return match ? decodeURIComponent(match[2]) : null;
   }
 
-  private static setCookie(name: string, value: string, days: number = 365): void {
+  private static setCookie(name: string, value: any, days: number = 30): void {
     if (!this.isBrowser()) return;
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     const expires = "; expires=" + date.toUTCString();
-    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+    document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + expires + "; path=/";
   }
 
   private static removeCookie(name: string): void {

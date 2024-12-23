@@ -37,3 +37,7 @@ next-env.d.ts
 
 .next
 .env
+
+# temp directory
+.temp
+.tmp

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { Icon } from "@iconify/react";
 import { HTMLAttributes, Suspense } from "react";
 
 import { Utils } from "@/libs/utils/index.util";
 import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
+import ButtonCreate from "../buttons/oauth.btn";
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
@@ -69,10 +69,12 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
                         {createInvitationNav ? (
-                            <Link href={createInvitationNav?.url} className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
-                                {createInvitationNav?.icon_txt ? (<Icon icon={createInvitationNav?.icon_txt} />) : null}
-                                <span className="hidden xxss:block">{createInvitationNav?.title}</span>
-                            </Link>
+                            <ButtonCreate 
+                                is_maintenance={data?.attributes?.is_maintenance}
+                                icon_txt={createInvitationNav.icon_txt}
+                                title={createInvitationNav.title}
+                                url={ createInvitationNav?.url }
+                            />
                         ) : null}
 
                         {isLogin ? (
