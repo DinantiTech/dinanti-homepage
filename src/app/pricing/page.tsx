@@ -14,7 +14,7 @@ import JsonLd from '@/components/globals/jsonld.global';
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"), { ssr: true });
 
 export default async function Page() {
-    const getLang = cookies().get("lang")?.value ?? "id";
+    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
     const url = `/api/pricing-page-content?populate=deep&locale=${getLang}`;
     const urlMeta = `/api/meta-pricing-page?populate=deep&locale=${getLang}`;
 
@@ -23,7 +23,7 @@ export default async function Page() {
 
     return (
       <LayoutContainer>
-          <JsonLd data={dataMeta?.attributes?.seo?.structuredData} />
+          {/* <JsonLd data={dataMeta?.attributes?.seo?.structuredData} /> */}
           <Suspense>
             <PricingPageSection data={data} />
           </Suspense>
@@ -34,7 +34,7 @@ export default async function Page() {
 export async function generateMetadata(): Promise<Metadata | null> {
     let meta: MetaType;
 
-    const getLang = cookies().get("lang")?.value ?? "id";
+    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
     const url = `/api/meta-pricing-page?populate=deep&locale=${getLang}`;
   
     try {

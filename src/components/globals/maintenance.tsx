@@ -10,7 +10,7 @@ import { Fetch } from "@/libs/actions/services/fetch.service";
 import Link from "next/link";
 
 export default async function Maintenance() {
-    const getLang = cookies().get("lang")?.value ?? "id";
+    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
 
     const isLang = getLang !== "id";
 

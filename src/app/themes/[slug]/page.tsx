@@ -18,7 +18,7 @@ const TestimonyTheme = dynamic(() => import('@/components/sections/themes/detail
 const ThemePreview = dynamic(() => import('@/components/sections/themes/detail/preview.theme'), { ssr: false });
 
 export default async function ThemePage({ params }: { params: { slug: string } }) {
-    const getLang = cookies().get("lang")?.value ?? "id";
+    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
 
     const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(params?.slug) });
     const nav = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
