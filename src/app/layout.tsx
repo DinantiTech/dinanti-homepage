@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const getLang = cookies().get("lang")?.value ?? "id";
+  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
 
   return (
     <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth relative'>

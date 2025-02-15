@@ -14,7 +14,7 @@ import JsonLd from '@/components/globals/jsonld.global';
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
-  const getLang = cookies().get("lang")?.value ?? "id";
+  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
   const url = `/api/themes-page?populate=deep&locale=${getLang}`;
   const urlMeta = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
@@ -35,7 +35,7 @@ export default async function ThemesPage() {
 export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
-  const getLang = cookies().get("lang")?.value ?? "id";
+  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
   const url = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
   try {

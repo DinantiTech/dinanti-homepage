@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 
 export default async function TemplateRoot({ children }: { children: React.ReactNode }) {
-    const getLang = cookies().get("lang")?.value ?? "id";
+    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
     const data = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     return (
