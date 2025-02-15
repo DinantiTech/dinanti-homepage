@@ -9,15 +9,21 @@ import { Utils } from "@/libs/utils/index.util";
 import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
 import ButtonCreate from "../buttons/oauth.btn";
+import { cookies } from "next/headers";
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
 export default async function NavbarCustom({ data }: { data: DataNavigationsType }) {
+    const cookieStore = cookies()
 
     const dataLocale = data?.attributes?.localizations;
     const currentLocal = data?.attributes?.locale;
 
-    const isLogin: boolean = false;
+    const getuser = cookieStore.get('crd');
+    const dataUser = getuser ? JSON.parse(getuser.value) : null;
+
+    console.log(dataUser);
+
 
     const createInvitationNav = data?.attributes?.others?.find(item => item.type === "create_invitation");
 
@@ -68,22 +74,28 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        {createInvitationNav ? (
+                        {!dataUser ? (
                             <ButtonCreate
                                 is_maintenance={false}
-                                icon_txt={createInvitationNav.icon_txt}
-                                title={createInvitationNav.title}
-                                url={ createInvitationNav?.url }
+                                icon_txt={createInvitationNav!.icon_txt}
+                                title={createInvitationNav!.title}
+                                url={createInvitationNav!.url}
                             />
-                        ) : null}
-
-                        {isLogin ? (
-                            <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-white/0 bg-opacity-0">
-                                {true ? (
-                                    <span className="">P</span>
-                                ) : null}
-                            </button>
-                        ) : null}
+                        ) : (
+                            <>
+                                {dataUser?.picture ? (
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-8 shadow">
+                                            <Image src={dataUser?.picture} alt="avatar" width={1000} height={1000} />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-NEUTRAL/30 duration-500 bg-NEUTRAL text-white group">
+                                        <span className="group-hover:text-NEUTRAL duration-500">{dataUser?.given_name[0]}</span>
+                                    </button>
+                                )}
+                            </>
+                        )}
 
                         <Suspense>
                             <DrowdownLanguage
