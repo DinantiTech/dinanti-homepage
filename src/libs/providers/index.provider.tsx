@@ -9,8 +9,6 @@ export default function IndexProvider({ children }: { children: ReactNode }) {
 
     const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID ?? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
 
-    console.log("client ID : ", GOOGLE_CLIENT_ID)
-
     return (
         <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
             <QueryClientProvider client={client}>
