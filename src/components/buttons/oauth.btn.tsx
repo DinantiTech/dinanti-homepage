@@ -7,33 +7,50 @@ import { useRouter } from "next/navigation";
 import StorageUtil from "@/libs/helpers/storage.helper";
 
 export default function ButtonCreate(props: PropsButtonCreateType) {
-
     const route = useRouter()
 
-    // const googleLogin = useGoogleLogin({
-    //     flow: 'auth-code',
-    //     onSuccess: async codeResponse => {
-    //         const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL_DINANTI}/auth/login`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ code: codeResponse?.code })
-    //         })
+    const googleLogin = useGoogleLogin({
+        flow: 'implicit',
+        onSuccess: async codeResponse => {
+            const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer ${codeResponse?.access_token}`
+                }
+            });
+            const data = await response.json();
 
-    //         if (data.status !== 200) {
-    //             return route.push('/')
-    //         }
+            const loginResponse = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: data?.email }),
+            });
 
-    //         const result = await data?.json();
+            const result = await loginResponse.json();
+            console.log(result.user);
+        },
+        onError: (error) => {
+            console.log(error)
+        }
+    });
 
-    //         StorageUtil.setItem({ type: 'cookie', key: 'crd', value: result?.data });
+    const handleCreateInvitation = () => {
+        googleLogin()
+        // route.push('/maintenance')
+    }
 
-    //         console.log("token", result);
-    //     }
-    // });
+    // const user = new Auth()
+            // const {  } = user.login({  });
 
-    const handleCreateInvitation = () => route.push('/maintenance')
+
+            // if (data.status !== 200) {
+            //     return route.push('/')
+            // }
+
+            // const result = await data?.json();
+
+            // StorageUtil.setItem({ type: 'cookie', key: 'crd', value: result?.data });
+
+            // console.log("token", result);
 
     return (
         <>{!props.is_maintenance ? (

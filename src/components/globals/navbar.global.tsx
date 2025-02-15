@@ -69,8 +69,8 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
                         {createInvitationNav ? (
-                            <ButtonCreate 
-                                is_maintenance={data?.attributes?.is_maintenance}
+                            <ButtonCreate
+                                is_maintenance={false}
                                 icon_txt={createInvitationNav.icon_txt}
                                 title={createInvitationNav.title}
                                 url={ createInvitationNav?.url }

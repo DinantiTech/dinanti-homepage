@@ -32,11 +32,11 @@ const nextConfig = {
         // removeConsole: true,
     },
     compress: true,
-    logging: {
-        fetches: {
-            fullUrl: true,
-        }
-    },
+    // logging: {
+    //     fetches: {
+    //         fullUrl: true,
+    //     },
+    // },
 
     // i18n: {
     //     locales: ["id", "en"],
