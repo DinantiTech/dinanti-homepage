@@ -1,3 +1,7 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+ 
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
@@ -5,11 +9,11 @@ const nextConfig = {
         turbo: {
             rules: {
                 '*.svg': {
-                  loaders: ['@svgr/webpack'],
-                  as: '*.ts',
+                    loaders: ['@svgr/webpack'],
+                    as: '*.ts',
                 },
-              },
-              resolveExtensions: [
+            },
+            resolveExtensions: [
                 '.mdx',
                 '.tsx',
                 '.ts',
@@ -17,7 +21,7 @@ const nextConfig = {
                 '.js',
                 '.mjs',
                 '.json',
-              ],
+            ],
         }
     },
     images: {
@@ -43,10 +47,11 @@ const nextConfig = {
     // },
 
     // i18n: {
-    //     locales: ["id", "en"],
-    //     defaultLocale: "id",
-    //     localeDetection: true
+    //     locales: ['default', 'en', 'de', 'fr'],
+    //     defaultLocale: 'default',
+    //     localeDetection: false,
     // },
+    // trailingSlash: true,
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig);

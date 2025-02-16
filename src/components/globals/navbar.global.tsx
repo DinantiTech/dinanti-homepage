@@ -10,20 +10,19 @@ import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
 import ButtonCreate from "../buttons/oauth.btn";
 import { cookies } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
 export default async function NavbarCustom({ data }: { data: DataNavigationsType }) {
     const cookieStore = cookies()
+    const t = await getTranslations('Navbar')
 
     const dataLocale = data?.attributes?.localizations;
     const currentLocal = data?.attributes?.locale;
 
     const getuser = cookieStore.get('crd');
     const dataUser = getuser ? JSON.parse(getuser.value) : null;
-
-    console.log(dataUser);
-
 
     const createInvitationNav = data?.attributes?.others?.find(item => item.type === "create_invitation");
 

@@ -1,9 +1,12 @@
-import type { Metadata, Viewport } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import {getLocale, getMessages} from 'next-intl/server';
+import {NextIntlClientProvider} from 'next-intl';
+import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
-import '@/styles/globals.css';
 import { cookies } from 'next/headers';
+
 const montserrat = Montserrat({ subsets: ['latin'] });
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: "Dinanti Digital Invitation",
@@ -66,18 +69,22 @@ export const viewport: Viewport = {
 }
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
 
   const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
 
   return (
-    <html lang={getLang} dir='ltr' data-theme="base" className='scroll-smooth relative'>
+    <html lang={locale} dir='ltr' data-theme="base" className='scroll-smooth relative'>
         <body className={`${montserrat.className} relative`}>
+          <NextIntlClientProvider messages={messages}>
             {children}
+          </NextIntlClientProvider>
             <SpeedInsights />
         </body>
     </html>
