@@ -6,18 +6,27 @@ export default class Auth {
     private cookieStore = cookies()
 
     async login(data: LoginType) {
-        const user = await this.supabase.from('user').select().eq('email', data?.email).single();
-        if(!user.error) {
-            await this.supabase.from('user').update({ login_at: new Date() }).eq('id', user?.data?.id)
-            this.cookieStore.set('crd', JSON.stringify({ id: user?.data?.id, ...data }), { secure: true });
-
-            return true
+        try {
+            if(data) {
+                let id;
+                const user = await this.supabase.from('user').update({ login_at: new Date() }).eq('email', data?.email).select('id, email, username').single();
+                if (!user?.data) {
+                    const insert = await this.supabase.from('user').insert({ email: data?.email, username: data?.given_name, login_at: new Date() }).select('id, email, username').single();
+                    id = insert?.data?.id
+                }
+    
+                if(!user?.data && !id) return false
+    
+                this.cookieStore.set('crd', JSON.stringify({ id: user?.data?.id ?? id, ...data }), { secure: true });
+    
+                return true
+            }
+        } catch (error) {
+            console.log(error)
         }
-
-        return false
     }
 
-    private logout() {}
+    private logout() { }
 }
 
 type LoginType = {

@@ -1,10 +1,18 @@
 {
     "HomePage": {
-        "title": "Hello world!"
+        "heading_title": "Create Hassle-Free Digital Wedding Invitations",
+        "checkout_themes": "Check Out Our Latest Themes",
+        "heading_features": "Custom-Made for You with a Variety of Features",
+        "desc_features": "You can try making digital wedding invitations for free by clicking the button below",
+        "button_features": "Try For Free"
     },
     "Navbar": {
         "home": "Home",
         "themes": "Themes",
-        "pricing": "Pricing"
+        "pricing": "Pricing",
+        "create_btn": "Invite",
+        "dropdown_dashboard": "Dashboard",
+        "dropdown_message": "Messages",
+        "dropdown_logout": "Logout"
     }
 }

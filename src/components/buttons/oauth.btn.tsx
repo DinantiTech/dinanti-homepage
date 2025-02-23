@@ -16,15 +16,18 @@ export default function ButtonCreate(props: PropsButtonCreateType) {
                     Authorization: `Bearer ${codeResponse?.access_token}`
                 }
             });
-            const data = await response.json();
 
-            const loginResponse = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
+            if (response.status === 200) {
+                const data = await response.json();
 
-            await loginResponse.json();
+                await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                window.location.reload()
+            }
         },
         onError: (error) => {
             console.log(error)

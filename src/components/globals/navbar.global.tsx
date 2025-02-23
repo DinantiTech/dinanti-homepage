@@ -3,14 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { HTMLAttributes, Suspense } from "react";
+import React, { HTMLAttributes, Suspense } from "react";
 
 import { Utils } from "@/libs/utils/index.util";
 import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
-import ButtonCreate from "../buttons/oauth.btn";
 import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
+
+const UserAndCreateDropdownButton = dynamic(() => import("../buttons/user_and_create.btn"), { ssr: false })
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
@@ -73,28 +74,9 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        {!dataUser ? (
-                            <ButtonCreate
-                                is_maintenance={false}
-                                icon_txt={createInvitationNav!.icon_txt}
-                                title={createInvitationNav!.title}
-                                url={createInvitationNav!.url}
-                            />
-                        ) : (
-                            <>
-                                {dataUser?.picture ? (
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-8 shadow">
-                                            <Image src={dataUser?.picture} alt="avatar" width={1000} height={1000} />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-NEUTRAL/30 duration-500 bg-NEUTRAL text-white group">
-                                        <span className="group-hover:text-NEUTRAL duration-500">{dataUser?.given_name[0]}</span>
-                                    </button>
-                                )}
-                            </>
-                        )}
+                        <React.Suspense>
+                            <UserAndCreateDropdownButton />
+                        </React.Suspense>
 
                         <Suspense>
                             <DrowdownLanguage

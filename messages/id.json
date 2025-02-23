@@ -5,6 +5,10 @@
     "Navbar": {
         "home": "Beranda",
         "themes": "Tema",
-        "pricing": "Harga"
+        "pricing": "Harga",
+        "create_btn": "Undangan",
+        "dropdown_dashboard": "Dashboard",
+        "dropdown_message": "Pesan",
+        "dropdown_logout": "Keluar"
     }
 }
