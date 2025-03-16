@@ -14,5 +14,10 @@
         "dropdown_dashboard": "Dashboard",
         "dropdown_message": "Messages",
         "dropdown_logout": "Logout"
+    },
+    "Footer": {
+        "built": "Built with ♥ by Dinanti.",
+        "providing": "Providing digital invitations since 2022",
+        "copyright": "Copyright © 2025 - All right reserved by Dinanti"
     }
 }

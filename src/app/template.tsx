@@ -1,3 +1,5 @@
+"use server";
+
 import Footer from "@/components/globals/footer.global";
 import NavbarCustom from "@/components/globals/navbar.global";
 import LayoutContainer from "@/containers/layout.container";
@@ -23,7 +25,7 @@ export default async function TemplateRoot({ children }: { children: React.React
                     {children}
                 </LayoutContainer>
             </main>
-            <Footer data={data?.attributes?.footer} />
+            <Footer />
         </IndexProvider>
     )
 }
