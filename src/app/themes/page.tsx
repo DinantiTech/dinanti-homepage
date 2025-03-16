@@ -9,12 +9,11 @@ import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { Fetch } from '@/libs/actions/services/fetch.service';
 import { ThemesPageDataType } from '@/libs/types/themespage.type';
 import { cookies } from 'next/headers';
-import JsonLd from '@/components/globals/jsonld.global';
 
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
   const url = `/api/themes-page?populate=deep&locale=${getLang}`;
   const urlMeta = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
@@ -35,7 +34,7 @@ export default async function ThemesPage() {
 export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
   const url = `/api/meta-theme?populate=deep&locale=${getLang}`;
 
   try {

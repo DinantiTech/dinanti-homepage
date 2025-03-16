@@ -2,7 +2,7 @@ import {getRequestConfig} from 'next-intl/server';
 import { cookies } from 'next/headers';
  
 export default getRequestConfig(async () => {
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
   // Provide a static locale, fetch a user setting,
   // read from `cookies()`, `headers()`, etc.
   const getLang = (await cookieStore).get('lang')

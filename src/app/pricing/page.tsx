@@ -9,12 +9,11 @@ import LayoutContainer from '@/containers/layout.container';
 import { PricingDataType } from '@/libs/types/pricingpage.type';
 import { Fetch } from '@/libs/actions/services/fetch.service';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
-import JsonLd from '@/components/globals/jsonld.global';
 
 const PricingPageSection = dynamic(() => import("@/components/sections/pricing/index.section"), { ssr: true });
 
 export default async function Page() {
-    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+    const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
     const url = `/api/pricing-page-content?populate=deep&locale=${getLang}`;
     const urlMeta = `/api/meta-pricing-page?populate=deep&locale=${getLang}`;
 
@@ -34,7 +33,7 @@ export default async function Page() {
 export async function generateMetadata(): Promise<Metadata | null> {
     let meta: MetaType;
 
-    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+    const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
     const url = `/api/meta-pricing-page?populate=deep&locale=${getLang}`;
   
     try {

@@ -12,7 +12,7 @@ import { CustomerDataType } from '@/libs/types/customers.type';
 import BlockRendererClient from '@/components/globals/rich_text.global';
 
 export default function TestimonialsSection({ data }: {data: TestimonySectionType}) {
-    const swiperRef: any = useRef();
+    const swiperRef: any = useRef(null);
 
     return (
         <LayoutContainer>

@@ -9,18 +9,22 @@ import { ThemesDataType } from '@/libs/types/themes.type';
 import BlockRendererClient from '@/components/globals/rich_text.global';
 import { cookies } from 'next/headers';
 import Heading from '@/components/globals/heading.global';
-import dynamic from 'next/dynamic';
 import Badge from '@/components/micro/badge.micro';
 import { Suspense } from 'react';
 import { DataNavigationsType } from '@/libs/types/nav.type';
+import ThemePreview from '@/components/sections/themes/detail/preview.theme';
+import TestimonyTheme from '@/components/sections/themes/detail/testimonies.theme';
 
-const TestimonyTheme = dynamic(() => import('@/components/sections/themes/detail/testimonies.theme'), { ssr: false });
-const ThemePreview = dynamic(() => import('@/components/sections/themes/detail/preview.theme'), { ssr: false });
+export default async function Page({
+    params,
+  }: {
+    params: Promise<{ slug: string }>
+  }) {
+    const { slug } = await params;
 
-export default async function ThemePage({ params }: { params: { slug: string } }) {
-    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+    const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
 
-    const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(params?.slug) });
+    const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(slug) });
     const nav = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     const theme = data[0];
@@ -130,7 +134,8 @@ function ModalPreview({ img, lang }: { img: string, lang: string }) {
     )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<any | null> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<any | null> {
+    const params = await props.params;
 
     if (!params?.slug) return notFound()
 

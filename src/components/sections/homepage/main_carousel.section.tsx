@@ -13,7 +13,7 @@ import { SliderType } from '@/libs/types/homepage.type';
 
 
 export default function MainCarousel({ sliders }: { sliders?: SliderType[] }) {
-    const swiperRef: any = useRef();
+    const swiperRef: any = useRef<any>(null);
     return (
         <section className="flex flex-col items-center justify-center w-full">
             {sliders ? (

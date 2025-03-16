@@ -1,9 +1,9 @@
 import { createClient } from "../utils/supabase/server.supabase";
-import { cookies } from 'next/headers'
+import { cookies, type UnsafeUnwrappedCookies } from 'next/headers';
 
 export default class Auth {
     private supabase = createClient()
-    private cookieStore = cookies()
+    private cookieStore = (cookies() as unknown as UnsafeUnwrappedCookies)
 
     async login(data: LoginType) {
         if (data) {
