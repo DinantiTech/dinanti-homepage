@@ -13,7 +13,7 @@ export default async function TemplateRoot({ children }: { children: React.React
 
     return (
         <IndexProvider>
-            <NavbarCustom data={data} />
+            <NavbarCustom />
             <main className="bg-PRIMARY pb-5 sm:pb-8 bg-cover sm:bg-center bg-no-repeat" 
                 style={{
                     backgroundImage: 'url("/line.svg")'

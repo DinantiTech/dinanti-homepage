@@ -1,19 +1,15 @@
 "use client";
 
+import useLanguageStore from "@/libs/actions/stores/lang.store";
+import { DINANTI } from "@/libs/constants/dinanti.const";
 import { Helpers } from "@/libs/helpers/index,helper";
-import StorageUtil from "@/libs/helpers/storage.helper";
-import { LocalizationsType } from "@/libs/types/nav.type";
 import { Utils } from "@/libs/utils/index.util";
 import { Icon } from "@iconify/react";
-import { useRouter } from "next/navigation";
 import { HTMLAttributes } from "react";
 
-export default function DrowdownLanguage({ currentLocal, locales, className, ...rest }: DrowdownLanguageType) {
-    const router = useRouter();
-    const changeLanguage = ({ lang }: { lang: string }) => {
-        StorageUtil.setItem({ key: "lang", value: lang, type: "cookie" });
-        router.refresh();
-    }
+export default function DrowdownLanguage({ className, ...rest }: DrowdownLanguageType) {
+    
+    const { lang, setLanguage } = useLanguageStore()
 
     return (
         <div className={Utils.cn("dropdown dropdown-end justify-center items-center", className)} { ...rest }>
@@ -23,14 +19,14 @@ export default function DrowdownLanguage({ currentLocal, locales, className, ...
             </div>
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg border-2 border-lime-900/10 h-fit max-h-56">
                 <li className="w-full btn btn-ghost flex flex-row items-center justify-start text-left">
-                    <span className="p-1 border border-MIDNIGHT">{currentLocal?.toLowerCase()}</span>
-                    {Helpers.getCountryByCode(currentLocal)?.name}
+                    <span className="p-1 border border-MIDNIGHT">{lang?.toLowerCase()}</span>
+                    {Helpers.getCountryByCode(lang)?.name}
                 </li>
                 {
-                    locales?.data?.map(item => (
-                        <li key={item?.id} onClick={async () => await changeLanguage({ lang: item?.attributes?.locale })} className="w-full btn btn-ghost flex flex-row items-center justify-start text-left">
-                            <span className="p-1 border border-MIDNIGHT">{item?.attributes?.locale?.toLowerCase()}</span>
-                            {Helpers.getCountryByCode(item?.attributes?.locale)?.name}
+                    DINANTI.lang?.filter(val => val?.code !== lang).map((item, idx) => (
+                        <li key={idx} onClick={() => setLanguage(item?.code)} className="w-full btn btn-ghost flex flex-row items-center justify-start text-left">
+                            <span className="p-1 border border-MIDNIGHT">{item?.code?.toLowerCase()}</span>
+                            {Helpers.getCountryByCode(item?.code)?.name}
                         </li>
                     ))
                 }
@@ -39,7 +35,4 @@ export default function DrowdownLanguage({ currentLocal, locales, className, ...
     )
 }
 
-interface DrowdownLanguageType extends HTMLAttributes<HTMLDivElement> {
-    currentLocal: string;
-    locales: LocalizationsType;
-}
+interface DrowdownLanguageType extends HTMLAttributes<HTMLDivElement> {}
