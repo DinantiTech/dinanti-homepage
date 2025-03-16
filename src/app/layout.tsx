@@ -77,7 +77,7 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
 
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
 
   return (
     <html lang={locale} dir='ltr' data-theme="base" className='scroll-smooth relative'>

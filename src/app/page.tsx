@@ -19,7 +19,7 @@ const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.s
 const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: true });
 
 export default async function Home() {
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
   const url = `/api/homepage?populate[features][populate][list_features][populate]=icon&populate[steppers][populate]=image,list_stepper&populate[sliders][populate]=image&populate[banners][populate]=image&populate[testimony][populate][customers][populate]=image&populate[localizations]=*&locale=${getLang}`;
   const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
 
@@ -64,7 +64,7 @@ export default async function Home() {
 export async function generateMetadata(): Promise<Metadata | null> {
   let meta: MetaType;
 
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
   const url = `/api/meta?populate=deep&locale=${getLang}`;
 
   try {

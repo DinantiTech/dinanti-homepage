@@ -10,8 +10,9 @@ import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
 import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
+import UserAndCreateDropdownButton from "../buttons/user_and_create.btn";
 
-const UserAndCreateDropdownButton = dynamic(() => import("../buttons/user_and_create.btn"), { ssr: false })
+// const UserAndCreateDropdownButton = dynamic(() => import("../buttons/user_and_create.btn"), { ssr: false })
 
 const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
 
@@ -22,7 +23,7 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
     const dataLocale = data?.attributes?.localizations;
     const currentLocal = data?.attributes?.locale;
 
-    const getuser = cookieStore.get('crd');
+    const getuser = (await cookieStore).get('crd');
     const dataUser = getuser ? JSON.parse(getuser.value) : null;
 
     const createInvitationNav = data?.attributes?.others?.find(item => item.type === "create_invitation");
