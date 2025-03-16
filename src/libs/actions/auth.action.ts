@@ -6,27 +6,24 @@ export default class Auth {
     private cookieStore = cookies()
 
     async login(data: LoginType) {
-        try {
-            if(data) {
-                let id;
-                const user = await this.supabase.from('user').update({ login_at: new Date() }).eq('email', data?.email).select('id, email, username').single();
-                if (!user?.data) {
-                    const insert = await this.supabase.from('user').insert({ email: data?.email, username: data?.given_name, login_at: new Date() }).select('id, email, username').single();
-                    id = insert?.data?.id
-                }
-    
-                if(!user?.data && !id) return false
-    
-                this.cookieStore.set('crd', JSON.stringify({ id: user?.data?.id ?? id, ...data }), { secure: true });
-    
-                return true
+        if (data) {
+            let user = await (await this.supabase).from('user').update({ login_at: new Date() }).eq('email', data?.email).select('id, email, username').single();
+            if (!user?.data) {
+                const insert = await (await this.supabase).from('user').insert({ email: data?.email, username: data?.given_name, login_at: new Date() }).select('id, email, username').single();
+                user = insert
             }
-        } catch (error) {
-            console.log(error)
+
+            if (user?.error) throw { ...user?.error }
+
+                ; (await this.cookieStore).set('crd', JSON.stringify({ id: user?.data?.id, ...data }), { secure: true });
+
+            return user?.data
         }
     }
 
-    private logout() { }
+    async logout() {
+        ((await this.cookieStore).delete('crd'))
+    }
 }
 
 type LoginType = {

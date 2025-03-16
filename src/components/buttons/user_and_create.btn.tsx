@@ -26,7 +26,7 @@ export default function UserAndCreateDropdownButton() {
                     is_maintenance={false}
                     icon_txt="line-md:plus"
                     title={t('create_btn')}
-                    url="/"
+                    urlMaintenance="/maintenance"
                 />
             ) : (
                 <div className="flex items-center justify-center">
