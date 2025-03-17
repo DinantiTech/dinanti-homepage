@@ -1,6 +1,36 @@
 {
     "HomePage": {
-        "title": "wkwkwkw"
+        "heading_title": "Buat Undangan Nikah Digital Anti Ribet",
+        "checkout_themes": "Lihat Tema Terbaru Kami",
+        "heading_features": "Dibuat Khusus Untuk Anda Dengan Berbagai Fitur",
+        "desc_features": "Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini",
+        "button_features": "Coba Gratis",
+        "view_theme": "Lihat Tema",
+
+        "variety_of_themes": "Beragam Tema",
+        "variety_of_themes_desc": "Kami sediakan beragam tema yang bisa dipilih.",
+        "send_greetings": "Kirim Ucapan",
+        "send_greetings_desc": "Tamu undangan bisa mengirim pesan secara online.",
+        "monetary_gifts": "Ngamplop",
+        "monetary_gifts_desc": "Ada fitur untuk mengirim angpau pernikahan.",
+        "custom_domain": "Custom Domain",
+        "custom_domain_desc": "Bisa buat custom domain untuk alamat undangan digital.",
+
+        "heading_steppers": "Mudahnya Menggunakan Dinanti",
+        "step_1": "Isi Informasi Mempelai",
+        "step_1_desc": "Pertama isilah data data mempelai, Quotes, dan Foto mempelai.",
+        "step_2": "Upload Foto Prewedding",
+        "step_2_desc": "Selanjutnya silahkan upload foto-foto yang ingin anda tampilkan di undangan anda.",
+        "step_3": "Isi Informasi Acara",
+        "step_3_desc": "Terakhir isi informasi berkaitan dengan acara anda.",
+        "step_4": "Pilih Tema dan Musik",
+        "step_4_desc": "Terakhir pilih tema dan musik yang ingin anda pakai untuk undangan anda.",
+
+        "view_our_theme_collections": "Lihat Koleksi Tema kami",
+        "view_price_offers": "Lihat penawaran Harga",
+        "view_pricing": "Lihat Harga",
+
+        "testimony_1": ""
     },
     "Navbar": {
         "home": "Beranda",

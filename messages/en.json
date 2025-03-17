@@ -2,9 +2,33 @@
     "HomePage": {
         "heading_title": "Create Hassle-Free Digital Wedding Invitations",
         "checkout_themes": "Check Out Our Latest Themes",
+        "view_theme": "View Theme",
         "heading_features": "Custom-Made for You with a Variety of Features",
         "desc_features": "You can try making digital wedding invitations for free by clicking the button below",
-        "button_features": "Try For Free"
+        "button_features": "Try For Free",
+        
+        "variety_of_themes": "Variety of Themes",
+        "variety_of_themes_desc": "We provide a variety of themes to choose from.",
+        "send_greetings": "Send Greetings",
+        "send_greetings_desc": "Guests can send messages online.",
+        "monetary_gifts": "Monetary Gifts",
+        "monetary_gifts_desc": "There is a feature to send wedding monetary gifts",
+        "custom_domain": "Custom Domain",
+        "custom_domain_desc": "Customize your invite URL with a unique domain.",
+
+        "heading_steppers": "Simplicity with Dinanti",
+        "step_1": "Fill Bride and Groom Information.",
+        "step_1_desc": "First, fill in the bride and groom's information, quotes, and the bride's photo.",
+        "step_2": "Upload Photos Prewedding",
+        "step_2_desc": "Next, please upload the photos you'd like to display on your invitation.",
+        "step_3": "Fill in event details",
+        "step_3_desc": "Finally, fill in information related to your event.",
+        "step_4": "Choose theme and music",
+        "step_4_desc": "Lastly, choose the theme and music you'd like to use for your invitation.",
+
+        "view_our_theme_collections": "View our theme collections",
+        "view_price_offers": "View Price Offers",
+        "view_pricing": "View Pricing"
     },
     "Navbar": {
         "home": "Home",

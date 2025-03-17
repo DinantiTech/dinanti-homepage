@@ -11,6 +11,7 @@ import { HomePageType } from '@/libs/types/homepage.type';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { cookies } from 'next/headers';
 import JsonLd from '@/components/globals/jsonld.global';
+import { getTranslations } from 'next-intl/server';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
@@ -19,6 +20,8 @@ const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.s
 const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: true });
 
 export default async function Home() {
+  const t = await getTranslations('HomePage');
+
   const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
   const url = `/api/homepage?populate[features][populate][list_features][populate]=icon&populate[steppers][populate]=image,list_stepper&populate[sliders][populate]=image&populate[banners][populate]=image&populate[testimony][populate][customers][populate]=image&populate[localizations]=*&locale=${getLang}`;
   const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
@@ -29,26 +32,24 @@ export default async function Home() {
     <>
       <JsonLd data={dataMeta?.attributes?.seo?.structuredData} />
       <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
-        <Heading type='heading' title={data?.attributes?.heading} className='px-2' />
-        <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
+        <Heading type='heading' title={t('heading_title')} className='px-2' />
+        <Heading type='text' title={t('checkout_themes')} className='lg:text-xl' />
       </LayoutContainer>
 
       <Suspense>
-        { data?.attributes?.sliders.length > 0 ? (<MainCarousel sliders={data?.attributes?.sliders} />) : null }
+        <MainCarousel />
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.features ? (
           <div className='h-full w-full flex items-center justify-center'>
-            <FeatureSection feature={data?.attributes?.features} />
+            <FeatureSection />
           </div>
-        ) : null }
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.steppers ? (<Steppers steppers={data?.attributes?.steppers} />) : null }
+        <Steppers />
 
-        { data?.attributes?.banners?.length > 0 ? (<HotLinkSection banners={data?.attributes?.banners} />) : null }
+        <HotLinkSection />
 
       </Suspense>
 
