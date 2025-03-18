@@ -55,47 +55,32 @@ export default async function Home() {
 }
 
 export async function generateMetadata(): Promise<Metadata | null> {
-  let meta: MetaType;
-
-  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-  const url = `/api/meta?populate=deep&locale=${getLang}`;
-
-  try {
-    const data = await Fetch.get<MetaRootType>({ path: url });
-
-    meta = data?.attributes?.seo;
-  } catch (error) {
-    return null;
-  }
-
-  const metaSocialTwitter = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Twitter");
-
-  const metaOpenGraph = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Facebook");
+  const t = await getTranslations('Meta')
 
   return {
-    title: meta?.metaTitle,
-    description: meta?.metaDescription,
-    keywords: meta?.keywords,
-    classification: "digital invitation",
+    title: t('title'),
+    description: t('desc'),
+    keywords: META.homepage.keywords,
+    classification: META.homepage.classification,
     alternates: {
-      canonical: meta?.canonicalURL,
+      canonical: META.homepage.canonicalURL,
     },
 
     openGraph: {
-      title: metaOpenGraph?.title,
-      description: metaOpenGraph?.description?.replace(/"/g, ''),
-      images: metaOpenGraph?.image?.data?.attributes?.formats?.small?.url,
+      title: t('social_title'),
+      description: t('social_desc'),
+      images: META.homepage.metaImage,
       type: "website",
-      siteName: "Dinanti.id",
-      url: meta?.baseUrl,
+      siteName: META.homepage.siteName,
+      url: META.homepage.baseUrl,
     },
     twitter: {
-      images: metaSocialTwitter?.image?.data?.attributes?.formats?.small?.url,
-      title: metaSocialTwitter?.title,
+      images: META.homepage.metaImage,
+      title: t('social_title'),
       card: "summary_large_image",
-      description: metaSocialTwitter?.description?.replace(/"/g, ''),
-      creator: "Dinanti Creator",
-      site: meta?.baseUrl
+      description: t('social_desc'),
+      creator: META.homepage.creator,
+      site: META.homepage.baseUrl
     },
 
   }

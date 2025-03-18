@@ -1,5 +1,13 @@
 export const META = {
     homepage: {
+        metaImage: "https://res.cloudinary.com/storyline-beta/image/upload/v1722372240/dinanti_admin_content/nafi_alif_7b3a244f8e.jpg",
+        baseUrl: "https://dinanti.id/",
+        type: "website",
+        classification: "digital invitation",
+        siteName: "Dinanti.id",
+        keywords: "wedding invitation template, minted wedding, 招待状 テンプレート 無料, wedding invitation card, 招待状, wedding invites, wedding cards, minted wedding website, wedding card design, wedding invitation templates, evite invitations, wedding card, wedding invitation, greetings island, minted, canva, wedding, ラクスル, undangan digital, undangan",
+        creator: "Dinanti Creator",
+        canonicalURL: "/",
         structuredData: {
             "@type": "FAQPage",
             "@context": "https://schema.org",
