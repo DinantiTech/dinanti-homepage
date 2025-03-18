@@ -39,6 +39,12 @@
         "testimony_3": "wkwkwkw lucuuuu",
         "testimony_3_user": "Ayyub & Pipit"
     },
+    "ThemesPage": {
+        "heading": "Tema Undangan Menikah Yang Kami Buat Untuk Anda Pakai",
+        "heading_desc": "Anda Pakai Berikut tema-tema yang bisa anda pilih untuk Anda gunakan di undangan Anda",
+        "placeholder_search": "Cari Tema ..",
+        "themes_not_found": "Tema tidak ditemukan!"
+    },
     "Navbar": {
         "home": "Beranda",
         "themes": "Tema",
@@ -54,9 +60,17 @@
         "copyright": "Copyright © 2025 - All right reserved by Dinanti"
     },
     "Meta": {
-        "title": "Solusi Modern Undangan Digital yang Berkesan | Dinanti",
-        "desc": "Temukan tema undangan eksklusif Anda hari ini! Buat kenangan tak terlupakan dengan sentuhan kreatif dari tim ahli kami. 💌",
-        "social_title": "Solusi Modern Undangan Digital yang Berkesan - Dinanti",
-        "social_desc": "Rencanakan Momen Tak Terlupakan! 💌"
+        "homepage": {
+            "title": "Solusi Modern Undangan Digital yang Berkesan | Dinanti",
+            "desc": "Temukan tema undangan eksklusif Anda hari ini! Buat kenangan tak terlupakan dengan sentuhan kreatif dari tim ahli kami. 💌",
+            "social_title": "Solusi Modern Undangan Digital yang Berkesan - Dinanti",
+            "social_desc": "Rencanakan Momen Tak Terlupakan! 💌"
+        },
+        "themes": {
+            "title": "Undangan Elegan Dinanti - Daftar Harga",
+            "desc": "Temukan harga undangan eksklusif Dinanti yang terjangkau. Pilih dari berbagai desain elegan dan ekonomis untuk hari istimewa Anda",
+            "social_title": "Undangan Elegan Dinanti - Daftar Harga",
+            "social_desc": "Harga undangan eksklusif Dinanti yang terjangkau dan elegan."
+        }
     }
 }

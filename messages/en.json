@@ -39,6 +39,12 @@
         "testimony_3": "LOL so cutttee...",
         "testimony_3_user": "Ayyub & Pipit"
     },
+    "ThemesPage": {
+        "heading": "Wedding Invitation Themes We Made For You",
+        "heading_desc": "Here are the themes that you can choose to use in your invitation",
+        "placeholder_search": "Search Themes ..",
+        "themes_not_found": "Themes not Found!"
+    },
     "Navbar": {
         "home": "Home",
         "themes": "Themes",
@@ -54,9 +60,17 @@
         "copyright": "Copyright © 2025 - All right reserved by Dinanti"
     },
     "Meta": {
-        "title": "Modern and Memorable Digital Invitation Solution | Dinanti",
-        "desc": "Discover your exclusive invitation theme today! Create unforgettable memories with the creative touch of our expert team. 💌",
-        "social_title": "Digital Invites That Make a Memorable Impact",
-        "social_desc": "Plan Unforgettable Moments! 💌"
+        "homepage": {
+            "title": "Modern and Memorable Digital Invitation Solution | Dinanti",
+            "desc": "Discover your exclusive invitation theme today! Create unforgettable memories with the creative touch of our expert team. 💌",
+            "social_title": "Digital Invites That Make a Memorable Impact",
+            "social_desc": "Plan Unforgettable Moments! 💌"
+        },
+        "themes": {
+            "title": "Elegant Invitations by Dinanti - Price List",
+            "desc": "Discover affordable pricing for Dinanti's exclusive invitations. Choose from a variety of elegant and economical designs for your special day.",
+            "social_title": "Elegant Invitations by Dinanti - Price List",
+            "social_desc": "Affordable and Elegant Dinanti Invitations for Special Days"
+        }
     }
 }

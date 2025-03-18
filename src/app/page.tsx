@@ -58,8 +58,8 @@ export async function generateMetadata(): Promise<Metadata | null> {
   const t = await getTranslations('Meta')
 
   return {
-    title: t('title'),
-    description: t('desc'),
+    title: t('homepage.title'),
+    description: t('homepage.desc'),
     keywords: META.homepage.keywords,
     classification: META.homepage.classification,
     alternates: {
@@ -67,8 +67,8 @@ export async function generateMetadata(): Promise<Metadata | null> {
     },
 
     openGraph: {
-      title: t('social_title'),
-      description: t('social_desc'),
+      title: t('homepage.social_title'),
+      description: t('homepage.social_desc'),
       images: META.homepage.metaImage,
       type: "website",
       siteName: META.homepage.siteName,
@@ -76,9 +76,9 @@ export async function generateMetadata(): Promise<Metadata | null> {
     },
     twitter: {
       images: META.homepage.metaImage,
-      title: t('social_title'),
+      title: t('homepage.social_title'),
       card: "summary_large_image",
-      description: t('social_desc'),
+      description: t('homepage.social_desc'),
       creator: META.homepage.creator,
       site: META.homepage.baseUrl
     },

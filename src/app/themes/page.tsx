@@ -5,26 +5,19 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
 import LayoutContainer from '@/containers/layout.container';
-import { MetaRootType, MetaType } from '@/libs/types/meta.type';
-import { Fetch } from '@/libs/actions/services/fetch.service';
-import { ThemesPageDataType } from '@/libs/types/themespage.type';
-import { cookies } from 'next/headers';
+import JsonLd from '@/components/globals/jsonld.global';
+import { META } from '@/libs/constants/meta.const';
+import { getTranslations } from 'next-intl/server';
 
 const ThemesPageSection = dynamic(() => import("@/components/sections/themes/index.section"), { ssr: true });
 
 export default async function ThemesPage() {
-  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-  const url = `/api/themes-page?populate=deep&locale=${getLang}`;
-  const urlMeta = `/api/meta-theme?populate=deep&locale=${getLang}`;
-
-  const data = await Fetch.get<ThemesPageDataType>({ path: url });
-  const meta = await Fetch.get<MetaRootType>({ path: urlMeta });
 
   return (
     <LayoutContainer>
-      {/* <JsonLd data={meta?.attributes?.seo?.structuredData} /> */}
+      <JsonLd data={META.themespage.structuredData} />
       <Suspense>
-        <ThemesPageSection data={data} />
+        <ThemesPageSection />
       </Suspense>
     </LayoutContainer>
   )
@@ -32,50 +25,32 @@ export default async function ThemesPage() {
 
 
 export async function generateMetadata(): Promise<Metadata | null> {
-  let meta: MetaType;
-
-  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-  const url = `/api/meta-theme?populate=deep&locale=${getLang}`;
-
-  try {
-    const data = await Fetch.get<MetaRootType>({ path: url });
-
-    meta = data?.attributes?.seo;
-  } catch (error) {
-    return null;
-  }
-
-  const metaSocialTwitter = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Twitter");
-
-  const metaOpenGraph = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Facebook");
+  const t = await getTranslations('Meta');
 
   return {
-    title: meta?.metaTitle,
-    description: meta?.metaDescription,
-    keywords: meta?.keywords,
-    classification: "digital invitation",
+    title: t('themes.title'),
+    description: t('themes.desc'),
+    keywords: META.homepage.keywords,
+    classification: META.homepage.classification,
     alternates: {
-      canonical: meta?.canonicalURL,
+      canonical: META.themespage.canonicalURL,
     },
 
     openGraph: {
-      title: metaOpenGraph?.title,
-      description: metaOpenGraph?.description?.replace(/"/g, ''),
-      images: metaOpenGraph?.image?.data?.attributes?.formats?.small?.url,
+      title: t('themes.social_title'),
+      description: t('themes.social_desc'),
+      images: META.homepage.metaImage,
       type: "website",
-      siteName: "Dinanti.id",
-      url: meta?.baseUrl,
+      siteName: META.homepage.siteName,
+      url: META.themespage.baseUrl,
     },
     twitter: {
-      images: metaSocialTwitter?.image?.data?.attributes?.formats?.small?.url,
-      title: metaSocialTwitter?.title,
+      images: META.homepage.metaImage,
+      title: t('themes.social_title'),
       card: "summary_large_image",
-      description: metaSocialTwitter?.description?.replace(/"/g, ''),
-      creator: "Dinanti Creator",
-      site: meta?.baseUrl
+      description: t('themes.social_desc'),
+      creator: META.homepage.creator,
+      site: META.themespage.baseUrl
     },
-    
-
-
   }
 }

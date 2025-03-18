@@ -10,10 +10,12 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import Maintenance from "@/components/globals/maintenance";
 import { fetchMoreThemes } from "@/libs/actions/themes/themes.action";
 import StorageUtil from "@/libs/helpers/storage.helper";
+import { useTranslations } from "next-intl";
 
 const CardThemeContent = dynamic(() => import("@/components/cards/theme.card"), { ssr: false });
 
 export default function ListThemes() {
+    const t = useTranslations('ThemesPage');
 
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
@@ -62,13 +64,12 @@ export default function ListThemes() {
 
     // Lang
     const getLang = StorageUtil.getItem({ key: "lang", type: "cookie" }) ?? "id";
-    const placeholder = getLang !== "id" ? "Search themes" : "Cari Tema";
     const messageSearchEmpty = getLang !== "id" ? "Themes not Found!" : "Tema tidak ditemukan!";
 
     return (
         <section className="flex flex-col items-center justify-center w-full py-1">
             <label className="input input-bordered flex items-center gap-2 max-w-[29rem] w-full text-NEUTRAL mt-6">
-                <input type="search" onChange={handleSearchChange} className="grow w-full" placeholder={placeholder} />
+                <input type="search" onChange={handleSearchChange} className="grow w-full" placeholder={t('placeholder_search')} />
                 <kbd className="kbd kbd-sm"><Icon icon="fluent:search-sparkle-16-filled" className="lg:text-lg" /></kbd>
             </label>
 
@@ -83,7 +84,7 @@ export default function ListThemes() {
                     <>
                         {(!isFetching) ? (
                             <div className="my-5">
-                                <p>{messageSearchEmpty}</p>
+                                <p>{t('themes_not_found')}</p>
                             </div>
                         ) : (<span className="loading loading-dots loading-lg py-7" />)}
                     </>

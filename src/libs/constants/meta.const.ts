@@ -54,5 +54,110 @@ export const META = {
                 }
             ]
         }
+    },
+    themespage: {
+        baseUrl: "https://dinanti.id/themes",
+        canonicalURL: "https://dinanti.id/themes",
+        structuredData: {
+            "name": "Undangan Digital Pernikahan Dinanti",
+            "@type": "Product",
+            "brand": {
+                "name": "Dinanti",
+                "@type": "Brand"
+            },
+            "image": "https://res.cloudinary.com/storyline-beta/image/upload/v1722372240/dinanti_admin_content/nafi_alif_7b3a244f8e.jpg",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "price": "0",
+                    "seller": {
+                        "name": "Dinanti Invitation",
+                        "@type": "Organization"
+                    },
+                    "availability": "http://schema.org/InStock",
+                    "priceCurrency": "IDR",
+                    "shippingDetails": {
+                        "@type": "OfferShippingDetails",
+                        "deliveryTime": {
+                            "@type": "ShippingDeliveryTime",
+                            "transitTime": {
+                                "@type": "QuantitativeValue",
+                                "maxValue": "3",
+                                "minValue": "1",
+                                "unitCode": "DAY"
+                            },
+                            "handlingTime": {
+                                "@type": "QuantitativeValue",
+                                "maxValue": "1",
+                                "minValue": "0",
+                                "unitCode": "DAY"
+                            }
+                        },
+                        "shippingRate": {
+                            "@type": "MonetaryAmount",
+                            "value": "0",
+                            "currency": "IDR"
+                        },
+                        "shippingDestination": {
+                            "@type": "DefinedRegion",
+                            "addressCountry": "ID"
+                        }
+                    },
+                    "hasMerchantReturnPolicy": {
+                        "@type": "MerchantReturnPolicy",
+                        "returnMethod": "https://schema.org/ReturnByMail",
+                        "applicableCountry": "ID",
+                        "merchantReturnDays": 14,
+                        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "price": "200000",
+                    "seller": {
+                        "name": "Dinanti Invitation",
+                        "@type": "Organization"
+                    },
+                    "availability": "http://schema.org/InStock",
+                    "priceCurrency": "IDR",
+                    "shippingDetails": {
+                        "@type": "OfferShippingDetails",
+                        "deliveryTime": {
+                            "@type": "ShippingDeliveryTime",
+                            "transitTime": {
+                                "@type": "QuantitativeValue",
+                                "maxValue": "3",
+                                "minValue": "1",
+                                "unitCode": "DAY"
+                            },
+                            "handlingTime": {
+                                "@type": "QuantitativeValue",
+                                "maxValue": "1",
+                                "minValue": "0",
+                                "unitCode": "DAY"
+                            }
+                        },
+                        "shippingRate": {
+                            "@type": "MonetaryAmount",
+                            "value": "0",
+                            "currency": "IDR"
+                        },
+                        "shippingDestination": {
+                            "@type": "DefinedRegion",
+                            "addressCountry": "ID"
+                        }
+                    },
+                    "hasMerchantReturnPolicy": {
+                        "@type": "MerchantReturnPolicy",
+                        "returnMethod": "https://schema.org/ReturnByMail",
+                        "applicableCountry": "ID",
+                        "merchantReturnDays": 14,
+                        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+                    }
+                }
+            ],
+            "@context": "https://schema.org/",
+            "description": "Buat undangan pernikahan digital yang indah dengan Dinanti. Pilih dari berbagai template yang dapat disesuaikan."
+        }
     }
 }
