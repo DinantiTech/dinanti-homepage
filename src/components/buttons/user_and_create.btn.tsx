@@ -6,6 +6,7 @@ import { useAuthStore } from "@/libs/actions/stores/auth.store";
 import { useTranslations } from "next-intl";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
+import { DINANTI } from "@/libs/constants/dinanti.const";
 
 export default function UserAndCreateInviteButton() {
     const router = useRouter()
@@ -23,7 +24,7 @@ export default function UserAndCreateInviteButton() {
         <>
             {!isLogin ? (
                 <ButtonCreate
-                    is_maintenance={false}
+                    is_maintenance={DINANTI.is_maintenance}
                     icon_txt="line-md:plus"
                     title={t('create_btn')}
                     urlMaintenance="/maintenance"

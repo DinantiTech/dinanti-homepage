@@ -4,6 +4,7 @@ import LOGO_WHITE from "@/assets/logo/dinanti_white_logo.svg";
 export const DINANTI = {
     logo: LOGO,
     logo_white: LOGO_WHITE,
+    is_maintenance: true,
     lang: [
         { code: 'id', title: "Indonesia" },
         { code: 'en', title: "English" }
