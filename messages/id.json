@@ -45,6 +45,28 @@
         "placeholder_search": "Cari Tema ..",
         "themes_not_found": "Tema tidak ditemukan!"
     },
+    "PricingPage": {
+        "heading": "Harga Paket Beragam Yang Menyesuaikan Kebutuhanmu",
+        "heading_desc": "Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini",
+        "pricelist": {
+            "free": {
+                "title": "Basic (Gratis)",
+                "desc": "Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, hanya undangan basic yang kamu bisa coba gratis, dengan masa aktif 2 minggu.",
+                "btn_text": "Coba Gratis",
+                "price": "0",
+                "discount": "0",
+                "type": "Free"
+            },
+            "premium": {
+                "title": "Premium",
+                "desc": "Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.",
+                "btn_text": "Coba Premium",
+                "price": "0",
+                "discount": "0",
+                "type": "Premium"
+            }
+        }
+    },
     "Navbar": {
         "home": "Beranda",
         "themes": "Tema",
@@ -67,6 +89,12 @@
             "social_desc": "Rencanakan Momen Tak Terlupakan! 💌"
         },
         "themes": {
+            "title": "Undangan Elegan Dinanti - Daftar Harga",
+            "desc": "Temukan harga undangan eksklusif Dinanti yang terjangkau. Pilih dari berbagai desain elegan dan ekonomis untuk hari istimewa Anda",
+            "social_title": "Undangan Elegan Dinanti - Daftar Harga",
+            "social_desc": "Harga undangan eksklusif Dinanti yang terjangkau dan elegan."
+        },
+        "pricingpage": {
             "title": "Undangan Elegan Dinanti - Daftar Harga",
             "desc": "Temukan harga undangan eksklusif Dinanti yang terjangkau. Pilih dari berbagai desain elegan dan ekonomis untuk hari istimewa Anda",
             "social_title": "Undangan Elegan Dinanti - Daftar Harga",

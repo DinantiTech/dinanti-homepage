@@ -45,6 +45,28 @@
         "placeholder_search": "Search Themes ..",
         "themes_not_found": "Themes not Found!"
     },
+    "PricingPage": {
+        "heading": "Various Package Prices to Suit Your Needs",
+        "heading_desc": "You can try it for free to create a digital wedding invitation by clicking the button below",
+        "pricelist": {
+            "free": {
+                "title": "Basic (Free)",
+                "desc": "You can try out all the features on our platform. However, you can only try the basic invitation for free, and it’s only valid for 2 weeks.",
+                "btn_text": "Try Free",
+                "price": "0",
+                "discount": "0",
+                "type": "Free"
+            },
+            "premium": {
+                "title": "Premium",
+                "desc": "You get access to all our platform's features, and the invitation is active forever.",
+                "btn_text": "Try Premium",
+                "price": "0",
+                "discount": "0",
+                "type": "Premium"
+            }
+        }
+    },
     "Navbar": {
         "home": "Home",
         "themes": "Themes",
@@ -66,7 +88,13 @@
             "social_title": "Digital Invites That Make a Memorable Impact",
             "social_desc": "Plan Unforgettable Moments! 💌"
         },
-        "themes": {
+        "themespage": {
+            "title": "Elegant Invitations by Dinanti - Price List",
+            "desc": "Discover affordable pricing for Dinanti's exclusive invitations. Choose from a variety of elegant and economical designs for your special day.",
+            "social_title": "Elegant Invitations by Dinanti - Price List",
+            "social_desc": "Affordable and Elegant Dinanti Invitations for Special Days"
+        },
+        "pricingpage": {
             "title": "Elegant Invitations by Dinanti - Price List",
             "desc": "Discover affordable pricing for Dinanti's exclusive invitations. Choose from a variety of elegant and economical designs for your special day.",
             "social_title": "Elegant Invitations by Dinanti - Price List",

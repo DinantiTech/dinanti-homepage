@@ -159,5 +159,9 @@ export const META = {
             "@context": "https://schema.org/",
             "description": "Buat undangan pernikahan digital yang indah dengan Dinanti. Pilih dari berbagai template yang dapat disesuaikan."
         }
+    },
+    pricingpage: {
+        baseUrl: "https://dinanti.id/pricing",
+        canonicalURL: "https://dinanti.id/pricing",
     }
 }

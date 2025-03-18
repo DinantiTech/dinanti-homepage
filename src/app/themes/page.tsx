@@ -23,7 +23,6 @@ export default async function ThemesPage() {
   )
 }
 
-
 export async function generateMetadata(): Promise<Metadata | null> {
   const t = await getTranslations('Meta');
 
