@@ -23,10 +23,8 @@ export default async function Home() {
   const t = await getTranslations('HomePage');
 
   const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-  const url = `/api/homepage?populate[features][populate][list_features][populate]=icon&populate[steppers][populate]=image,list_stepper&populate[sliders][populate]=image&populate[banners][populate]=image&populate[testimony][populate][customers][populate]=image&populate[localizations]=*&locale=${getLang}`;
   const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
 
-  const data = await Fetch.get<HomePageType>({ path: url });
   const dataMeta = await Fetch.get<MetaRootType>({ path: urlMeta });
   return (
     <>
@@ -54,9 +52,7 @@ export default async function Home() {
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.testimony ? (
-          <TestimonialsSection data={data?.attributes?.testimony} />
-        ) : null }
+          <TestimonialsSection />
       </Suspense>
     </>
   )

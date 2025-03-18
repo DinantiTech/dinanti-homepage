@@ -28,7 +28,16 @@
 
         "view_our_theme_collections": "View our theme collections",
         "view_price_offers": "View Price Offers",
-        "view_pricing": "View Pricing"
+        "view_pricing": "View Pricing",
+
+        "testimony_heading": "What They Say ..",
+        "testimony_desc": "Come and listen to stories from our friends who have tried our products and services. These testimonials are real proof that we don’t just make promises, but truly deliver the best!",
+        "testimony_1": "Finally, alhamdulillah, honestly, I’m super satisfied with Dinanti.id's digital invitations because you can request exactly what you want, and it’s not just some basic template. So, no one else will have the same invite as you, you know? It feels super unique and totally matches your dream wedding invitation vibe. Later, if I’ve already uploaded my vendors and stuff, I’ll share it on social media and also promo it to my friends who are getting married.",
+        "testimony_user_1": "Nafi & Alif",
+        "testimony_2": "Perfect!",
+        "testimony_user_2": "Angga & Yudha",
+        "testimony_3": "LOL so cutttee...",
+        "testimony_3_user": "Ayyub & Pipit"
     },
     "Navbar": {
         "home": "Home",

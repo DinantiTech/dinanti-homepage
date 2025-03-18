@@ -7,12 +7,18 @@ import 'swiper/css';
 import LayoutContainer from '@/containers/layout.container';
 import Heading from '@/components/globals/heading.global';
 import Image from 'next/image';
-import { TestimoniesType, TestimonySectionType } from '@/libs/types/homepage.type';
-import { CustomerDataType } from '@/libs/types/customers.type';
-import BlockRendererClient from '@/components/globals/rich_text.global';
+import { useTranslations } from 'next-intl';
 
-export default function TestimonialsSection({ data }: {data: TestimonySectionType}) {
+export default function TestimonialsSection() {
     const swiperRef: any = useRef(null);
+
+    const t = useTranslations('HomePage');
+
+    const testimonials = [
+        { testimony: t('testimony_1'), name: t('testimony_user_1'), image: "https://res.cloudinary.com/storyline-beta/image/upload/v1722372240/dinanti_admin_content/nafi_alif_7b3a244f8e.jpg" },
+        { testimony: t('testimony_2'), name: t('testimony_user_2'), image: "https://res.cloudinary.com/storyline-beta/image/upload/v1722371230/dinanti_admin_content/yudha_anggi_1_032bb6b0af.png" },
+        { testimony: t('testimony_3'), name: t('testimony_3_user'), image: "https://res.cloudinary.com/storyline-beta/image/upload/v1722365508/dinanti_admin_content/Ayyub_and_Pipit_47fb515584.png" },
+    ]
 
     return (
         <LayoutContainer>
@@ -20,9 +26,9 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
                 <div className="mx-auto max-w-[1340px] px-4 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
                     <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:items-center lg:gap-16">
                         <div className="hidden xxss:block max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                            <Heading type='subheading' title={data?.heading} className="font-bold tracking-tight text-gray-900 sm:text-4xl" />
+                            <Heading type='subheading' title={t('testimony_heading')} className="font-bold tracking-tight text-gray-900 sm:text-4xl" />
 
-                            <Heading type='text' title={data?.description} className="mt-4 text-gray-700" />
+                            <Heading type='text' title={t('testimony_desc')} className="mt-4 text-gray-700" />
 
                             <ButtonNavigation fowardRef={swiperRef} />
                         </div>
@@ -45,8 +51,8 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
                                     },
                                 }}
                             >
-                                { data?.customers?.data?.map(item => (
-                                    <SwiperSlide key={item?.id}>
+                                { testimonials.map((item, idx) => (
+                                    <SwiperSlide key={idx}>
                                         <Testimonial data={item} />
                                     </SwiperSlide>
                                 )) }
@@ -62,7 +68,7 @@ export default function TestimonialsSection({ data }: {data: TestimonySectionTyp
     )
 }
 
-function Testimonial({ data }: { data: CustomerDataType }) {
+function Testimonial({ data }: { data: Record<string, string> }) {
     return (
         <blockquote
             className="flex h-full flex-col justify-between bg-white p-6 sm:p-8 lg:p-12 overflow-hidden"
@@ -71,14 +77,12 @@ function Testimonial({ data }: { data: CustomerDataType }) {
                 {/* <p className="text-2xl font-bold text-NEUTRAL sm:text-3xl">Stayin' Alive</p> */}
 
                 {/* <Heading type='text' title={ data?.testimony } className="mt-4 leading-relaxed text-gray-700" /> */}
-                <BlockRendererClient content={data?.attributes?.testimony} />
+                <p>{data?.testimony}</p>
             </div>
-            <footer className="mt-4 text-sm text-gray-700 sm:mt-6 gap-1 flex items-start flex-col font-semibold sm:text-base">
-                { data?.attributes?.image?.data?.attributes?.url ? (
-                    <Image src={data?.attributes?.image?.data?.attributes?.url} alt={data?.attributes?.name} width={300} height={300} loading='lazy' className='h-14 w-14 object-cover object-top flex flex-shrink-0 rounded-e-full' />
-                ) :null }
-                &mdash; {data?.attributes?.name}
-            </footer>
+            <div className="mt-4 text-sm text-gray-700 sm:mt-6 gap-1 flex items-start flex-col font-semibold sm:text-base">
+                    <Image src={data?.image} alt={data.name} width={300} height={300} loading='lazy' className='h-14 w-14 object-cover object-top flex flex-shrink-0 rounded-e-full' />
+                &mdash; {data?.name}
+            </div>
         </blockquote>
     )
 }
