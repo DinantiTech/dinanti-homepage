@@ -92,7 +92,6 @@ function BrandLogo({ imageUrl, className, ...rest }: BrandLogoProps) {
     );
 }
 
-
 function NavList({ data, isSidebar }: { data: Record<string, string>[], isSidebar?: boolean }) {
     return (
         <>
