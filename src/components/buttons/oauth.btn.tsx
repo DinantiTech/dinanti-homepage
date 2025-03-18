@@ -4,45 +4,53 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useGoogleLogin } from "@react-oauth/google";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import StorageUtil from "@/libs/helpers/storage.helper";
+import React from "react";
 
 export default function ButtonCreate(props: PropsButtonCreateType) {
-
     const route = useRouter()
+    const [isFetching, setIsFetching] = React.useState<boolean>(false)
 
-    // const googleLogin = useGoogleLogin({
-    //     flow: 'auth-code',
-    //     onSuccess: async codeResponse => {
-    //         const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL_DINANTI}/auth/login`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ code: codeResponse?.code })
-    //         })
+    const googleLogin = useGoogleLogin({
+        flow: 'implicit',
+        onSuccess: async codeResponse => {
+            setIsFetching(true)
+            
+            const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer ${codeResponse?.access_token}`
+                }
+            });
 
-    //         if (data.status !== 200) {
-    //             return route.push('/')
-    //         }
+            if (response.status === 200) {
+                const data = await response.json();
+                    
+                    const result = await fetch('/api/auth/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
 
-    //         const result = await data?.json();
+                    setIsFetching(false)
 
-    //         StorageUtil.setItem({ type: 'cookie', key: 'crd', value: result?.data });
+                    if(result?.status === 500) window.location.replace(props?.urlMaintenance)
 
-    //         console.log("token", result);
-    //     }
-    // });
+                    window.location.reload()
 
-    const handleCreateInvitation = () => route.push('/maintenance')
+            }
+        },
+        onError: (error) => {
+            console.log(error)
+        }
+    });
 
     return (
         <>{!props.is_maintenance ? (
-            <button onClick={handleCreateInvitation} name="button login" className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
-                {props?.icon_txt ? (<Icon icon={props?.icon_txt} />) : null}
+            <button onClick={() => googleLogin()} name="button login" className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
+                {props?.icon_txt ? (<Icon icon={ isFetching ? "eos-icons:bubble-loading" : props?.icon_txt} />) : null}
                 <span className="hidden xxss:block">{props?.title}</span>
             </button>
         ) : (
-            <Link href={props?.url} className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
+            <Link href={props?.urlMaintenance ?? '/maintenance'} className="btn btn-xs xxs:btn-sm lg:btn-md group-hover:text-lime-900 rounded-lg bg-MIDNIGHT text-white hover:bg-NEUTRAL text-[0.6rem] sm:text-xs md:text-sm">
                 {props?.icon_txt ? (<Icon icon={props?.icon_txt} />) : null}
                 <span className="hidden xxss:block">{props?.title}</span>
             </Link>
@@ -52,7 +60,7 @@ export default function ButtonCreate(props: PropsButtonCreateType) {
 
 type PropsButtonCreateType = {
     icon_txt?: string;
-    title: string;
-    url: string;
-    is_maintenance: boolean;
+    title?: string;
+    urlMaintenance: string;
+    is_maintenance?: boolean;
 }

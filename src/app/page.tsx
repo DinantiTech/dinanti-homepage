@@ -7,10 +7,11 @@ import { Suspense } from 'react';
 import Heading from '@/components/globals/heading.global';
 import LayoutContainer from '@/containers/layout.container';
 import { Fetch } from '@/libs/actions/services/fetch.service';
-import { HomePageType } from '@/libs/types/homepage.type';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { cookies } from 'next/headers';
 import JsonLd from '@/components/globals/jsonld.global';
+import { getTranslations } from 'next-intl/server';
+import { META } from '@/libs/constants/meta.const';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
@@ -19,91 +20,67 @@ const Steppers = dynamic(() => import('@/components/sections/homepage/steppers.s
 const TestimonialsSection = dynamic(() => import('@/components/sections/homepage/testimonials.section'), { ssr: true });
 
 export default async function Home() {
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
-  const url = `/api/homepage?populate[features][populate][list_features][populate]=icon&populate[steppers][populate]=image,list_stepper&populate[sliders][populate]=image&populate[banners][populate]=image&populate[testimony][populate][customers][populate]=image&populate[localizations]=*&locale=${getLang}`;
-  const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
-
-  const data = await Fetch.get<HomePageType>({ path: url });
-  const dataMeta = await Fetch.get<MetaRootType>({ path: urlMeta });
+  const t = await getTranslations('HomePage');
 
   return (
     <>
-      <JsonLd data={dataMeta?.attributes?.seo?.structuredData} />
+      <JsonLd data={META.homepage.structuredData} />
       <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
-        <Heading type='heading' title={data?.attributes?.heading} className='px-2' />
-        <Heading type='text' title={data?.attributes?.sub_heading} className='lg:text-xl' />
+        <Heading type='heading' title={t('heading_title')} className='px-2' />
+        <Heading type='text' title={t('checkout_themes')} className='lg:text-xl' />
       </LayoutContainer>
 
       <Suspense>
-        { data?.attributes?.sliders.length > 0 ? (<MainCarousel sliders={data?.attributes?.sliders} />) : null }
+        <MainCarousel />
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.features ? (
           <div className='h-full w-full flex items-center justify-center'>
-            <FeatureSection feature={data?.attributes?.features} />
+            <FeatureSection />
           </div>
-        ) : null }
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.steppers ? (<Steppers steppers={data?.attributes?.steppers} />) : null }
+        <Steppers />
 
-        { data?.attributes?.banners?.length > 0 ? (<HotLinkSection banners={data?.attributes?.banners} />) : null }
+        <HotLinkSection />
 
       </Suspense>
 
       <Suspense>
-        { data?.attributes?.testimony ? (
-          <TestimonialsSection data={data?.attributes?.testimony} />
-        ) : null }
+          <TestimonialsSection />
       </Suspense>
     </>
   )
 }
 
 export async function generateMetadata(): Promise<Metadata | null> {
-  let meta: MetaType;
-
-  const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
-  const url = `/api/meta?populate=deep&locale=${getLang}`;
-
-  try {
-    const data = await Fetch.get<MetaRootType>({ path: url });
-
-    meta = data?.attributes?.seo;
-  } catch (error) {
-    return null;
-  }
-
-  const metaSocialTwitter = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Twitter");
-
-  const metaOpenGraph = meta?.metaSocial?.find(({ socialNetwork }) => socialNetwork === "Facebook");
+  const t = await getTranslations('Meta')
 
   return {
-    title: meta?.metaTitle,
-    description: meta?.metaDescription,
-    keywords: meta?.keywords,
-    classification: "digital invitation",
+    title: t('homepage.title'),
+    description: t('homepage.desc'),
+    keywords: META.homepage.keywords,
+    classification: META.homepage.classification,
     alternates: {
-      canonical: meta?.canonicalURL,
+      canonical: META.homepage.canonicalURL,
     },
 
     openGraph: {
-      title: metaOpenGraph?.title,
-      description: metaOpenGraph?.description?.replace(/"/g, ''),
-      images: metaOpenGraph?.image?.data?.attributes?.formats?.small?.url,
+      title: t('homepage.social_title'),
+      description: t('homepage.social_desc'),
+      images: META.homepage.metaImage,
       type: "website",
-      siteName: "Dinanti.id",
-      url: meta?.baseUrl,
+      siteName: META.homepage.siteName,
+      url: META.homepage.baseUrl,
     },
     twitter: {
-      images: metaSocialTwitter?.image?.data?.attributes?.formats?.small?.url,
-      title: metaSocialTwitter?.title,
+      images: META.homepage.metaImage,
+      title: t('homepage.social_title'),
       card: "summary_large_image",
-      description: metaSocialTwitter?.description?.replace(/"/g, ''),
-      creator: "Dinanti Creator",
-      site: meta?.baseUrl
+      description: t('homepage.social_desc'),
+      creator: META.homepage.creator,
+      site: META.homepage.baseUrl
     },
 
   }

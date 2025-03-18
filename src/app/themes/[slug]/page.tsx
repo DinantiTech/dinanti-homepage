@@ -9,23 +9,27 @@ import { ThemesDataType } from '@/libs/types/themes.type';
 import BlockRendererClient from '@/components/globals/rich_text.global';
 import { cookies } from 'next/headers';
 import Heading from '@/components/globals/heading.global';
-import dynamic from 'next/dynamic';
 import Badge from '@/components/micro/badge.micro';
 import { Suspense } from 'react';
 import { DataNavigationsType } from '@/libs/types/nav.type';
+import ThemePreview from '@/components/sections/themes/detail/preview.theme';
+import TestimonyTheme from '@/components/sections/themes/detail/testimonies.theme';
 
-const TestimonyTheme = dynamic(() => import('@/components/sections/themes/detail/testimonies.theme'), { ssr: false });
-const ThemePreview = dynamic(() => import('@/components/sections/themes/detail/preview.theme'), { ssr: false });
+import themesList from "@/json/themes.json";
+import whatsapp_redirect from '@/libs/helpers/whatsapp_redirect.helper';
 
-export default async function ThemePage({ params }: { params: { slug: string } }) {
-    const getLang = JSON.parse(cookies().get("lang")?.value ?? '"id"');
+export default async function Page({
+    params,
+  }: {
+    params: Promise<{ slug: string }>
+  }) {
+    const { slug } = await params;
 
-    const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(params?.slug) });
-    const nav = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
-
-    const theme = data[0];
+    const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
 
     const isLang = getLang !== "id";
+    
+    const themeDetail = themesList?.themes?.find(val => val?.slug === slug);
 
     return (
         <>
@@ -37,10 +41,10 @@ export default async function ThemePage({ params }: { params: { slug: string } }
                 <div className="flex items-start justify-center flex-col sm:flex-row gap-7 lg:gap-10">
                     {/* Left */}
                     <div className="w-full sm:w-1/3 lg:max-w-96 flex-shrink-0">
-                        {theme?.attributes?.cover?.data?.attributes?.url ? (
+                        {themeDetail?.cover ? (
                             <Image
                                 className='w-full h-full object-contain object-center'
-                                src={theme?.attributes?.cover?.data?.attributes?.url}
+                                src={themeDetail?.cover}
                                 alt=''
                                 width={1000}
                                 height={1000}
@@ -52,27 +56,27 @@ export default async function ThemePage({ params }: { params: { slug: string } }
                     {/* Right */}
                     <div className="w-full h-fit overflow-hidden">
                         <div className='w-full h-fit sticky top-0 right-0'>
-                            <Heading title={theme?.attributes?.title} type='subheading' className='xs:text-xl font-semibold' />
+                            <Heading title={themeDetail?.title!} type='subheading' className='xs:text-xl font-semibold' />
                             
                             <div className='flex flex-wrap items-center justify-start gap-2 my-3'>
-                                { (theme?.attributes?.customers?.data?.length < 5 || !theme?.attributes?.customers?.data?.length) ? (<Badge label={ isLang ? "new" : "baru" } type='new' />) : null }
+                                {/* { (theme?.attributes?.customers?.data?.length < 5 || !theme?.attributes?.customers?.data?.length) ? (<Badge label={ isLang ? "new" : "baru" } type='new' />) : null } */}
 
-                                { theme?.attributes?.badge?.map((item) => (
-                                    <Badge key={item?.id} label={item?.type} type={item?.type} />
+                                { themeDetail?.badge?.map((item, idx) => (
+                                    <Badge key={idx} label={item} type={item} />
                                 )) }
                             </div>
 
                             <div className='my-4 text-sm'>
-                                <BlockRendererClient content={theme?.attributes?.description} />
+                                <p>{themeDetail?.desc.id}</p>
                             </div>
 
                             {/* Preview */}
                             <Suspense>
-                                <ThemePreview coverUrl={theme?.attributes?.cover?.data?.attributes?.url} />
+                                <ThemePreview coverUrl={themeDetail?.cover!} />
                             </Suspense>
                             
                             {/* Testimony */}
-                            <Suspense>
+                            {/* <Suspense>
                                 <div className='flex flex-col items-start justify-center my-7 gap-y-5'>
                                     <p className='lg:text-lg font-semibold'>
                                         {getLang !== "id" ? "Testimonies" : "Testimoni"}
@@ -84,17 +88,17 @@ export default async function ThemePage({ params }: { params: { slug: string } }
 
                                     <TestimonyTheme themes={theme?.attributes?.customers?.data} />
                                 </div>
-                            </Suspense>
+                            </Suspense> */}
                         </div>
                     </div>
                 </div>
 
                 {/* Modal Preview */}
-                <ModalPreview img={theme?.attributes?.screenshot?.data?.attributes?.url} lang={getLang} />
+                <ModalPreview img={themeDetail?.layout!} lang={getLang} />
 
                 {/* Order button */}
-                <div className='fixed lg:bottom-40 bottom-10 lg:right-56 right-10 text-NEUTRAL'>
-                    <Link href={URL_CONTACT_ADMIN({ number: nav?.attributes?.contact_admin?.number, code: theme?.attributes?.code })} target='_blank' className='flex items-center justify-center btn bg-MIDNIGHT text-PRIMARY duration-500 hover:text-MIDNIGHT'>
+                <div className='fixed lg:bottom-20 bottom-10 lg:right-20 right-10 text-NEUTRAL'>
+                    <Link href={whatsapp_redirect({ number: "6285722440592", code: themeDetail?.code! })} target='_blank' className='flex items-center justify-center btn bg-MIDNIGHT text-PRIMARY duration-500 hover:text-MIDNIGHT'>
                         <Icon icon="bi:envelope-paper-heart-fill" className='text-lg' />
                         { isLang ? "Order Now": "Pesan Sekarang" }
                     </Link>
@@ -130,25 +134,22 @@ function ModalPreview({ img, lang }: { img: string, lang: string }) {
     )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<any | null> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<any | null> {
+    const params = await props.params;
 
     if (!params?.slug) return notFound()
 
-    const data = await Fetch.get<ThemesDataType[]>({ path: GET_THEME_URL(params?.slug) });
+    const themeDetail = themesList?.themes?.find(val => val?.slug === params.slug);
 
-    if (data.length < 1) return notFound();
+    if(!themeDetail) return notFound()
 
-    const theme = data[0];
-
-    if(!theme) return notFound();
-
-    const title = `${theme?.attributes?.title} (${theme?.attributes?.code}) | Dinanti`;
-    const description = theme?.attributes?.description;
-    const image = theme?.attributes?.cover?.data?.attributes?.url;
+    const title = `${themeDetail?.title} (${themeDetail?.code}) | Dinanti`;
+    const description = themeDetail.desc;
+    const image = themeDetail.cover;
 
     return {
         title: title,
-        description: theme?.attributes?.description,
+        description: description,
         openGraph: {
             title: title,
             description: description,
@@ -164,12 +165,4 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             creator: "Dinanti Creator",
         },
     }
-}
-
-function GET_THEME_URL(slug: string): string {
-    return `/api/themes?filters[$or][0][code][$containsi]=${slug}&filters[$or][1][slug][$containsi]=${slug}&populate[screenshot][fields][0]=url&populate[cover][fields][0]=url&populate[cover][fields][1]=formats&populate[customers][fields][0]=image&populate[customers][fields][1]=name&populate[customers][fields][3]=theme_url&populate[customers][fields][2]=testimony&populate[customers][populate][image][fields][0]=url&populate[customers][populate][image][fields][1]=formats&populate[badge]=*&populate[customers][limit]=10`;
-}
-
-function URL_CONTACT_ADMIN({ number, code }: { number: string, code: string }) {
-    return `https://api.whatsapp.com/send/?phone=${number}&text=Hai+admin+Dinanti,+Sudah+pilih+undangan+digital+nih%2C+kodenya+*${code}*.+Bisa+diproses+ya%3F+Makasih%20:)&type=phone_number&app_absent=0`
 }

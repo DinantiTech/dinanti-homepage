@@ -1,0 +1,104 @@
+{
+    "HomePage": {
+        "heading_title": "Create Hassle-Free Digital Wedding Invitations",
+        "checkout_themes": "Check Out Our Latest Themes",
+        "view_theme": "View Theme",
+        "heading_features": "Custom-Made for You with a Variety of Features",
+        "desc_features": "You can try making digital wedding invitations for free by clicking the button below",
+        "button_features": "Try For Free",
+        
+        "variety_of_themes": "Variety of Themes",
+        "variety_of_themes_desc": "We provide a variety of themes to choose from.",
+        "send_greetings": "Send Greetings",
+        "send_greetings_desc": "Guests can send messages online.",
+        "monetary_gifts": "Monetary Gifts",
+        "monetary_gifts_desc": "There is a feature to send wedding monetary gifts",
+        "custom_domain": "Custom Domain",
+        "custom_domain_desc": "Customize your invite URL with a unique domain.",
+
+        "heading_steppers": "Simplicity with Dinanti",
+        "step_1": "Fill Bride and Groom Information.",
+        "step_1_desc": "First, fill in the bride and groom's information, quotes, and the bride's photo.",
+        "step_2": "Upload Photos Prewedding",
+        "step_2_desc": "Next, please upload the photos you'd like to display on your invitation.",
+        "step_3": "Fill in event details",
+        "step_3_desc": "Finally, fill in information related to your event.",
+        "step_4": "Choose theme and music",
+        "step_4_desc": "Lastly, choose the theme and music you'd like to use for your invitation.",
+
+        "view_our_theme_collections": "View our theme collections",
+        "view_price_offers": "View Price Offers",
+        "view_pricing": "View Pricing",
+
+        "testimony_heading": "What They Say ..",
+        "testimony_desc": "Come and listen to stories from our friends who have tried our products and services. These testimonials are real proof that we don’t just make promises, but truly deliver the best!",
+        "testimony_1": "Finally, alhamdulillah, honestly, I’m super satisfied with Dinanti.id's digital invitations because you can request exactly what you want, and it’s not just some basic template. So, no one else will have the same invite as you, you know? It feels super unique and totally matches your dream wedding invitation vibe. Later, if I’ve already uploaded my vendors and stuff, I’ll share it on social media and also promo it to my friends who are getting married.",
+        "testimony_user_1": "Nafi & Alif",
+        "testimony_2": "Perfect!",
+        "testimony_user_2": "Angga & Yudha",
+        "testimony_3": "LOL so cutttee...",
+        "testimony_3_user": "Ayyub & Pipit"
+    },
+    "ThemesPage": {
+        "heading": "Wedding Invitation Themes We Made For You",
+        "heading_desc": "Here are the themes that you can choose to use in your invitation",
+        "placeholder_search": "Search Themes ..",
+        "themes_not_found": "Themes not Found!"
+    },
+    "PricingPage": {
+        "heading": "Various Package Prices to Suit Your Needs",
+        "heading_desc": "You can try it for free to create a digital wedding invitation by clicking the button below",
+        "pricelist": {
+            "free": {
+                "title": "Basic (Free)",
+                "desc": "You can try out all the features on our platform. However, you can only try the basic invitation for free, and it’s only valid for 2 weeks.",
+                "btn_text": "Try Free",
+                "price": "0",
+                "discount": "0",
+                "type": "Free"
+            },
+            "premium": {
+                "title": "Premium",
+                "desc": "You get access to all our platform's features, and the invitation is active forever.",
+                "btn_text": "Try Premium",
+                "price": "0",
+                "discount": "0",
+                "type": "Premium"
+            }
+        }
+    },
+    "Navbar": {
+        "home": "Home",
+        "themes": "Themes",
+        "pricing": "Pricing",
+        "create_btn": "Invite",
+        "dropdown_dashboard": "Dashboard",
+        "dropdown_message": "Messages",
+        "dropdown_logout": "Logout"
+    },
+    "Footer": {
+        "built": "Built with ♥ by Dinanti.",
+        "providing": "Providing digital invitations since 2022",
+        "copyright": "Copyright © 2025 - All right reserved by Dinanti"
+    },
+    "Meta": {
+        "homepage": {
+            "title": "Modern and Memorable Digital Invitation Solution | Dinanti",
+            "desc": "Discover your exclusive invitation theme today! Create unforgettable memories with the creative touch of our expert team. 💌",
+            "social_title": "Digital Invites That Make a Memorable Impact",
+            "social_desc": "Plan Unforgettable Moments! 💌"
+        },
+        "themespage": {
+            "title": "Digital Wedding Invitation Themes - Dinanti",
+            "desc": "Discover the best digital wedding invitation themes from Dinanti. Make your wedding unforgettable with exclusive and elegant designs.",
+            "social_title": "Digital Wedding Invitation Themes - Dinanti",
+            "social_desc": "Exclusive digital wedding invitation themes by Dinanti"
+        },
+        "pricingpage": {
+            "title": "Elegant Invitations by Dinanti - Price List",
+            "desc": "Discover affordable pricing for Dinanti's exclusive invitations. Choose from a variety of elegant and economical designs for your special day.",
+            "social_title": "Elegant Invitations by Dinanti - Price List",
+            "social_desc": "Affordable and Elegant Dinanti Invitations for Special Days"
+        }
+    }
+}

@@ -1,0 +1,104 @@
+{
+    "HomePage": {
+        "heading_title": "Buat Undangan Nikah Digital Anti Ribet",
+        "checkout_themes": "Lihat Tema Terbaru Kami",
+        "heading_features": "Dibuat Khusus Untuk Anda Dengan Berbagai Fitur",
+        "desc_features": "Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini",
+        "button_features": "Coba Gratis",
+        "view_theme": "Lihat Tema",
+
+        "variety_of_themes": "Beragam Tema",
+        "variety_of_themes_desc": "Kami sediakan beragam tema yang bisa dipilih.",
+        "send_greetings": "Kirim Ucapan",
+        "send_greetings_desc": "Tamu undangan bisa mengirim pesan secara online.",
+        "monetary_gifts": "Ngamplop",
+        "monetary_gifts_desc": "Ada fitur untuk mengirim angpau pernikahan.",
+        "custom_domain": "Custom Domain",
+        "custom_domain_desc": "Bisa buat custom domain untuk alamat undangan digital.",
+
+        "heading_steppers": "Mudahnya Menggunakan Dinanti",
+        "step_1": "Isi Informasi Mempelai",
+        "step_1_desc": "Pertama isilah data data mempelai, Quotes, dan Foto mempelai.",
+        "step_2": "Upload Foto Prewedding",
+        "step_2_desc": "Selanjutnya silahkan upload foto-foto yang ingin anda tampilkan di undangan anda.",
+        "step_3": "Isi Informasi Acara",
+        "step_3_desc": "Terakhir isi informasi berkaitan dengan acara anda.",
+        "step_4": "Pilih Tema dan Musik",
+        "step_4_desc": "Terakhir pilih tema dan musik yang ingin anda pakai untuk undangan anda.",
+
+        "view_our_theme_collections": "Lihat Koleksi Tema kami",
+        "view_price_offers": "Lihat penawaran Harga",
+        "view_pricing": "Lihat Harga",
+
+        "testimony_heading": "Kata Mereka ..",
+        "testimony_desc": "Yuk, dengerin cerita dari teman-teman kita yang udah nyobain produk dan layanan kita. Testimoni ini bukti nyata kalau kita nggak cuma janji, tapi beneran kasih yang terbaik!",
+        "testimony_1": "Terakhir, alhamdulillah jujur puas pol sama undangan digital Dinanti.id soalnya bisa request sesuai apa yg kita pengen dan ga template. Jdine ga ada yg sama kyk orang lain gitu looo. Jd kesannya kya undangannya tuh unik dan sesuai ama dream undangan kita bgt. Nanti nk misal aku dah upload vendor2 gt aku share ke sosmed dan jg promo ke temen2 aku yg mau menikah.",
+        "testimony_user_1": "Nafi & Alif",
+        "testimony_2": "Satu kata Perfect",
+        "testimony_user_2": "Angga & Yudha",
+        "testimony_3": "wkwkwkw lucuuuu",
+        "testimony_3_user": "Ayyub & Pipit"
+    },
+    "ThemesPage": {
+        "heading": "Tema Undangan Menikah Yang Kami Buat Untuk Anda Pakai",
+        "heading_desc": "Anda Pakai Berikut tema-tema yang bisa anda pilih untuk Anda gunakan di undangan Anda",
+        "placeholder_search": "Cari Tema ..",
+        "themes_not_found": "Tema tidak ditemukan!"
+    },
+    "PricingPage": {
+        "heading": "Harga Paket Beragam Yang Menyesuaikan Kebutuhanmu",
+        "heading_desc": "Kamu bisa cobain secara gratis untuk buat undangan menikah digital dengan klik tombol di bawah ini",
+        "pricelist": {
+            "free": {
+                "title": "Basic (Gratis)",
+                "desc": "Anda bisa mencoba dan menggunakan seluruh fitur platform kami. Tetapi, hanya undangan basic yang kamu bisa coba gratis, dengan masa aktif 2 minggu.",
+                "btn_text": "Coba Gratis",
+                "price": "0",
+                "discount": "0",
+                "type": "Free"
+            },
+            "premium": {
+                "title": "Premium",
+                "desc": "Anda mendapatkan seluruh fitur platform kami, undangan aktif selamanya.",
+                "btn_text": "Coba Premium",
+                "price": "0",
+                "discount": "0",
+                "type": "Premium"
+            }
+        }
+    },
+    "Navbar": {
+        "home": "Beranda",
+        "themes": "Tema",
+        "pricing": "Harga",
+        "create_btn": "Undangan",
+        "dropdown_dashboard": "Dashboard",
+        "dropdown_message": "Pesan",
+        "dropdown_logout": "Keluar"
+    },
+    "Footer": {
+        "built": "Built with ♥ by Dinanti.",
+        "providing": "Providing digital invitations since 2022",
+        "copyright": "Copyright © 2025 - All right reserved by Dinanti"
+    },
+    "Meta": {
+        "homepage": {
+            "title": "Solusi Modern Undangan Digital yang Berkesan | Dinanti",
+            "desc": "Temukan tema undangan eksklusif Anda hari ini! Buat kenangan tak terlupakan dengan sentuhan kreatif dari tim ahli kami. 💌",
+            "social_title": "Solusi Modern Undangan Digital yang Berkesan - Dinanti",
+            "social_desc": "Rencanakan Momen Tak Terlupakan! 💌"
+        },
+        "themespage": {
+            "title": "Tema Undangan Pernikahan Digital - Dinanti",
+            "desc": "Temukan tema undangan pernikahan digital terbaik dari Dinanti. Buat momen pernikahan Anda lebih berkesan dengan desain eksklusif dan elegan",
+            "social_title": "Tema Undangan Pernikahan Digital - Dinanti",
+            "social_desc": "Tema undangan pernikahan digital eksklusif dari Dinanti."
+        },
+        "pricingpage": {
+            "title": "Undangan Elegan Dinanti - Daftar Harga",
+            "desc": "Temukan harga undangan eksklusif Dinanti yang terjangkau. Pilih dari berbagai desain elegan dan ekonomis untuk hari istimewa Anda",
+            "social_title": "Undangan Elegan Dinanti - Daftar Harga",
+            "social_desc": "Harga undangan eksklusif Dinanti yang terjangkau dan elegan."
+        }
+    }
+}

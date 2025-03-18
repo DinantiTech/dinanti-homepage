@@ -2,24 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import { HTMLAttributes, Suspense } from "react";
+import React, { HTMLAttributes } from "react";
 
 import { Utils } from "@/libs/utils/index.util";
-import { DataNavigationsType, NavigationType } from "@/libs/types/nav.type";
 import bgBatik from '@/assets/images/bg-batik.png';
-import ButtonCreate from "../buttons/oauth.btn";
+import { DINANTI } from "@/libs/constants/dinanti.const";
+import DrowdownLanguage from "../micro/lang_dropdown.micro";
+import { getTranslations } from "next-intl/server";
+import UserAndCreateInviteButton from "../buttons/user_and_create.btn";
 
-const DrowdownLanguage = dynamic(() => import("@/components/micro/lang_dropdown.micro"), { ssr: true });
+export default async function NavbarCustom() {
+    const t = await getTranslations('Navbar')
 
-export default async function NavbarCustom({ data }: { data: DataNavigationsType }) {
-
-    const dataLocale = data?.attributes?.localizations;
-    const currentLocal = data?.attributes?.locale;
-
-    const isLogin: boolean = false;
-
-    const createInvitationNav = data?.attributes?.others?.find(item => item.type === "create_invitation");
+    const listNavbar = [
+        { title: t('home'), url: '/' },
+        { title: t('themes'), url: '/themes' },
+        { title: t('pricing'), url: '/pricing' },
+    ]
 
     return (
         <header>
@@ -52,46 +51,27 @@ export default async function NavbarCustom({ data }: { data: DataNavigationsType
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-lg border-2 border-lime-900/10">
-                                <NavList data={data?.attributes?.navbars} isSidebar />
+                                <NavList data={listNavbar} isSidebar />
                             </ul>
                         </div>
 
-                        <BrandLogo imageUrl={data?.attributes?.icon?.data?.attributes?.url} />
+                        <BrandLogo imageUrl={DINANTI.logo} />
                     </div>
 
                     {/* Center */}
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
-                            <NavList data={data?.attributes?.navbars} />
+                            <NavList data={listNavbar} />
                         </ul>
                     </div>
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        {createInvitationNav ? (
-                            <ButtonCreate 
-                                is_maintenance={data?.attributes?.is_maintenance}
-                                icon_txt={createInvitationNav.icon_txt}
-                                title={createInvitationNav.title}
-                                url={ createInvitationNav?.url }
-                            />
-                        ) : null}
+                        <UserAndCreateInviteButton />
 
-                        {isLogin ? (
-                            <button name="button dashboard" className="btn btn-xs xxs:btn-sm lg:btn-md hover:bg-white/0 bg-opacity-0">
-                                {true ? (
-                                    <span className="">P</span>
-                                ) : null}
-                            </button>
-                        ) : null}
-
-                        <Suspense>
-                            <DrowdownLanguage
-                                currentLocal={currentLocal}
-                                locales={dataLocale}
-                                className="hidden xxxss:block"
-                            />
-                        </Suspense>
+                        <DrowdownLanguage
+                            className="hidden xxxss:block"
+                        />
                     </div>
                 </div>
             </div>
@@ -112,12 +92,11 @@ function BrandLogo({ imageUrl, className, ...rest }: BrandLogoProps) {
     );
 }
 
-
-function NavList({ data, isSidebar }: { data: NavigationType[], isSidebar?: boolean }) {
+function NavList({ data, isSidebar }: { data: Record<string, string>[], isSidebar?: boolean }) {
     return (
         <>
-            {data?.map((item) => (
-                <li className="group" key={item?.id}>
+            {data?.map((item, idx) => (
+                <li className="group" key={idx}>
                     <Link className={`${isSidebar ? "py-3 border border-lime-900/10 m-0.5" : null} group-hover:font-bold font-medium group-hover:text-lime-900`} href={item?.url}>{item?.title}</Link>
                 </li>
             ))}
