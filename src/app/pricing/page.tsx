@@ -12,14 +12,14 @@ const PricingPageSection = dynamic(() => import("@/components/sections/pricing/i
 
 export default async function Page() {
 
-    return (
-      <LayoutContainer>
-          {/* <JsonLd data={dataMeta?.attributes?.seo?.structuredData} /> */}
-          <Suspense>
-            <PricingPageSection />
-          </Suspense>
-      </LayoutContainer>
-    )
+  return (
+    <LayoutContainer>
+      {/* <JsonLd data={dataMeta?.attributes?.seo?.structuredData} /> */}
+      <Suspense>
+        <PricingPageSection />
+      </Suspense>
+    </LayoutContainer>
+  )
 }
 
 export async function generateMetadata(): Promise<Metadata | null> {
@@ -51,5 +51,4 @@ export async function generateMetadata(): Promise<Metadata | null> {
       site: META.pricingpage.baseUrl
     },
   }
-  }
-  
+}
