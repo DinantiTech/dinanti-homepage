@@ -7,11 +7,11 @@ import { Suspense } from 'react';
 import Heading from '@/components/globals/heading.global';
 import LayoutContainer from '@/containers/layout.container';
 import { Fetch } from '@/libs/actions/services/fetch.service';
-import { HomePageType } from '@/libs/types/homepage.type';
 import { MetaRootType, MetaType } from '@/libs/types/meta.type';
 import { cookies } from 'next/headers';
 import JsonLd from '@/components/globals/jsonld.global';
 import { getTranslations } from 'next-intl/server';
+import { META } from '@/libs/constants/meta.const';
 
 const MainCarousel = dynamic(() => import('@/components/sections/homepage/main_carousel.section'), { ssr: true });
 const FeatureSection = dynamic(() => import('@/components/sections/homepage/features.section'), { ssr: true });
@@ -22,13 +22,9 @@ const TestimonialsSection = dynamic(() => import('@/components/sections/homepage
 export default async function Home() {
   const t = await getTranslations('HomePage');
 
-  const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-  const urlMeta = `/api/meta?populate=deep&locale=${getLang}`;
-
-  const dataMeta = await Fetch.get<MetaRootType>({ path: urlMeta });
   return (
     <>
-      <JsonLd data={dataMeta?.attributes?.seo?.structuredData} />
+      <JsonLd data={META.homepage.structuredData} />
       <LayoutContainer className='flex items-center flex-col justify-center sm:pb-7 pb-4 sm:gap-y-3'>
         <Heading type='heading' title={t('heading_title')} className='px-2' />
         <Heading type='text' title={t('checkout_themes')} className='lg:text-xl' />
