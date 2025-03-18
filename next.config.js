@@ -40,12 +40,12 @@ const nextConfig = {
         // removeConsole: true,
     },
     compress: true,
-    // logging: {
-    //     fetches: {
-    //         fullUrl: true,
-    //         incomingRequests: true
-    //     },
-    // },
+    logging: {
+        fetches: {
+            fullUrl: true,
+            incomingRequests: true
+        },
+    },
 
     // i18n: {
     //     locales: ['default', 'en', 'de', 'fr'],

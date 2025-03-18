@@ -3,15 +3,9 @@
 import Footer from "@/components/globals/footer.global";
 import NavbarCustom from "@/components/globals/navbar.global";
 import LayoutContainer from "@/containers/layout.container";
-import { Fetch } from "@/libs/actions/services/fetch.service";
 import IndexProvider from "@/libs/providers/index.provider";
-import { DataNavigationsType } from "@/libs/types/nav.type";
-import { cookies } from "next/headers";
-
 
 export default async function TemplateRoot({ children }: { children: React.ReactNode }) {
-    const getLang = JSON.parse((await cookies()).get("lang")?.value ?? '"id"');
-    const data = await Fetch.get<DataNavigationsType>({ path: `/api/navigation?populate=deep&locale=${getLang}` })
 
     return (
         <IndexProvider>
