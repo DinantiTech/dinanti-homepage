@@ -79,13 +79,9 @@ export default function ListThemes() {
                         ))}
                     </div>
                 ) : (
-                    <>
-                        {!searchTerm ? (
-                            <div className="my-5">
-                                <p>{t('themes_not_found')}</p>
-                            </div>
-                        ) : (<span className="loading loading-dots loading-lg py-7" />)}
-                    </>
+                    <div className="my-5">
+                        <p>{t('themes_not_found')}</p>
+                    </div>
                 )}
             </Suspense>
 
