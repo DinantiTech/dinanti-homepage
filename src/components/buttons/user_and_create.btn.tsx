@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
 
-export default function UserAndCreateDropdownButton() {
+export default function UserAndCreateInviteButton() {
     const router = useRouter()
 
     const { isLogin, data, clearState } = useAuthStore();

@@ -6,10 +6,10 @@ import React, { HTMLAttributes } from "react";
 
 import { Utils } from "@/libs/utils/index.util";
 import bgBatik from '@/assets/images/bg-batik.png';
-import UserAndCreateDropdownButton from "../buttons/user_and_create.btn";
 import { DINANTI } from "@/libs/constants/dinanti.const";
 import DrowdownLanguage from "../micro/lang_dropdown.micro";
 import { getTranslations } from "next-intl/server";
+import UserAndCreateInviteButton from "../buttons/user_and_create.btn";
 
 export default async function NavbarCustom() {
     const t = await getTranslations('Navbar')
@@ -67,7 +67,7 @@ export default async function NavbarCustom() {
 
                     {/* End */}
                     <div className="navbar-end flex items-center justify-end gap-2">
-                        <UserAndCreateDropdownButton />
+                        <UserAndCreateInviteButton />
 
                         <DrowdownLanguage
                             className="hidden xxxss:block"
