@@ -143,7 +143,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
     if(!themeDetail) return notFound()
 
-    const title = `${themeDetail?.title}| Dinanti`;
+    const title = `${themeDetail?.title} | Dinanti`;
     const description = themeDetail.desc.id;
     const image = themeDetail.cover;
 
