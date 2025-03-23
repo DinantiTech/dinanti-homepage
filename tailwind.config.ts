@@ -5,7 +5,6 @@ const config: Config = {
     './src/pages/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
     './src/app/**/*.{ts,tsx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {

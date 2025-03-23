@@ -7,15 +7,15 @@ export default class Auth {
 
     async login(data: LoginType) {
         if (data) {
-            let user = await (await this.supabase).from('user').update({ login_at: new Date() }).eq('email', data?.email).select('id, email, username').single();
+            let user = await (await this.supabase).from('user').update({ login_at: new Date() }).eq('email', data?.email).select('id, email, username, role').single();
             if (!user?.data) {
-                const insert = await (await this.supabase).from('user').insert({ email: data?.email, username: data?.given_name, login_at: new Date() }).select('id, email, username').single();
+                const insert = await (await this.supabase).from('user').insert({ email: data?.email, username: data?.given_name, login_at: new Date() }).select('id, email, username, role').single();
                 user = insert
             }
 
             if (user?.error) throw { ...user?.error }
 
-                ; (await this.cookieStore).set('crd', JSON.stringify({ id: user?.data?.id, ...data }), { secure: true });
+                ; (await this.cookieStore).set('crd', JSON.stringify({ id: user?.data?.id, role: user?.data?.role, ...data }), { secure: true });
 
             return user?.data
         }
