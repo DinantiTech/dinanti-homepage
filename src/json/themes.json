@@ -1,8 +1,8 @@
 {
     "themes": [
         { 
-            "title": "Theme exclusive (CUSTOM_ASA_090325)", 
-            "code": "CUSTOM_ASA_081224",
+            "title": "Theme exclusive (ASA_090325)", 
+            "code": "ASA_081224",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059450/themes_preview/ASA/fpo2k3jlky9p2lahozpv.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059443/themes_preview/ASA/axc4n3zmnmhb0sfhmztz.png",
             "desc": {
@@ -13,10 +13,10 @@
             "badge": ["new", "premium", "exclusive"]
         },
         { 
-            "title": "Theme exclusive (CUSTOM_ASA_270524)", 
-            "code": "CUSTOM_ASA_270524",
+            "title": "Theme exclusive (ASA_270524)", 
+            "code": "ASA_270524",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1745062617/themes_preview/ASA/tqwdsxsop4fbcvvajlk7.png",
-            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722356194/dinanti_admin_content/screencapture_1_dc63dfc820.png",
+            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745067473/themes_preview/ASA/kozxbwtzdxpfnptqiucq.png",
             "desc": {
                 "id": "Hadirkan pesona modern dan elegan di setiap momen spesial Anda dengan undangan digital eksklusif dengan tampilan simpen namun elegan. Terinspirasi dari tren terbaru di Pinterest, undangan ini menawarkan kombinasi sempurna antara keanggunan modern dan keindahan ala Pinterest yang memukau. Setiap undangan dapat dicustom sesuai keinginan Anda, menjadikan setiap detail unik dan personal."
             },
@@ -25,8 +25,8 @@
             "badge": ["premium", "exclusive"]
         },
         { 
-            "title": "Theme exclusive (CUSTOM_ASA_291024)", 
-            "code": "CUSTOM_ASA_081224",
+            "title": "Theme exclusive (ASA_291024)", 
+            "code": "ASA_081224",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734934349/dinanti_admin_content/cover_2_bc63c2037e.jpg",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1735130052/dinanti_admin_content/fullscreen_f76ae23d13.png",
             "desc": {
@@ -37,8 +37,8 @@
             "badge": ["premium", "exclusive", "lovers"]
         },
         { 
-            "title": "Theme exclusive (CUSTOM_ASA_081224)", 
-            "code": "CUSTOM_ASA_081224",
+            "title": "Theme exclusive (ASA_081224)", 
+            "code": "ASA_081224",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734934348/dinanti_admin_content/cover_d524946122.jpg",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1735129441/dinanti_admin_content/fullscreen_2_3051f6b317.png",
             "desc": {
@@ -49,8 +49,8 @@
             "badge": ["premium", "exclusive", "lovers"]
         },
         { 
-            "title": "Theme Simple (CUSTOM_ASA_000023)", 
-            "code": "CUSTOM_ASA_000023",
+            "title": "Theme Simple (ASA_000023)", 
+            "code": "ASA_000023",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1722362755/dinanti_admin_content/cover_1_28fd951f90.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745061698/themes_preview/ASA/bpur5eztdhhvfw85xzgo.png",
             "desc": {
@@ -61,8 +61,8 @@
             "badge": ["exclusive", "classic"]
         },
         { 
-            "title": "Theme Elegant White (CUSTOM_DNS_000023)", 
-            "code": "CUSTOM_DNS_000023_WHITE",
+            "title": "Theme Elegant White (DNS_000023)", 
+            "code": "DNS_000023_WHITE",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734938032/dinanti_admin_content/cover_white_caec42aabe.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059567/themes_preview/DNS/litaiufwoa67ptudxoyt.png",
             "desc": {
@@ -73,8 +73,8 @@
             "badge": ["premium"]
         },
         { 
-            "title": "Theme Elegant Black (CUSTOM_DNS_000023)", 
-            "code": "CUSTOM_DNS_000023_BLACK",
+            "title": "Theme Elegant Black (DNS_000023)", 
+            "code": "DNS_000023_BLACK",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734938047/dinanti_admin_content/cover_black_56d8b641bc.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059571/themes_preview/DNS/ecd0m7qtkbsnhpjstxpq.png",
             "desc": {
@@ -85,8 +85,8 @@
             "badge": ["premium"]
         },
         { 
-            "title": "Theme Manga (CUSTOM_AS_000023)", 
-            "code": "CUSTOM_AS_000023",
+            "title": "Theme Manga (AS_000023)", 
+            "code": "AS_000023",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1722363252/dinanti_admin_content/cover_a0d46b357b.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722363257/dinanti_admin_content/screencapture_d9014b9382.png",
             "desc": {
