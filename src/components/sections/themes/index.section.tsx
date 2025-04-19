@@ -19,7 +19,7 @@ export default async function ThemesPageSection() {
                 <Heading title={t('heading_desc')} type='text' />
             </div>
 
-            <Suspense>
+            <Suspense fallback={<span>Rendering...</span>}>
                 <ListThemes />
             </Suspense>
         </section>
