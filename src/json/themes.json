@@ -1,7 +1,19 @@
 {
     "themes": [
         { 
-            "title": "Theme exclusive (CUSTOM_ASA_270524)", 
+            "title": "Theme exclusive (CUSTOM_ASA_090325)", 
+            "code": "CUSTOM_ASA_081224",
+            "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059450/themes_preview/ASA/fpo2k3jlky9p2lahozpv.png",
+            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059443/themes_preview/ASA/axc4n3zmnmhb0sfhmztz.png",
+            "desc": {
+                "id": "Hadirkan pesona modern dan elegan di setiap momen spesial Anda dengan undangan digital eksklusif dengan tampilan simpen namun elegan. Terinspirasi dari tren terbaru di Pinterest, undangan ini menawarkan kombinasi sempurna antara keanggunan modern dan keindahan ala Pinterest yang memukau. Setiap undangan dapat dicustom sesuai keinginan Anda, menjadikan setiap detail unik dan personal."
+            },
+            "slug": "theme-asa-090325",
+            "categories": ["modern"],
+            "badge": ["new", "premium", "exclusive"]
+        },
+        { 
+            "title": "Theme exclusive (CUSTOM_ASA_090325)", 
             "code": "CUSTOM_ASA_081224",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1722356099/dinanti_admin_content/cover_3_0ed0ff1f04.png",
             "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722356194/dinanti_admin_content/screencapture_1_dc63dfc820.png",
@@ -40,7 +52,7 @@
             "title": "Theme Simple (CUSTOM_ASA_000023)", 
             "code": "CUSTOM_ASA_000023",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1722362755/dinanti_admin_content/cover_1_28fd951f90.png",
-            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722362755/dinanti_admin_content/screencapture_1_72c158a98b.png",
+            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745061698/themes_preview/ASA/bpur5eztdhhvfw85xzgo.png",
             "desc": {
                 "id": "Hadirkan kesan elegan dan modern di setiap momen spesial Anda dengan undangan digital eksklusif bertema Simpel Monokrom. Dengan desain yang minimalis namun tetap menawan, undangan ini memberikan sentuhan modern yang bersih dan elegan. Setiap undangan dapat dicustom sesuai keinginan Anda, menjadikan setiap detail unik dan personal."
             },
@@ -52,7 +64,7 @@
             "title": "Theme Elegant White (CUSTOM_DNS_000023)", 
             "code": "CUSTOM_DNS_000023_WHITE",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734938032/dinanti_admin_content/cover_white_caec42aabe.png",
-            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722363806/dinanti_admin_content/screencapture_4_c4d727d554.png",
+            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059567/themes_preview/DNS/litaiufwoa67ptudxoyt.png",
             "desc": {
                 "id": "Ciptakan momen spesial Anda dengan undangan digital eksklusif bertema Simpel Elegan Floral. Dengan desain yang menggabungkan kesederhanaan dan keanggunan modern, serta sentuhan floral yang menawan, undangan ini memberikan kesan premium yang tak terlupakan. Setiap undangan dapat dicustom sesuai keinginan Anda, menjadikan setiap detail unik dan personal."
             },
@@ -64,7 +76,7 @@
             "title": "Theme Elegant Black (CUSTOM_DNS_000023)", 
             "code": "CUSTOM_DNS_000023_BLACK",
             "cover": "https://res.cloudinary.com/storyline-beta/image/upload/v1734938047/dinanti_admin_content/cover_black_56d8b641bc.png",
-            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1722363684/dinanti_admin_content/screencapture_2_7e1d2f5404.png",
+            "layout": "https://res.cloudinary.com/storyline-beta/image/upload/v1745059571/themes_preview/DNS/ecd0m7qtkbsnhpjstxpq.png",
             "desc": {
                 "id": "Ciptakan momen spesial Anda dengan undangan digital eksklusif bertema Simpel Elegan Floral. Dengan desain yang menggabungkan kesederhanaan dan keanggunan modern, serta sentuhan floral yang menawan, undangan ini memberikan kesan premium yang tak terlupakan. Setiap undangan dapat dicustom sesuai keinginan Anda, menjadikan setiap detail unik dan personal."
             },

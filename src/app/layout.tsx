@@ -3,7 +3,6 @@ import {getLocale, getMessages} from 'next-intl/server';
 import {NextIntlClientProvider} from 'next-intl';
 import type { Metadata, Viewport } from 'next';
 import { Montserrat } from 'next/font/google';
-import { cookies } from 'next/headers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 import '@/styles/globals.css';

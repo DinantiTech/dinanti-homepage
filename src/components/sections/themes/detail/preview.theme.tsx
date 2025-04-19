@@ -20,11 +20,12 @@ export default function ThemePreview({ coverUrl }: { coverUrl: string }) {
                         { getLang !== "id" ? "View" : "Lihat" } Preview
                     </label>
                     <Image
-                        className='shadow aspect-[9/14] object-cover rounded-xl'
+                        className='shadow aspect-[9/14] object-cover rounded-xl object-center'
                         src={coverUrl}
                         alt='Preview'
-                        width={800}
-                        height={800}
+                        width={100000}
+                        height={100000}
+                        loading="lazy"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </div>
             </div>
