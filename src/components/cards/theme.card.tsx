@@ -9,8 +9,8 @@ export default function CardThemeContent({ data }: { data: Record<string, string
             <Image
                 priority={false}
                 loading="lazy"
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
                 src={data?.cover}
                 alt='themes category'
                 sizes="100vw"

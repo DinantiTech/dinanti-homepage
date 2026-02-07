@@ -1,19 +1,14 @@
 "use server";
 
 import { notFound } from 'next/navigation'
-import { Fetch } from "@/libs/actions/services/fetch.service";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ThemesDataType } from '@/libs/types/themes.type';
-import BlockRendererClient from '@/components/globals/rich_text.global';
 import { cookies } from 'next/headers';
 import Heading from '@/components/globals/heading.global';
 import Badge from '@/components/micro/badge.micro';
 import { Suspense } from 'react';
-import { DataNavigationsType } from '@/libs/types/nav.type';
 import ThemePreview from '@/components/sections/themes/detail/preview.theme';
-import TestimonyTheme from '@/components/sections/themes/detail/testimonies.theme';
 
 import themesList from "@/json/themes.json";
 import whatsapp_redirect from '@/libs/helpers/whatsapp_redirect.helper';
@@ -43,11 +38,11 @@ export default async function Page({
                     <div className="w-full sm:w-1/3 lg:max-w-96 flex-shrink-0">
                         {themeDetail?.cover ? (
                             <Image
-                                className='w-full h-full object-contain object-center'
+                                className='w-full h-full object-center object-cover'
                                 src={themeDetail?.cover}
                                 alt=''
-                                width={1000}
-                                height={1000}
+                                width={100000}
+                                height={100000}
                                 priority
                             />
                         ) : null}
@@ -143,8 +138,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
     if(!themeDetail) return notFound()
 
-    const title = `${themeDetail?.title} (${themeDetail?.code}) | Dinanti`;
-    const description = themeDetail.desc;
+    const title = `${themeDetail?.title} | Dinanti`;
+    const description = themeDetail.desc.id;
     const image = themeDetail.cover;
 
     return {
